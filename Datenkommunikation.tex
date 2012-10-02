@@ -1,0 +1,121 @@
+\documentclass[bibliography=numbered,listof=numbered,12pt,a4paper,openany,ngerman,plainfootsepline,plainheadsepline]{scrbook}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{setspace}
+
+% Definitionen für Tabellen
+\usepackage{Tabbing}
+\usepackage{multirow}
+\usepackage{latexsym,amssymb}
+\usepackage{colortbl}
+\usepackage[margin=1in,headsep=2.5cm]{geometry}
+\usepackage{colortbl}
+
+%define own color for Tables
+\definecolor{mygrey}{rgb}{0.411765,0.411765,0.411765}
+\definecolor{darkgrey}{rgb}{0.8,0.8,0.8}
+\definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
+
+
+
+
+\usepackage{lastpage}
+\usepackage{cite}
+\usepackage{tocbasic}
+\usepackage[automark,						%Automatische Kopfzeile
+						%headtopline,				%Linie über dem Seitenkopf
+						%plainheadtopline,	%Plain, Linie über dem Seitenkopf
+						headsepline,				%Linie zwischen Kopf und Textkörper
+						%plainheadsepline,	%Plain, Linie zwischen Kopf und Textkörper
+						footsepline,				%Linie zwischen Textkörper und Fuß
+						plainfootsepline,   %Plain, Linie zwischen Textkörper und Fuß
+						%footbotline,				%Linie unter dem Fuß
+						%plainfootbotline   %Plain, Linie unter dem Fuß
+						]{scrpage2}
+\usepackage{graphicx,wrapfig}
+\usepackage[ansinew]{inputenc}
+\usepackage[ngerman]{babel}
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.75in        %
+\textheight=9.6in       %
+\headsep=0.25in       %
+
+
+% Homework Specific Information
+
+\newcommand{\hmwkTitle}{Datenkommunikation}
+\newcommand{\hmwkClass}{Notizen, Übungen, Ergänzungen}
+\newcommand{\hmwkAuthorName}{Micha Schönenberger}
+
+
+                                   %
+\clearscrplain		
+%Alte Plain-Formatierung entfernen
+\lehead{\headmark}    % Chaper auf geraden Seiten (links) in Kopfzeile
+\rohead{\headmark}
+
+%\rehead{\hmwkTitle \includegraphics[width=0.8cm]{Graphics/ZHAW_logo.png}}    % Section auf ungeraden Seiten (rechts) in Kopfzeile
+
+%\rhead{\footnotesize \includegraphics[width=1.3cm]{formatting/ZHAW_logo.png}}
+
+\lohead{\hmwkTitle} 
+\lefoot{\hmwkAuthorName}    % Chaper auf geraden Seiten (links) in Kopfzeile
+\rofoot{\hmwkAuthorName}
+\lofoot{Page\ \thepage\ of\ \pageref{LastPage}}    % Chaper auf geraden Seiten (links) in Kopfzeile
+\refoot{Page\ \thepage\ of\ \pageref{LastPage}}
+\setheadsepline{0.4pt}   
+\setfootsepline{0.4pt}                                  %
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+ % Seitenstil aktivieren
+\renewcommand{\chapterpagestyle}{scrheadings}
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\large{\hmwkClass}\\\vspace{0.1in}\large{\textit{}}\vspace{3in}}
+
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{spacing}{1.1}
+
+\maketitle
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+\clearpage
+\begin{normalsize}
+\tableofcontents
+\input{Library/Uebung_27-10-2012}
+%\input{Library/02-Kapitel_2}
+%\input{Library/03-Kapitel_3}
+%\input{Library/2-DZ}
+%\input{Library/2-DZ/1-Def}
+%\input{Library/2-DZ/2-HistEntw}
+%\input{Library/2-DZ/3-Ziel}
+%\input{Library/3-ITILv3}
+%\input{Library/3-ITILv3/1-ITILv3Ovrview}
+%\input{Library/4-Beispiel}
+\end{normalsize}
+
+\listoffigures
+\nocite{*} 
+\bibliography{bib/verzeichnis1}{}
+\bibliographystyle{plain}
+\end{spacing}
+\end{document}
