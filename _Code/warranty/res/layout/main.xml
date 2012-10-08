@@ -8,13 +8,9 @@
     <Button
         android:id="@+id/btnIntendV"
         android:layout_width="match_parent"
-        
-        
         android:layout_height="wrap_content"
         android:text="@string/btnIntendV"
          />
-    
-        
   <Button
       android:id="@+id/btnIntendS"
       android:layout_width="match_parent"

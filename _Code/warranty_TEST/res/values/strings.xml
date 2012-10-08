@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+     <string name="app_name">warranty_TEST</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="beschriftung">Was soll ich sagen?</string>
+    <string name="say_it">Sag es</string>
+    <string name="go_back">Gehe zurück</string>
+    <string name="GoBack">GoBack to Main View</string>
+    <string name="hello">Hello World, PhotoIntentActivity!</string>
+    <string name="btnIntend">Take Picture</string>
+    <string name="btnIntendS">Lass dir was vorlesen</string>
+    <string name="btnIntendV">Take Video</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">CameraSample</string>
+    <string name="loading_Camera">Take a picture</string>
+</resources>

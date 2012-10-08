@@ -16,4 +16,7 @@
     <string name="cannot">Cannot</string>
     <string name="album_name">CameraSample</string>
     <string name="loading_Camera">Take a picture</string>
+     <string name="searching_for">Type here...</string>
+    
+    
 </resources>

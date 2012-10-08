@@ -2,6 +2,8 @@ package ch.zhaw.android.photobyintent;
 
 import java.io.File;
 
+
+
 import android.annotation.SuppressLint;
 import android.os.Environment;
 

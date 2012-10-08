@@ -2,6 +2,7 @@ package ch.zhaw.android.photobyintent;
 
 import java.io.File;
 
+
 import android.os.Environment;
 
 public final class BaseAlbumDirFactory extends AlbumStorageDirFactory {
