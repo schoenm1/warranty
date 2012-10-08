@@ -22,7 +22,7 @@ public class test_activity extends Activity implements OnInitListener,android.vi
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_layout);
 		tts = new TextToSpeech(this, this);
-		 tts.speak("hello freund", TextToSpeech.QUEUE_FLUSH,null);
+		 tts.speak("hello world", TextToSpeech.QUEUE_FLUSH,null);
 	}
 
 	@Override
@@ -49,9 +49,6 @@ public class test_activity extends Activity implements OnInitListener,android.vi
 	 });
 	 }
 
-	
-	 
-	 
 	 
 	 public void onClick(View view) {
 		 EditText et = (EditText) findViewById(R.id.editText1);

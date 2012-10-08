@@ -15,20 +15,6 @@
          />
     
         
-        
-
-    
-    
-   
-        
-        
-        
-       
-
- 
-    
-    
-    
   <Button
       android:id="@+id/btnIntendS"
       android:layout_width="match_parent"
