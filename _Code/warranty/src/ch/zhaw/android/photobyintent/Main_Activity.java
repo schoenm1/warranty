@@ -249,7 +249,7 @@ public class Main_Activity extends Activity {
 
 			public void onClick(View v) {
 				Intent nextScreen = new Intent(getApplicationContext(),
-						ch.zhaw.android.photobyintent.Warranty_list.class);
+						ch.zhaw.android.photobyintent.Browse_List.class);
 				startActivity(nextScreen);
 
 			}

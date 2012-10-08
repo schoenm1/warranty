@@ -11,12 +11,17 @@
     <string name="GoBack">GoBack to Main View</string>
     <string name="hello">Hello World, PhotoIntentActivity!</string>
     <string name="btnIntend">Take Picture</string>
-    <string name="btnIntendS">Lass dir was vorlesen</string>
+    <string name="btnIntendS">Browse List</string>
     <string name="btnIntendV">Take Video</string>
     <string name="cannot">Cannot</string>
     <string name="album_name">CameraSample</string>
     <string name="loading_Camera">Take a picture</string>
-     <string name="searching_for">Type here...</string>
-    
+     <string name="searching_for">Type here. . .</string>
+    <string-array name="browse_list_Dropdown">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+    </string-array>
     
 </resources>

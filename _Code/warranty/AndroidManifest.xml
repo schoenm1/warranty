@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name="ch.zhaw.android.photobyintent.second_view"></activity>
-        <activity android:name="ch.zhaw.android.photobyintent.Warranty_list"></activity>
+        <activity android:name="ch.zhaw.android.photobyintent.Browse_List"></activity>
 
     </application>
 </manifest>
