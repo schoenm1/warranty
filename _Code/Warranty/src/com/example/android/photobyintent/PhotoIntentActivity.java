@@ -29,7 +29,7 @@ public class PhotoIntentActivity extends Activity {
 
 	private static final int ACTION_TAKE_PHOTO_B = 1;
 	private static final int ACTION_TAKE_PHOTO_S = 2;
-	private static final int ACTION_TAKE_VIDEO = 3;
+//	private static final int ACTION_TAKE_VIDEO = 3;
 
 	private static final String BITMAP_STORAGE_KEY = "viewbitmap";
 	private static final String IMAGEVIEW_VISIBILITY_STORAGE_KEY = "imageviewvisibility";
@@ -166,10 +166,10 @@ public class PhotoIntentActivity extends Activity {
 		startActivityForResult(takePictureIntent, actionCode);
 	}
 
-	private void dispatchTakeVideoIntent() {
-		Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-		startActivityForResult(takeVideoIntent, ACTION_TAKE_VIDEO);
-	}
+//	private void dispatchTakeVideoIntent() {
+//		Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+//		startActivityForResult(takeVideoIntent, ACTION_TAKE_VIDEO);
+//	}
 
 	private void handleSmallCameraPhoto(Intent intent) {
 		Bundle extras = intent.getExtras();
@@ -214,13 +214,13 @@ public class PhotoIntentActivity extends Activity {
 		}
 	};
 
-	Button.OnClickListener mTakeVidOnClickListener = 
-		new Button.OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			dispatchTakeVideoIntent();
-		}
-	};
+//	Button.OnClickListener mTakeVidOnClickListener = 
+//		new Button.OnClickListener() {
+//		@Override
+//		public void onClick(View v) {
+//			dispatchTakeVideoIntent();
+//		}
+//	};
 
 	/** Called when the activity is first created. */
 	@Override
@@ -247,12 +247,12 @@ public class PhotoIntentActivity extends Activity {
 				MediaStore.ACTION_IMAGE_CAPTURE
 		);
 
-		Button vidBtn = (Button) findViewById(R.id.btnIntendV);
-		setBtnListenerOrDisable( 
-				vidBtn, 
-				mTakeVidOnClickListener,
-				MediaStore.ACTION_VIDEO_CAPTURE
-		);
+//		Button vidBtn = (Button) findViewById(R.id.btnIntendV);
+//		setBtnListenerOrDisable( 
+//				vidBtn, 
+//				mTakeVidOnClickListener,
+//				MediaStore.ACTION_VIDEO_CAPTURE
+//		);
 		
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
@@ -278,12 +278,12 @@ public class PhotoIntentActivity extends Activity {
 			break;
 		} // ACTION_TAKE_PHOTO_S
 
-		case ACTION_TAKE_VIDEO: {
-			if (resultCode == RESULT_OK) {
-				handleCameraVideo(data);
-			}
-			break;
-		} // ACTION_TAKE_VIDEO
+//		case ACTION_TAKE_VIDEO: {
+//			if (resultCode == RESULT_OK) {
+//				handleCameraVideo(data);
+//			}
+//			break;
+//		} // ACTION_TAKE_VIDEO
 		} // switch
 	}
 
