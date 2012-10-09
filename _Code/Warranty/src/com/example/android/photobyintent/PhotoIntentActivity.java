@@ -246,7 +246,7 @@ public class PhotoIntentActivity extends Activity {
 				MediaStore.ACTION_IMAGE_CAPTURE
 		);
 
-		Button picSBtn = (Button) findViewById(R.id.btn_browse_list);
+		Button picSBtn = (Button) findViewById(R.id.btnIntendS);
 		setBtnListenerOrDisable( 
 				picSBtn, 
 				mTakePicSOnClickListener,
