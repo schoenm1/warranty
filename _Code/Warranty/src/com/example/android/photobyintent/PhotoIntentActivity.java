@@ -190,13 +190,13 @@ public class PhotoIntentActivity extends Activity {
 
 	}
 
-	private void handleCameraVideo(Intent intent) {
-		mVideoUri = intent.getData();
-		mVideoView.setVideoURI(mVideoUri);
-		mImageBitmap = null;
-		mVideoView.setVisibility(View.VISIBLE);
-		mImageView.setVisibility(View.INVISIBLE);
-	}
+//	private void handleCameraVideo(Intent intent) {
+//		mVideoUri = intent.getData();
+//		mVideoView.setVideoURI(mVideoUri);
+//		mImageBitmap = null;
+//		mVideoView.setVisibility(View.VISIBLE);
+//		mImageView.setVisibility(View.INVISIBLE);
+//	}
 
 	Button.OnClickListener mTakePicOnClickListener = 
 		new Button.OnClickListener() {
@@ -210,7 +210,13 @@ public class PhotoIntentActivity extends Activity {
 		new Button.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_S);
+//			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_S);
+			
+			Intent browseList = new Intent(getApplicationContext(), BrowseList.class);	
+			 startActivity(browseList);
+			
+			
+			
 		}
 	};
 
@@ -226,7 +232,7 @@ public class PhotoIntentActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.main_layout);
 
 		mImageView = (ImageView) findViewById(R.id.imageView1);
 		mVideoView = (VideoView) findViewById(R.id.videoView1);

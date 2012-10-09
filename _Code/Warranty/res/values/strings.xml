@@ -7,4 +7,11 @@
     <string name="btnIntendV">Take Video</string>
     <string name="cannot">Cannot</string>
     <string name="album_name">CameraSample</string>
+    <string-array name="browse_list_spinner">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+    </string-array>
+        <string name="search">Search</string>
+        <string name="type_here">Type here. . .</string>
 </resources>
