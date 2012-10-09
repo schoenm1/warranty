@@ -3,7 +3,7 @@
     <string name="hello">Hello World, PhotoIntentActivity!</string>
     <string name="app_name">PhotoByIntent</string>
     <string name="btnIntend">Take Picture</string>
-    <string name="btnIntendS">can be delete</string>
+    <string name="browse_list">Browse List</string>
     <string name="btnIntendV">Take Video</string>
     <string name="cannot">Cannot</string>
     <string name="album_name">CameraSample</string>

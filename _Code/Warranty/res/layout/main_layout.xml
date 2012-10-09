@@ -13,11 +13,11 @@
         android:text="@string/btnIntend" />
 
     <Button
-        android:id="@+id/btnIntendS"
+        android:id="@+id/btn_browse_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/btnIntendS" />
+        android:text="@string/browse_list" />
 
   <ImageView
       android:id="@+id/imageView1"
