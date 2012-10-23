@@ -35,7 +35,7 @@
 	halfparskip,								% Abstand zwischen Absätzen (halbe Zeile)												|
 	normalheadings,							% Größe der Überschriften verkleinern													|
 	liststotoc,									% Verzeichnisse im Inhaltsverzeichnis aufführen											|
-	bibtotocnumbered, 							% Literaturverzeichnis im Inhaltsverzeichnis aufführen[bibtotoc, bibtotocnumbered]					|
+	bibtotoc, 							% Literaturverzeichnis im Inhaltsverzeichnis aufführen[bibtotoc, bibtotocnumbered]					|
 	idxtotoc,									% Index im Inhaltsverzeichnis aufführen													|
 	tablecaptionabove,							% Beschriftung von Tabellen unterhalb ausgeben											|
 	final										% Status des Dokuments (final/draft)													|
@@ -64,7 +64,8 @@
 % Diese Einstellungen sind im Dokument Seitenstil ausgelagert.																			|
 %      																														|
 \input{Seitenstil}								%lade spezifische Kopf- und Fusszeilen								   					|
-%      																														|
+%      		
+%																												|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -87,17 +88,15 @@
 %      																														|
 % Das Literaturverzeichnis wird aus der Datenbank Bibliographie.bib erstellt. Die genaue Verwendung von bibtex wird hier jedoch nicht erklärt.				|
 % Link: http://de.wikipedia.org/wiki/BibTeX																							|
-\nocite{*} 
-\bibliography{bib/verzeichnis1}{}
-%\bibliographystyle{plain}
+%\nocite{*} 
+
 %\bibliographystyle{natdin}
 %\usepackage[numbers]{natbib}
 
-
 									%																				|
 %\usepackage[style=numeric]{biblatex}																								|
-%\bibliographystyle{geralpha}						% DIN-Stil des Literaturverzeichnisses													|
-%\bibliography{bib/verzeichnis1}{}					% Aufruf: bibtex Bibliographie.bib														|
+%\bibliographystyle{geralpha}					v	% DIN-Stil des Literaturverzeichnisses													|
+%\bibliography{ver}{}					% Aufruf: bibtex Bibliographie.bib														|
 %      																														|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -129,7 +128,6 @@
 
 % auch subsubsection nummerieren
 \ofoot{}
-
 % -------------------------------------------------------------------------------DECKBLATT EINLESEN-----------------------------------------------------------------------------------------------------
 %      																														|
 \include{Deckblatt}								% liest das Deckblatt ein																|
@@ -196,7 +194,7 @@
 % Hier können jetzt die einzelnen Kapitel implementiert werden. Sie müssen in den entsprechenden .TEX-Dateien vorliegen.							|
 %Die Dateinamen können natürlich angepasst werden.																					|
 %      																														|
-\include{dir/Einleitung}							% 																				|
+\include{dir/Einleitung}
 \include{dir/default_doc}							%																				|
 \chapter{TEST hoidu}
 TEST Dokument \cite{wikipedia}
@@ -234,6 +232,9 @@ TEST Dokument \cite{wikipedia}
 %INFO: erzeugt ohne makeidx-Packet einen Fehler (unknown command)																	|
 %      																														|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\nocite{*} 
+\bibliographystyle{plain}	% (uses file "plain.bst")
+\bibliography{ver}		% expects file "myrefs.bib"
 
 
 \end{document}
