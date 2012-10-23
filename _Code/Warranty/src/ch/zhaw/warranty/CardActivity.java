@@ -1,6 +1,5 @@
 package ch.zhaw.warranty;
 
-import java.net.DatagramPacket;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -9,7 +8,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import ch.zhaw.warranty.card.WarrantyCard;
-import ch.zhaw.warranty.R;
 
 public class CardActivity extends Activity {
 	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;

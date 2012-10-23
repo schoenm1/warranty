@@ -21,10 +21,11 @@ public final class R {
         public static final int BTListWarrantyCards=0x7f07000b;
         public static final int BTcreateNewWarrantyCard=0x7f07000a;
         public static final int RelativeLayout1=0x7f070000;
-        public static final int browse_list_spinner=0x7f07000d;
-        public static final int btnIntend=0x7f070010;
-        public static final int btn_browse_list=0x7f070011;
-        public static final int btn_search=0x7f07000f;
+        public static final int browse_list_spinner=0x7f070011;
+        public static final int btnIntend=0x7f07000d;
+        public static final int btn_browse_list=0x7f07000e;
+        public static final int btn_search=0x7f070013;
+        public static final int button1=0x7f070014;
         public static final int card_BTClear=0x7f070009;
         public static final int card_BTadd=0x7f070008;
         public static final int card_TBcreatedAt=0x7f070003;
@@ -34,10 +35,10 @@ public final class R {
         public static final int card_TBtitle=0x7f070002;
         public static final int card_TBvalidTil=0x7f070005;
         public static final int editText1=0x7f070001;
-        public static final int imageView1=0x7f070012;
-        public static final int menu_settings=0x7f070014;
-        public static final int tf_searching_for=0x7f07000e;
-        public static final int videoView1=0x7f070013;
+        public static final int imageView1=0x7f07000f;
+        public static final int menu_settings=0x7f070015;
+        public static final int tf_searching_for=0x7f070012;
+        public static final int videoView1=0x7f070010;
     }
     public static final class layout {
         public static final int activity_card=0x7f030000;

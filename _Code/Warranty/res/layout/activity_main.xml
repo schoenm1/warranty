@@ -36,5 +36,32 @@
         android:layout_marginTop="18dp"
         android:onClick="onClick"
         android:text="@string/ButtonDeleteAllCards" />
+    
+    
+     <Button
+        android:id="@+id/btnIntend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnIntend" />
+
+    <Button
+        android:id="@+id/btn_browse_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_browse_list" />
+
+  <ImageView
+      android:id="@+id/imageView1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:visibility="invisible" />
+
+  <VideoView
+      android:id="@+id/videoView1"
+      android:layout_width="fill_parent"
+      android:layout_height="20dp"
+      android:visibility="invisible" />
+    
+    
 
 </RelativeLayout>
