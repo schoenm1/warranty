@@ -4,64 +4,64 @@
     android:layout_height="match_parent"
     android:onClick="onClick" >
 
-    <Button
-        android:id="@+id/BTcreateNewWarrantyCard"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="62dp"
-        android:onClick="onClick"
-        android:text="@string/ButtonNewWarrantyCard" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/BTListWarrantyCards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/BTcreateNewWarrantyCard"
-        android:layout_marginTop="17dp"
-        android:onClick="onClick"
-        android:text="@string/ButtonListAllWarrantyCards"  />
+        <Button
+            android:id="@+id/BTTakePicture"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnIntend" />
 
-    <Button
-        android:id="@+id/BTDeleteAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/BTListWarrantyCards"
-        android:layout_marginTop="18dp"
-        android:onClick="onClick"
-        android:text="@string/ButtonDeleteAllCards" />
-    
-    
-     <Button
-        android:id="@+id/btnIntend"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnIntend" />
+        <Button
+            android:id="@+id/BTcreateNewWarrantyCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/ButtonNewWarrantyCard" />
 
-    <Button
-        android:id="@+id/btn_browse_list"
+        <Button
+            android:id="@+id/BTListWarrantyCards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/ButtonListAllWarrantyCards" />
+
+        <Button
+            android:id="@+id/BTDeleteAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/ButtonDeleteAllCards" />
+
+        <Button
+            android:id="@+id/BTQuit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/quit_app" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_browse_list" />
+        android:visibility="invisible" />
 
-  <ImageView
-      android:id="@+id/imageView1"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:visibility="invisible" />
-
-  <VideoView
-      android:id="@+id/videoView1"
-      android:layout_width="fill_parent"
-      android:layout_height="20dp"
-      android:visibility="invisible" />
-    
-    
+    <VideoView
+        android:id="@+id/videoView1"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="85dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

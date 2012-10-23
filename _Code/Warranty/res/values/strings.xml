@@ -38,4 +38,5 @@
     </string-array>
         <string name="search">Search</string>
         <string name="type_here">Type here. . .</string>
+        <string name="quit_app">Quit Warranty</string>
 </resources>

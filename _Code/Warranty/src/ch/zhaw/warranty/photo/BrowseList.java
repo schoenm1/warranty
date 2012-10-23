@@ -1,4 +1,4 @@
-package ch.zhaw.photobyintent;
+package ch.zhaw.warranty.photo;
 
 
 import android.app.Activity;

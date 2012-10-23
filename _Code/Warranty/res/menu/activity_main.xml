@@ -1,5 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_settings"
         android:title="@string/menu_settings"
-        android:orderInCategory="100" />
+        android:orderInCategory="100" >
+    </item>
+    <item android:id="@id/BTQuit" android:title="@string/quit_app" android:visible="true">
+        
+    </item>
 </menu>
