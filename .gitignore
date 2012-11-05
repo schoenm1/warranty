@@ -1,0 +1,11 @@
+.classpath
+_Code/Warranty/bin
+*.aux
+*.idx
+*.lof
+*.log
+*.lol
+*.lot
+*.nlo
+*.out
+*.toc
