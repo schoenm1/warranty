@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/card.TBcreatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBdesc"
+        android:ems="10"
+        android:hint="@string/txtCreatedAt"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/card.TBdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/card.TBtitle"
+        android:ems="10"
+        android:hint="@string/txtDesc"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/card.TBvalidTil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBcreatedAt"
+        android:ems="10"
+        android:hint="@string/txtValidTil"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/card.TBprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBvalidTil"
+        android:ems="10"
+        android:hint="@string/txtPrice"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/card.TBreseller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBprice"
+        android:ems="10"
+        android:hint="@string/txtReseller"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/editCard.BTupdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBreseller"
+        android:onClick="onClick"
+        android:text="@string/ButtonUpdate" />
+
+    <Button
+        android:id="@+id/editCard.BTDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editCard.BTupdate"
+        android:onClick="onClick"
+        android:text="@string/ButtonDeleteThisCard" />
+
+    <EditText
+        android:id="@+id/card.TBtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="@string/txtTitle"
+        android:inputType="text" />
+
+</RelativeLayout>

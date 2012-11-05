@@ -3,6 +3,7 @@ package ch.zhaw.warranty;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -36,9 +37,12 @@ public class CardListActivity extends ListActivity {
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			    Toast.makeText(getApplicationContext(),
-			      "Opening Number " + position, Toast.LENGTH_LONG)
-			      .show();
+//				Intent myIntent = new Intent(CardListActivity.this, EditCard.class);
+				  System.out.println(list.getItemAtPosition(position));
+//				startActivity((Intent) new Intent(CardListActivity.this, EditCard.class));
+//			    Toast.makeText(getApplicationContext(),
+//			      "Opening Number " + position, Toast.LENGTH_LONG)
+//			      .show();
 			  }
 			});
 		
