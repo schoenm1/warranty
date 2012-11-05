@@ -1,5 +1,6 @@
-.classpath
+_Code/Warranty/.classpath
 _Code/Warranty/bin
+_Code/Warranty/bin/
 *.aux
 *.idx
 *.lof
