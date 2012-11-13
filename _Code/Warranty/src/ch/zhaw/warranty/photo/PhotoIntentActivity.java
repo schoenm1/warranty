@@ -171,7 +171,7 @@ public class PhotoIntentActivity extends Activity {
 	}
 
 	Button.OnClickListener mTakePicOnClickListener = new Button.OnClickListener() {
-		@Override
+//		@Override
 		public void onClick(View v) {
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 		}

@@ -26,13 +26,13 @@ public class BrowseList extends Activity implements OnInitListener,
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+//	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+//	@Override
 	public void onInit(int status) {
 		searchButton = (Button) findViewById(R.id.btn_search);
 		BtnLisSearchButton();
