@@ -26,6 +26,17 @@ public class CardActivity extends Activity {
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
 //        tblwarranty = new TBLWarrantyConnector(this);
     }
+    
+    public void onCreate(Bundle savedInstanceState, WarrantyCard card) {
+    	super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_card);
+        tbtitle.setText(card.getTitle());
+        tbdesc.setText(card.getDescription());
+        tbcreatedat.setText(card.getCreatedAt());
+        tbvalidtil.setText(card.getValidUntil());
+        tbprice.setText(card.getPrice());
+        tbreseller.setText(card.getReseller());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,6 +59,7 @@ public class CardActivity extends Activity {
      * grabs text from input fields and creates a new card
      */
     private void createNewCard() {
+    	System.out.println("************ adding fobarshizzle***********" + tbtitle.getText().toString() + " ****************");
     	WarrantyCard card = new WarrantyCard(tbtitle.getText().toString(), 
     			tbdesc.getText().toString(), "/foobar/", tbcreatedat.getText().toString(), 
     			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
@@ -74,10 +86,10 @@ public class CardActivity extends Activity {
      * currently only syso's all cards
      */
     private void listAllCards() { 
-    	ArrayList<String> cards = MainActivity.tblwarranty.getAllCards();
+    	ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
     	
-    	for (String card : cards) {
-			System.out.println("Card title is: " + card);
+    	for (WarrantyCard card : cards) {
+			System.out.println("Card title is: " + card.getTitle());
 		}
     }
     
