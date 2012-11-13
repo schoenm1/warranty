@@ -13,12 +13,12 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import ch.zhaw.warranty.R;
+import ch.zhaw.warranty.card.WarrantyCard;
 
 public class CardListActivity extends ListActivity {
-	private ArrayAdapter<String> arrayAdapter;
-//	private TBLWarrantyConnector tblwarranty;
+	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
+	private ArrayList<WarrantyCard> cards;
 	
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -31,18 +31,17 @@ public class CardListActivity extends ListActivity {
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
-//		tblwarranty = new TBLWarrantyConnector(this);
 		list = getListView();
 		
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //				Intent myIntent = new Intent(CardListActivity.this, EditCard.class);
+				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
+//				  intent.putExtra("WarrantyCard", list.getItemAtPosition(position));
+				  startActivity(intent);
 				  System.out.println(list.getItemAtPosition(position));
-//				startActivity((Intent) new Intent(CardListActivity.this, EditCard.class));
-//			    Toast.makeText(getApplicationContext(),
-//			      "Opening Number " + position, Toast.LENGTH_LONG)
-//			      .show();
+
 			  }
 			});
 		
@@ -52,14 +51,11 @@ public class CardListActivity extends ListActivity {
 					      "Opening Number " + position, Toast.LENGTH_LONG).show();
 				return false;
 				}
-			
-		
-		
 		});
 		
-		ArrayList<String> cards = MainActivity.tblwarranty.getAllCards();
-		arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,cards);		
+		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
+		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
+		
 	}
-
 }
