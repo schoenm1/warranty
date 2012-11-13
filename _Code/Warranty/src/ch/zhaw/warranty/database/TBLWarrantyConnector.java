@@ -85,7 +85,7 @@ public class TBLWarrantyConnector {
 		while(!cursor.isAfterLast()) {
 			cards.add(new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
 //					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
-					"desc" + cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)) ,
+					"desc",
 //					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
 					"imgpath",
 //					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
