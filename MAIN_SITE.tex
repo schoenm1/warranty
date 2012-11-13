@@ -10,6 +10,7 @@
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
 % -------------------------------------------------------------------------------META INFORMATIONEN-----------------------------------------------------------------------------------------------------
 % 																															|
 % Informationen über das Dokument, wie z.B. Titel, Autor, Matrikelnr. etc werden in der Datei _Meta.tex definiert und können danach global	verwendet werden.   |    								
@@ -148,7 +149,7 @@
 
 % ----------------------------------------------------------------------ABKÜRZUNGSVERZEICHNIS EINLESEN---------------------------------------------------------------------------------------
 %      																														|
-\input{dir/Glossar}								% liest das Glossar ein																|
+\input{dir/Abkuerzungen}								% liest das Glossar ein																|
 \printnomenclature								% fügt Abkürzungsverzeichnis ein														|
 %      																														|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -194,12 +195,12 @@
 % Hier können jetzt die einzelnen Kapitel implementiert werden. Sie müssen in den entsprechenden .TEX-Dateien vorliegen.							|
 %Die Dateinamen können natürlich angepasst werden.																					|
 %      																														|
-\include{dir/Einleitung}
-\include{dir/Projektplanung}
-\include{dir/GrundlagenAppProgrammierung}
-\include{dir/WarrantyApp}
-\include{dir/Fazit}
-\include{dir/default_doc}							%																				|
+\input{dir/Einleitung}
+\input{dir/Projektplanung}
+\input{dir/03-GrundlagenAppProgrammierung/00-GrundlagenAppProgrammierung}
+\input{dir/WarrantyApp}
+\input{dir/Fazit}
+\input{dir/default_doc}							%																				|
 \chapter{TEST hoidu}
 TEST Dokument \cite{wikipedia}
 %\include{Inhalt/Kapitel1}																											|
@@ -237,8 +238,8 @@ TEST Dokument \cite{wikipedia}
 %      																														|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \nocite{*} 
-\bibliographystyle{plain}	% (uses file "plain.bst")
-\bibliography{ver}		% expects file "myrefs.bib"
+\bibliographystyle{gerplain}	% (uses file "plain.bst")
+\bibliography{bib/mybib}		% expects file "myrefs.bib"
 
 
 \end{document}

@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MAIN_SITE.aux
+A level-1 auxiliary file: Deckblatt.aux
+A level-1 auxiliary file: dir/Abstract.aux
+A level-1 auxiliary file: dir/Werkzeuge.aux
+The style file: gerplain.bst
+Database file #1: bib/mybib.bib
+Warning--entry type for "andoid_sdk_eclipse" isn't style-file defined
+--line 12 of file bib/mybib.bib
+Warning--entry type for "wiki_eclipse" isn't style-file defined
+--line 22 of file bib/mybib.bib
+Warning--entry type for "uni-dortmund" isn't style-file defined
+--line 34 of file bib/mybib.bib
+Warning--I didn't find a database entry for "wikipedia"
+Warning--to sort, need author or key in wiki_eclipse
+Warning--to sort, need author or key in andoid_sdk_eclipse
+Warning--to sort, need author or key in uni-dortmund
+You've used 3 entries,
+            2343 wiz_defined-function locations,
+            559 strings with 5073 characters,
+and the built_in function-call counts, 568 in all, are:
+= -- 54
+> -- 3
+< -- 0
++ -- 3
+- -- 0
+* -- 32
+:= -- 71
+add.period$ -- 6
+call.type$ -- 3
+change.case$ -- 6
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 24
+empty$ -- 76
+format.name$ -- 0
+if$ -- 142
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 0
+newline$ -- 15
+num.names$ -- 0
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 27
+stack$ -- 0
+substring$ -- 15
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 3
+while$ -- 0
+width$ -- 4
+write$ -- 26
+(There were 7 warnings)
