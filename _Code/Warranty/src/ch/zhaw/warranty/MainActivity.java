@@ -43,9 +43,7 @@ public class MainActivity extends Activity {
 			startActivity(myIntent3);
 			break;
 		case R.id.BTDeleteAll:
-			 Intent myIntent_test = new Intent(MainActivity.this,ch.zhaw.warranty.photo.PhotoIntentActivity.class);
-			 startActivity(myIntent_test);
-//			deleteAllCards();
+			deleteAllCards();
 			break;
 
 		case R.id.BTQuit:
