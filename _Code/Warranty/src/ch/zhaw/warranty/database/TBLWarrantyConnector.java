@@ -83,15 +83,7 @@ public class TBLWarrantyConnector {
 		cursor.moveToFirst();
 
 		while(!cursor.isAfterLast()) {
-			cards.add(new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_VLDTIL)),
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_PRICE)),
-					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_RESSELLER))
-					));
-
+			cards.add(db2Card(cursor));
 			cursor.moveToNext();
 		}
 		cursor.close();
@@ -99,16 +91,31 @@ public class TBLWarrantyConnector {
 		return cards;
 	}
 	
-	public WarrantyCard getWarrantyCard(WarrantyCard card) {
-		System.out.println("getting card" + card.getTitle() + " with id "+ card.get_id() + " for you");
-		openDB();
+	private WarrantyCard db2Card(Cursor cursor) {
+		return new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_VLDTIL)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_PRICE)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_RESSELLER))
+				);
+	}
+	
+	public WarrantyCard getWarrantyCard(int cardID) {
+		System.out.println("getting card with id "+ cardID + " for you");
+		WarrantyCard card; 
+		card = new WarrantyCard("dummy", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy");
 		
+		openDB();
 		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , TBLWarrantyHelper.CLMN_ID + "=" + card.get_id() , null, null, null, null);
 		cursor.moveToFirst();
 		
-
+		if (! cursor.isAfterLast()) {
+			card = db2Card(cursor);
+		}
 		closeDB();
-		return new WarrantyCard("asdf", "asdf", "asdf", "asdf", "asdf", "asdf", "asdf");
+		return card;
 	}
 	/**
 	 * Deletes all saved cards
