@@ -54,13 +54,6 @@ public class WarrantyCard {
 	}
 	
 	public String toString() {
-		System.out.println("title: " + title);
-		System.out.println("desc: " + description);
-		System.out.println("imgp: " + imagePath);
-		System.out.println("create: " + createdAt);
-		System.out.println("vld: " + validUntil);
-		System.out.println("pric: " + price);
-		System.out.println("rese: " + reseller);
 		return title;
 	}
 }
