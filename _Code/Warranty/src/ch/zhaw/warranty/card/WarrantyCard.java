@@ -54,6 +54,6 @@ public class WarrantyCard {
 	}
 	
 	public String toString() {
-		return title;
+		return title  + _id;
 	}
 }
