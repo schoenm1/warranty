@@ -79,26 +79,19 @@ public class TBLWarrantyConnector {
 		openDB();
 
 		ArrayList<WarrantyCard> cards = new ArrayList<WarrantyCard>();
-		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, new String[] {TBLWarrantyHelper.CLMN_TITLE} , null, null, null, null,TBLWarrantyHelper.CLMN_TITLE);
+		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , null, null, null, null,TBLWarrantyHelper.CLMN_TITLE);
 		cursor.moveToFirst();
 
 		while(!cursor.isAfterLast()) {
 			cards.add(new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
-					"desc",
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
-					"imgpath",
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
-					"createdat",
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_VLDTIL)),
-					"validt",
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_PRICE)),
-					"price",
-//					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_RESSELLER))
-					"resell"
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_VLDTIL)),
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_PRICE)),
+					cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_RESSELLER))
 					));
-//			cards.add(new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), "description", "imagePath", "createdAt", "validUntil", "price", "reseller"));
-//			cards.add(new WarrantyCard("title", "description", "imagePath", "createdAt", "validUntil", "price", "reseller"));
+
 			cursor.moveToNext();
 		}
 		cursor.close();
@@ -106,6 +99,17 @@ public class TBLWarrantyConnector {
 		return cards;
 	}
 	
+	public WarrantyCard getWarrantyCard(WarrantyCard card) {
+		System.out.println("getting card" + card.getTitle() + " with id "+ card.get_id() + " for you");
+		openDB();
+		
+		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , TBLWarrantyHelper.CLMN_ID + "=" + card.get_id() , null, null, null, null);
+		cursor.moveToFirst();
+		
+
+		closeDB();
+		return new WarrantyCard("asdf", "asdf", "asdf", "asdf", "asdf", "asdf", "asdf");
+	}
 	/**
 	 * Deletes all saved cards
 	 */
