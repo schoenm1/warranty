@@ -39,8 +39,12 @@ public class CardListActivity extends ListActivity {
 //				Intent myIntent = new Intent(CardListActivity.this, EditCard.class);
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
 //				  intent.putExtra("WarrantyCard", list.getItemAtPosition(position));
+				  System.out.println("****" + id );
+				  intent.putExtra("id", id );
 				  startActivity(intent);
-				  System.out.println(list.getItemAtPosition(position));
+				  WarrantyCard asdf = (WarrantyCard) list.getItemAtPosition(position);
+				  System.out.println(asdf.getTitle() + " WITH ID "+ asdf.get_id());
+
 
 			  }
 			});
