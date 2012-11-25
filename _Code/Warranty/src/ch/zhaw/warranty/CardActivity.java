@@ -3,6 +3,7 @@ package ch.zhaw.warranty;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,7 +20,8 @@ public class CardActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);       
+        setContentView(R.layout.activity_card);
+		tblwarranty = new TBLWarrantyConnector(this);
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
         tbcreatedat = (EditText) findViewById(R.id.card_TBcreatedAt);
@@ -30,30 +32,17 @@ public class CardActivity extends Activity {
       	Bundle extras = getIntent().getExtras();
       	id = (extras != null) ? extras.getInt("id") : 0;
         if (id != 0 ) {
-        	System.out.println("shizzle id is " + id);
-        	tbtitle.setText("foooobar");
-//        	WarrantyCard card = tblwarranty.getWarrantyCard(id);
-//        	tbtitle.setText(card.getTitle());
-//            tbdesc.setText(card.getDescription());
-//            tbcreatedat.setText(card.getCreatedAt());
-//            tbvalidtil.setText(card.getValidUntil());
-//            tbprice.setText(card.getPrice());
-//            tbreseller.setText(card.getReseller());
+        	WarrantyCard card = tblwarranty.getWarrantyCard(id);
+        	tbtitle.setText(card.getTitle());
+            tbdesc.setText(card.getDescription());
+            tbcreatedat.setText(card.getCreatedAt());
+            tbvalidtil.setText(card.getValidUntil());
+            tbprice.setText(card.getPrice());
+            tbreseller.setText(card.getReseller());
         }
     }
     
-    public void onCreate(Bundle savedInstanceState, WarrantyCard card) {
-    	super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);
-        tbtitle.setText(card.getTitle());
-        tbdesc.setText(card.getDescription());
-        tbcreatedat.setText(card.getCreatedAt());
-        tbvalidtil.setText(card.getValidUntil());
-        tbprice.setText(card.getPrice());
-        tbreseller.setText(card.getReseller());
-    }
-
-    @Override
+     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_card, menu);
         return true;
@@ -79,9 +68,10 @@ public class CardActivity extends Activity {
     			tbdesc.getText().toString(), "/foobar/", tbcreatedat.getText().toString(), 
     			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	MainActivity.tblwarranty.insertWarrantyCard(card);
-    	clearAllFields();
-    	//TODO: listAllCards() - testing only.
-    	listAllCards();
+    	startActivity(new Intent(this, MainActivity.class));
+//    	clearAllFields();
+//    	//TODO: listAllCards() - testing only.
+//    	listAllCards();
     }
     
     /**
