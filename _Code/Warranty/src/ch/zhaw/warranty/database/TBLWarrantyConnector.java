@@ -109,7 +109,7 @@ public class TBLWarrantyConnector {
 		card = new WarrantyCard(0,"dummy", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy");
 		
 		openDB();
-		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , TBLWarrantyHelper.CLMN_ID + "=" + card.get_id() , null, null, null, null);
+		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , TBLWarrantyHelper.CLMN_ID + "=" + cardID , null, null, null, null);
 		cursor.moveToFirst();
 		
 		if (! cursor.isAfterLast()) {
@@ -124,13 +124,14 @@ public class TBLWarrantyConnector {
 	public void deleteAllCards() {
 		openDB();
 		db.delete(TBLWarrantyHelper.TBL_NAME, null, null);
+//		db.execSQL("delete from " + TBLWarrantyHelper.TBL_NAME);
 		closeDB();
 		
 	}
 	
-	public void deleteCard(WarrantyCard card) {
+	public void deleteCard(int cardID) {
 		openDB();
-		db.delete(TBLWarrantyHelper.TBL_NAME, "_id = " + card.get_id(), null);
+		db.delete(TBLWarrantyHelper.TBL_NAME, "_id = " + cardID, null);
 		closeDB();
 	}
 }
