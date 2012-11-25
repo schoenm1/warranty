@@ -18,6 +18,7 @@ import ch.zhaw.warranty.database.TBLWarrantyConnector;
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
+	private TBLWarrantyConnector tblwarranty;
 //	private ArrayList<WarrantyCard> cards;
 	
 	@Override
@@ -31,6 +32,7 @@ public class CardListActivity extends ListActivity {
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
+		tblwarranty = new TBLWarrantyConnector(this);
 		list = getListView();
 		
 		
@@ -46,7 +48,11 @@ public class CardListActivity extends ListActivity {
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
-				return false;
+				tblwarranty.deleteCard(card.get_id());
+				
+				finish();
+				startActivity(getIntent());
+				return true;
 				}
 		});
 		
