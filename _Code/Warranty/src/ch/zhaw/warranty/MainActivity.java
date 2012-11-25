@@ -29,18 +29,13 @@ public class MainActivity extends Activity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.BTcreateNewWarrantyCard:
-			Intent myIntent = new Intent(MainActivity.this, CardActivity.class);
-			startActivity(myIntent);
+			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.CardActivity.class));
 			break;
 		case R.id.BTListWarrantyCards:
-			Intent myIntent2 = new Intent(MainActivity.this,
-					CardListActivity.class);
-			startActivity(myIntent2);
+			startActivity(new Intent(MainActivity.this,	ch.zhaw.warranty.CardListActivity.class));
 			break;
 		case R.id.BTTakePicture:
-			Intent myIntent3 = new Intent(MainActivity.this,
-					ch.zhaw.warranty.photo.PhotoIntentActivity.class);
-			startActivity(myIntent3);
+			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.photo.PhotoIntentActivity.class));
 			break;
 		case R.id.BTDeleteAll:
 			deleteAllCards();
