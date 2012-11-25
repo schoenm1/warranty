@@ -12,8 +12,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 import ch.zhaw.warranty.card.WarrantyCard;
+import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
@@ -37,24 +37,19 @@ public class CardListActivity extends ListActivity {
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
-//				  intent.putExtra("WarrantyCard", list.getItemAtPosition(position));
-				  //int CardID = (WarrantyCard) list.getItemAtPosition(position).getID();
-				  //System.out.println("****" + CardID );
-				  //intent.putExtra("id", CardID);
 				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				  intent.putExtra("id", card.get_id());
 				  startActivity(intent);
-//				  System.out.println(card.getTitle() + " WITH ID "+ card.get_id());
  			  }
 			});
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(getApplicationContext(),
-					      "Opening Number " + position, Toast.LENGTH_LONG).show();
+				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				return false;
 				}
 		});
+		
 		
 		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
