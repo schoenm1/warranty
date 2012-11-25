@@ -59,8 +59,8 @@ public class CardActivity extends Activity {
      * grabs text from input fields and creates a new card
      */
     private void createNewCard() {
-    	System.out.println("************ adding fobarshizzle***********" + tbtitle.getText().toString() + " ****************");
-    	WarrantyCard card = new WarrantyCard(tbtitle.getText().toString(), 
+    	//Note: 0 is a dummy _id. This will be overwritten by auto increment of sqlite
+    	WarrantyCard card = new WarrantyCard(0,tbtitle.getText().toString(), 
     			tbdesc.getText().toString(), "/foobar/", tbcreatedat.getText().toString(), 
     			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	MainActivity.tblwarranty.insertWarrantyCard(card);

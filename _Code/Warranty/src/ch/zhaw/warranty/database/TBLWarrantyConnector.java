@@ -92,7 +92,8 @@ public class TBLWarrantyConnector {
 	}
 	
 	private WarrantyCard db2Card(Cursor cursor) {
-		return new WarrantyCard(cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
+		return new WarrantyCard(cursor.getInt(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_ID)),
+				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
 				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_DESC)),
 				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_IMGPATH)),
 				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_CREATEDAT)),
@@ -105,7 +106,7 @@ public class TBLWarrantyConnector {
 	public WarrantyCard getWarrantyCard(int cardID) {
 		System.out.println("getting card with id "+ cardID + " for you");
 		WarrantyCard card; 
-		card = new WarrantyCard("dummy", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy");
+		card = new WarrantyCard(0,"dummy", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy");
 		
 		openDB();
 		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , TBLWarrantyHelper.CLMN_ID + "=" + card.get_id() , null, null, null, null);
