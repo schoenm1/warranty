@@ -8,23 +8,38 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import ch.zhaw.warranty.card.WarrantyCard;
+import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardActivity extends Activity {
 	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;
-//	private TBLWarrantyConnector tblwarranty;
+	private TBLWarrantyConnector tblwarranty;
+	private int id;
 	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);
+        setContentView(R.layout.activity_card);       
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
         tbcreatedat = (EditText) findViewById(R.id.card_TBcreatedAt);
         tbvalidtil = (EditText) findViewById(R.id.card_TBvalidTil);
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
-//        tblwarranty = new TBLWarrantyConnector(this);
+        
+      	Bundle extras = getIntent().getExtras();
+      	id = (extras != null) ? extras.getInt("id") : 0;
+        if (id != 0 ) {
+        	System.out.println("shizzle id is " + id);
+        	tbtitle.setText("foooobar");
+//        	WarrantyCard card = tblwarranty.getWarrantyCard(id);
+//        	tbtitle.setText(card.getTitle());
+//            tbdesc.setText(card.getDescription());
+//            tbcreatedat.setText(card.getCreatedAt());
+//            tbvalidtil.setText(card.getValidUntil());
+//            tbprice.setText(card.getPrice());
+//            tbreseller.setText(card.getReseller());
+        }
     }
     
     public void onCreate(Bundle savedInstanceState, WarrantyCard card) {

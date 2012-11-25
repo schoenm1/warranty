@@ -18,7 +18,7 @@ import ch.zhaw.warranty.card.WarrantyCard;
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
-	private ArrayList<WarrantyCard> cards;
+//	private ArrayList<WarrantyCard> cards;
 	
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,17 +36,16 @@ public class CardListActivity extends ListActivity {
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//				Intent myIntent = new Intent(CardListActivity.this, EditCard.class);
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
 //				  intent.putExtra("WarrantyCard", list.getItemAtPosition(position));
-				  System.out.println("****" + id );
-				  intent.putExtra("id", id );
+				  //int CardID = (WarrantyCard) list.getItemAtPosition(position).getID();
+				  //System.out.println("****" + CardID );
+				  //intent.putExtra("id", CardID);
+				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
+				  intent.putExtra("id", card.get_id());
 				  startActivity(intent);
-				  WarrantyCard asdf = (WarrantyCard) list.getItemAtPosition(position);
-				  System.out.println(asdf.getTitle() + " WITH ID "+ asdf.get_id());
-
-
-			  }
+//				  System.out.println(card.getTitle() + " WITH ID "+ card.get_id());
+ 			  }
 			});
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
