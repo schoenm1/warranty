@@ -52,7 +52,11 @@ public class TBLWarrantyConnector {
 		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
 
 		openDB();
-			db.insert(TBLWarrantyHelper.TBL_NAME, null, values);
+			if (card.get_id() == 0) {
+				db.insert(TBLWarrantyHelper.TBL_NAME, null, values);
+			} else {
+				db.update(TBLWarrantyHelper.TBL_NAME, values, TBLWarrantyHelper.CLMN_ID + "=" + card.get_id(), null);
+			}
 		closeDB();
 	}
 
@@ -115,6 +119,7 @@ public class TBLWarrantyConnector {
 		if (! cursor.isAfterLast()) {
 			card = db2Card(cursor);
 		}
+		cursor.close();
 		closeDB();
 		return card;
 	}

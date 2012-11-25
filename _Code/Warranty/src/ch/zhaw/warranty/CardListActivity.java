@@ -13,14 +13,11 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ch.zhaw.warranty.card.WarrantyCard;
-import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
-	private TBLWarrantyConnector tblwarranty;
-//	private ArrayList<WarrantyCard> cards;
-	
+
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_card_list, menu);
@@ -32,7 +29,6 @@ public class CardListActivity extends ListActivity {
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
-		tblwarranty = new TBLWarrantyConnector(this);
 		list = getListView();
 		
 		
@@ -48,7 +44,7 @@ public class CardListActivity extends ListActivity {
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
-				tblwarranty.deleteCard(card.get_id());
+				MainActivity.tblwarranty.deleteCard(card.get_id());
 				
 				finish();
 				startActivity(getIntent());
