@@ -54,6 +54,14 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+%-------------------------------------------------------------------------EIGENE REFERENZIERUNG------------------------------------------------------------------------------------------------------
+%																															|
+\newcommand{\refTC}[1]{ \ref{#1} \nameref{#1}  }	% gibt aus z.B.: 1.1.3 Erwartetes Resultat (<Kapitelnummer> <Kapitelname>)							|
+%																															|
+% ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 %---------------------------------------------------------------------------------- GRAFIKEN---------------------------------------------------------------------------------------------------------------------
 %																															|
 \usepackage[dvips,final]{graphicx}						%Einbinden von EPS-Grafiken [draft oder final]										|
@@ -108,7 +116,7 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
   \setlength{\nomlabelwidth}{.25\hsize}
   \renewcommand{\nomlabel}[1]{#1 \dotfill}
   \setlength{\nomitemsep}{-\parsep}
-
+  
 
 %inserted november 2012 / Micha
 \usepackage[normalem]{ulem}
@@ -149,8 +157,8 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
 }
 
 % Lange URLs umbrechen etc. -------------------------------------------------
+\usepackage[hyphens]{url}		%bricht lange URL's um, ohne dass der Link defekt ist
 \usepackage{url}
-
 
 
 
