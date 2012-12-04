@@ -12,14 +12,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-import ch.zhaw.warranty.R;
+import ch.zhaw.warranty.card.WarrantyCard;
 
 public class CardListActivity extends ListActivity {
-	private ArrayAdapter<String> arrayAdapter;
-//	private TBLWarrantyConnector tblwarranty;
+	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
-	
+
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_card_list, menu);
@@ -31,35 +29,33 @@ public class CardListActivity extends ListActivity {
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
-//		tblwarranty = new TBLWarrantyConnector(this);
 		list = getListView();
 		
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//				Intent myIntent = new Intent(CardListActivity.this, EditCard.class);
-				  System.out.println(list.getItemAtPosition(position));
-//				startActivity((Intent) new Intent(CardListActivity.this, EditCard.class));
-//			    Toast.makeText(getApplicationContext(),
-//			      "Opening Number " + position, Toast.LENGTH_LONG)
-//			      .show();
-			  }
+				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
+				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
+				  intent.putExtra("id", card.get_id());
+				  startActivity(intent);
+ 			  }
 			});
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(getApplicationContext(),
-					      "Opening Number " + position, Toast.LENGTH_LONG).show();
-				return false;
+				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
+				MainActivity.tblwarranty.deleteCard(card.get_id());
+				
+				finish();
+				startActivity(getIntent());
+				return true;
 				}
-			
-		
-		
 		});
 		
-		ArrayList<String> cards = MainActivity.tblwarranty.getAllCards();
-		arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,cards);		
+		
+		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
+		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
+		
 	}
-
 }

@@ -3,31 +3,46 @@ package ch.zhaw.warranty;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import ch.zhaw.warranty.card.WarrantyCard;
+import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardActivity extends Activity {
 	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;
-//	private TBLWarrantyConnector tblwarranty;
+	private TBLWarrantyConnector tblwarranty;
+	private int id;
 	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+		tblwarranty = new TBLWarrantyConnector(this);
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
         tbcreatedat = (EditText) findViewById(R.id.card_TBcreatedAt);
         tbvalidtil = (EditText) findViewById(R.id.card_TBvalidTil);
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
-//        tblwarranty = new TBLWarrantyConnector(this);
+        
+      	Bundle extras = getIntent().getExtras();
+      	id = (extras != null) ? extras.getInt("id") : 0;
+        if (id != 0 ) {
+        	WarrantyCard card = tblwarranty.getWarrantyCard(id);
+        	tbtitle.setText(card.getTitle());
+            tbdesc.setText(card.getDescription());
+            tbcreatedat.setText(card.getCreatedAt());
+            tbvalidtil.setText(card.getValidUntil());
+            tbprice.setText(card.getPrice());
+            tbreseller.setText(card.getReseller());
+        }
     }
-
-    @Override
+    
+     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_card, menu);
         return true;
@@ -48,13 +63,15 @@ public class CardActivity extends Activity {
      * grabs text from input fields and creates a new card
      */
     private void createNewCard() {
-    	WarrantyCard card = new WarrantyCard(tbtitle.getText().toString(), 
+    	//Note: 0 is a dummy _id. This will be overwritten by auto increment of sqlite
+    	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
     			tbdesc.getText().toString(), "/foobar/", tbcreatedat.getText().toString(), 
     			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	MainActivity.tblwarranty.insertWarrantyCard(card);
-    	clearAllFields();
-    	//TODO: listAllCards() - testing only.
-    	listAllCards();
+    	startActivity(new Intent(this, MainActivity.class));
+//    	clearAllFields();
+//    	//TODO: listAllCards() - testing only.
+//    	listAllCards();
     }
     
     /**
@@ -74,10 +91,10 @@ public class CardActivity extends Activity {
      * currently only syso's all cards
      */
     private void listAllCards() { 
-    	ArrayList<String> cards = MainActivity.tblwarranty.getAllCards();
+    	ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
     	
-    	for (String card : cards) {
-			System.out.println("Card title is: " + card);
+    	for (WarrantyCard card : cards) {
+			System.out.println("Card title is: " + card.getTitle());
 		}
     }
     
