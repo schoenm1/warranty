@@ -95,6 +95,39 @@ public class TBLWarrantyConnector {
 		return cards;
 	}
 	
+	public ArrayList<WarrantyCard> getAllCardsOrdered(String order) {
+		if (order.matches("^title$")) {
+			order = TBLWarrantyHelper.CLMN_TITLE;
+		} else if (order.matches("^description$")) {
+			order = TBLWarrantyHelper.CLMN_DESC;
+		} else if (order.matches("^price$")) {
+			order = TBLWarrantyHelper.CLMN_PRICE;
+		} else if (order.matches("^reseller$")) {
+			order = TBLWarrantyHelper.CLMN_RESSELLER;
+		} else if (order.matches("^created_at$")) {
+			order = TBLWarrantyHelper.CLMN_CREATEDAT;
+		} else if (order.matches("^valid_until$")) {
+			order = TBLWarrantyHelper.CLMN_VLDTIL;
+		} else {
+			order = TBLWarrantyHelper.CLMN_TITLE;			
+		}
+		
+		System.out.println("list all cards ordered by" + order);
+		openDB();
+
+		ArrayList<WarrantyCard> cards = new ArrayList<WarrantyCard>();
+		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , null, null, null, null,order);
+		cursor.moveToFirst();
+
+		while(!cursor.isAfterLast()) {
+			cards.add(db2Card(cursor));
+			cursor.moveToNext();
+		}
+		cursor.close();
+		closeDB();
+		return cards;		
+	}
+	
 	private WarrantyCard db2Card(Cursor cursor) {
 		return new WarrantyCard(cursor.getInt(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_ID)),
 				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 

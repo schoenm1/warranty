@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ch.zhaw.warranty.card.WarrantyCard;
+import ch.zhaw.warranty.database.TBLWarrantyHelper;
 
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
@@ -52,10 +53,18 @@ public class CardListActivity extends ListActivity {
 				}
 		});
 		
+		setOrder("description");
+//		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
+//		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
+//		setListAdapter(arrayAdapter);
 		
-		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
+	}
+	
+	private void setOrder(String order){
+		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCardsOrdered(order);
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
+		
 		
 	}
 }
