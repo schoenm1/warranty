@@ -36,6 +36,9 @@ public final class R {
         public static final int card_TBreseller=0x7f070007;
         public static final int card_TBtitle=0x7f070002;
         public static final int card_TBvalidTil=0x7f070005;
+        public static final int card_menu_sortByDate=0x7f07001a;
+        public static final int card_menu_sortByDesc=0x7f07001b;
+        public static final int card_menu_sortByTitle=0x7f070019;
         public static final int editText1=0x7f070001;
         public static final int imageView1=0x7f070010;
         public static final int linearLayout1=0x7f07000a;

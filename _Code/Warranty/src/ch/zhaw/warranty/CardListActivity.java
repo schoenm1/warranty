@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -13,7 +14,6 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ch.zhaw.warranty.card.WarrantyCard;
-import ch.zhaw.warranty.database.TBLWarrantyHelper;
 
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
@@ -25,6 +25,26 @@ public class CardListActivity extends ListActivity {
         return true;
     }
     
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    boolean handled = false;
+		switch (item.getItemId()){
+	    case R.id.card_menu_sortByTitle:
+	    	setOrder("title");
+	    	handled = true;
+	    	break;
+
+	    case R.id.card_menu_sortByDate:
+	    	setOrder("created_at");
+	        handled = true;
+	        break;
+	        
+	    case R.id.card_menu_sortByDesc:
+	    	setOrder("description");
+	        handled = true;
+	        break;
+	    }
+	    return handled;
+	}
 	
 	@Override
 	public void onCreate(Bundle saveInstanceState) {
@@ -53,11 +73,7 @@ public class CardListActivity extends ListActivity {
 				}
 		});
 		
-		setOrder("description");
-//		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
-//		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
-//		setListAdapter(arrayAdapter);
-		
+		setOrder("title");		
 	}
 	
 	private void setOrder(String order){
