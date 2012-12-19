@@ -1,17 +1,17 @@
 package ch.zhaw.warranty;
 
-import java.util.ArrayList;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import ch.zhaw.tools.DatePickerFragment;
 import ch.zhaw.warranty.card.WarrantyCard;
 import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
-public class CardActivity extends Activity {
+public class CardActivity extends FragmentActivity {
 	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;
 	private TBLWarrantyConnector tblwarranty;
 	private int id;
@@ -40,6 +40,15 @@ public class CardActivity extends Activity {
             tbprice.setText(card.getPrice());
             tbreseller.setText(card.getReseller());
         }
+       
+//        tbcreatedat.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//			
+//			public void onFocusChange(View v, boolean state) {
+//				// TODO Auto-generated method stub
+//			       DialogFragment newFragment = new DatePickerFragment();
+//			        newFragment.show(getSupportFragmentManager(), "datePicker");
+//			}
+//		});
     }
     
      @Override
@@ -55,6 +64,9 @@ public class CardActivity extends Activity {
         	break;
         case R.id.card_BTClear:
         	clearAllFields();
+        	break;
+        case R.id.button1:
+        	showDatePicker(view);
         	break;
         }
       }
@@ -85,18 +97,22 @@ public class CardActivity extends Activity {
     	tbvalidtil.setText("");
     	tbprice.setText("");
     	tbreseller.setText("");
+    	System.out.println("ahoi");
     }
     
     /**
      * currently only syso's all cards
      */
-    private void listAllCards() { 
-    	ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
-    	
-    	for (WarrantyCard card : cards) {
-			System.out.println("Card title is: " + card.getTitle());
-		}
-    }
+//    private void listAllCards() { 
+//    	ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
+//    	
+//    	for (WarrantyCard card : cards) {
+//			System.out.println("Card title is: " + card.getTitle());
+//		}
+//    }
     
-
+    private void showDatePicker(View v) {
+    	DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 }
