@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.widget.Button;
 import android.widget.DatePicker;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -21,8 +22,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 	}
 
 	public void onDateSet(DatePicker view, int year, int month, int day) {
-		System.out.println("Date was set! year : " + year + " month: " + month + " day: "+ day);
-		
+		System.out.println("Date was set! year : " + year + " month: " + month + " day: "+ day); 
 	}
 	
 }

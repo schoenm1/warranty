@@ -39,5 +39,6 @@
     <string name="title_activity_edit_card">EditCard</string>
     <string name="ButtonUpdate">Update</string>
     <string name="ButtonDeleteThisCard">Delete this card</string>
+    <string name="button">Button</string>
 
 </resources>

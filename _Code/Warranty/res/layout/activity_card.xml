@@ -24,17 +24,6 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/card.TBcreatedAt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBdesc"
-        android:ems="10"
-        android:hint="@string/txtCreatedAt"
-        android:inputType="date" />
-
-    <EditText
         android:id="@+id/card.TBdesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,19 +34,54 @@
         android:hint="@string/txtDesc"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/card.TBvalidTil"
+    <TextView
+        android:id="@+id/TxTCreatedAt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBcreatedAt"
-        android:ems="10"
-        android:hint="@string/txtValidTil"
-        android:inputType="date" >
+        android:layout_below="@+id/card.TBdesc"
+        android:text="@string/txtCreatedAt"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <requestFocus />
-    </EditText>
+    <Button
+        android:id="@+id/card.BTadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/card.TBreseller"
+        android:onClick="onClick"
+        android:text="@string/ButtonSubmit" />
+
+    <TextView
+        android:id="@+id/TxTValidTil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TxTCreatedAt"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/card.BTValidTil"
+        android:text="@string/txtValidTil"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/card.BTcreatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/card.TBdesc"
+        android:onClick="onClick"
+        android:text="@string/txtCreatedAt" />
+
+    <Button
+        android:id="@+id/card.BTValidTil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card.BTcreatedAt"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/TxTValidTil"
+        android:onClick="onClick"
+        android:text="@string/txtCreatedAt" />
 
     <EditText
         android:id="@+id/card.TBprice"
@@ -65,10 +89,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBvalidTil"
+        android:layout_below="@+id/card.BTValidTil"
         android:ems="10"
         android:hint="@string/txtPrice"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
 
     <EditText
         android:id="@+id/card.TBreseller"
@@ -76,28 +103,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBprice"
+        android:layout_below="@+id/card.BTValidTil"
+        android:layout_marginTop="47dp"
         android:ems="10"
         android:hint="@string/txtReseller"
         android:inputType="text" />
 
     <Button
-        android:id="@+id/card.BTadd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBreseller"
-        android:onClick="onClick"
-        android:text="@string/ButtonAdd" />
-
-    <Button
         android:id="@+id/card.BTClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.BTadd"
+        android:layout_below="@+id/card.TBreseller"
         android:onClick="onClick"
         android:text="@string/ButtonClear" />
 

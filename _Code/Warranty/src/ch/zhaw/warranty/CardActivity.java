@@ -1,18 +1,24 @@
 package ch.zhaw.warranty;
 
+import java.util.Calendar;
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import ch.zhaw.tools.DatePickerFragment;
 import ch.zhaw.warranty.card.WarrantyCard;
 import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardActivity extends FragmentActivity {
 	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;
+	private Button btcreatedat,btvalidtil;
 	private TBLWarrantyConnector tblwarranty;
 	private int id;
 	
@@ -24,8 +30,8 @@ public class CardActivity extends FragmentActivity {
 		tblwarranty = new TBLWarrantyConnector(this);
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
-        tbcreatedat = (EditText) findViewById(R.id.card_TBcreatedAt);
-        tbvalidtil = (EditText) findViewById(R.id.card_TBvalidTil);
+        btcreatedat = (Button) findViewById(R.id.card_BTcreatedAt);
+        btvalidtil = (Button) findViewById(R.id.card_BTValidTil);
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
         
@@ -40,15 +46,6 @@ public class CardActivity extends FragmentActivity {
             tbprice.setText(card.getPrice());
             tbreseller.setText(card.getReseller());
         }
-       
-//        tbcreatedat.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//			
-//			public void onFocusChange(View v, boolean state) {
-//				// TODO Auto-generated method stub
-//			       DialogFragment newFragment = new DatePickerFragment();
-//			        newFragment.show(getSupportFragmentManager(), "datePicker");
-//			}
-//		});
     }
     
      @Override
@@ -65,7 +62,10 @@ public class CardActivity extends FragmentActivity {
         case R.id.card_BTClear:
         	clearAllFields();
         	break;
-        case R.id.button1:
+        case R.id.card_BTcreatedAt:
+        	showDatePicker(view);
+        	break;
+        case R.id.card_BTValidTil:
         	showDatePicker(view);
         	break;
         }
@@ -81,9 +81,6 @@ public class CardActivity extends FragmentActivity {
     			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	MainActivity.tblwarranty.insertWarrantyCard(card);
     	startActivity(new Intent(this, MainActivity.class));
-//    	clearAllFields();
-//    	//TODO: listAllCards() - testing only.
-//    	listAllCards();
     }
     
     /**
@@ -93,26 +90,36 @@ public class CardActivity extends FragmentActivity {
     	//TODO: there is probably a nicer way to clear all fields... 
     	tbtitle.setText("");
     	tbdesc.setText("");
-    	tbcreatedat.setText("");
-    	tbvalidtil.setText("");
+    	btcreatedat.setText("");
+    	btvalidtil.setText("");
     	tbprice.setText("");
     	tbreseller.setText("");
-    	System.out.println("ahoi");
     }
-    
-    /**
-     * currently only syso's all cards
-     */
-//    private void listAllCards() { 
-//    	ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCards();
-//    	
-//    	for (WarrantyCard card : cards) {
-//			System.out.println("Card title is: " + card.getTitle());
-//		}
-//    }
-    
+        
     private void showDatePicker(View v) {
-    	DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    	DialogFragment datePickerFragment = new DatePickerFragment();
+    	datePickerFragment.show(getSupportFragmentManager(), "datePicker");
     }
+    
+    public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
+    	@Override
+    	public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar cal = Calendar.getInstance();
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+    	}
+
+    	public void onDateSet(DatePicker view, int year, int month, int day) {
+    		System.out.println("Date was set! year : " + year + " month: " + month + " day: "+ day);
+    		Button button1 = (Button) findViewById(R.id.card_BTcreatedAt);
+    		button1.setText(day +"."+ month + "." + year);
+    	}
+    	
+    }
+
+    
 }
