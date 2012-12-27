@@ -24,25 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ch.zhaw.photobyintent.BrowseList" >
-        </activity>
-        <activity android:name="ch.zhaw.tools.DatePicker" >
-        </activity>
         <activity android:name="ch.zhaw.warranty.CardActivity" >
         </activity>
-        <activity android:name=".CardListActivity" >
+        <activity android:name="ch.zhaw.warranty.CardListActivity" >
         </activity>
         <activity android:name="ch.zhaw.warranty.photo.PhotoIntentActivity" >
-        </activity>
-        <activity
-            android:name=".EditCard"
-            android:label="@string/title_activity_edit_card" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        </activity> 
     </application>
 
 </manifest>
