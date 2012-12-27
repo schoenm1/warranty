@@ -17,7 +17,8 @@ import ch.zhaw.warranty.card.WarrantyCard;
 import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardActivity extends FragmentActivity {
-	private EditText tbtitle,tbdesc,tbcreatedat,tbvalidtil,tbprice,tbreseller;
+	private EditText tbtitle,tbdesc,tbprice,tbreseller;
+//	private EditText tbcreatedat,tbvalidtil;
 	private Button btcreatedat,btvalidtil;
 	private TBLWarrantyConnector tblwarranty;
 	private int id;
@@ -41,8 +42,10 @@ public class CardActivity extends FragmentActivity {
         	WarrantyCard card = tblwarranty.getWarrantyCard(id);
         	tbtitle.setText(card.getTitle());
             tbdesc.setText(card.getDescription());
-            tbcreatedat.setText(card.getCreatedAt());
-            tbvalidtil.setText(card.getValidUntil());
+//            tbcreatedat.setText(card.getCreatedAt());
+//            tbvalidtil.setText(card.getValidUntil());
+            btcreatedat.setText(card.getCreatedAt());
+            btvalidtil.setText(card.getValidUntil());
             tbprice.setText(card.getPrice());
             tbreseller.setText(card.getReseller());
         }
@@ -77,8 +80,8 @@ public class CardActivity extends FragmentActivity {
     private void createNewCard() {
     	//Note: 0 is a dummy _id. This will be overwritten by auto increment of sqlite
     	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
-    			tbdesc.getText().toString(), "/foobar/", tbcreatedat.getText().toString(), 
-    			tbvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
+    			tbdesc.getText().toString(), "/foobar/", btcreatedat.getText().toString(), 
+    			btvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	MainActivity.tblwarranty.insertWarrantyCard(card);
     	startActivity(new Intent(this, MainActivity.class));
     }
