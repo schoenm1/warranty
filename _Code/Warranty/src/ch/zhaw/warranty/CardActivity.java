@@ -29,11 +29,7 @@ public class CardActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
-        Bundle extras = getIntent().getExtras();
-        //imgPath = extras.getString("path");
-        	
-//        imgPath = (extras.getString("status") == "new") ? extras.getString("path") : "/bar/";
-        
+
 		tblwarranty = new TBLWarrantyConnector(this);
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
@@ -42,6 +38,7 @@ public class CardActivity extends FragmentActivity {
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
         
+        Bundle extras = getIntent().getExtras();
         if (extras.getString("status").matches("new")) {
         	imgPath = extras.getString("path");
         	id = 0;
@@ -56,21 +53,7 @@ public class CardActivity extends FragmentActivity {
             tbreseller.setText(card.getReseller());
             imgPath = card.getImagePath();        	
         }
-
         Toast.makeText(getApplicationContext(), "status is :" + extras.getString("status"),Toast.LENGTH_LONG).show();
-        
-        //      	Bundle extras = getIntent().getExtras();
-//      	id = (extras.getString("status") == "edit" ) ? extras.getInt("id") : 0;
-//        if (id != 0 ) {
-//        	WarrantyCard card = tblwarranty.getWarrantyCard(id);
-//        	tbtitle.setText(card.getTitle());
-//            tbdesc.setText(card.getDescription());
-//            btcreatedat.setText(card.getCreatedAt());
-//            btvalidtil.setText(card.getValidUntil());
-//            tbprice.setText(card.getPrice());
-//            tbreseller.setText(card.getReseller());
-//            imgPath = card.getImagePath();
-//        }
     }
     
      @Override
