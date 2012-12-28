@@ -58,6 +58,7 @@ public class CardListActivity extends ListActivity {
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
 				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				  intent.putExtra("id", card.get_id());
+				  intent.putExtra("status", "edit");
 				  startActivity(intent);
  			  }
 			});

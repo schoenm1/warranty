@@ -17,6 +17,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		tblwarranty = new TBLWarrantyConnector(this);
+// This is an ugly hack :) remove later
+//		startActivity(new Intent(MainActivity.this,	ch.zhaw.warranty.CardListActivity.class));
+
 
 	}
 
@@ -29,13 +32,17 @@ public class MainActivity extends Activity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.BTcreateNewWarrantyCard:
-			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.CardActivity.class));
+			Intent intent = new Intent(MainActivity.this, ch.zhaw.warranty.CardActivity.class);
+			intent.putExtra("status", "new");
+			intent.putExtra("path", "fobar");
+			startActivity(intent);
+//			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.CardActivity.class));
 			break;
 		case R.id.BTListWarrantyCards:
 			startActivity(new Intent(MainActivity.this,	ch.zhaw.warranty.CardListActivity.class));
 			break;
 		case R.id.BTTakePicture:
-			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.photo.PhotoIntentActivity.class));
+			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.photo.PhotoActivity.class));
 			break;
 		case R.id.BTDeleteAll:
 			deleteAllCards();
@@ -44,9 +51,7 @@ public class MainActivity extends Activity {
 		case R.id.BTQuit:
 			this.finish();
 			break;
-
 		}
-
 	}
 
 	/**

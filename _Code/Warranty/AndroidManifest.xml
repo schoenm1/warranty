@@ -29,6 +29,10 @@
         <activity android:name="ch.zhaw.warranty.CardListActivity" >
         </activity>
         <activity android:name="ch.zhaw.warranty.photo.PhotoIntentActivity" >
+        </activity>
+        <activity android:name="ch.zhaw.warranty.photo.PhotoActivity">
+        </activity>
+        <activity android:name="ch.zhaw.warranty.photo.Photo2Activity">
         </activity> 
     </application>
 

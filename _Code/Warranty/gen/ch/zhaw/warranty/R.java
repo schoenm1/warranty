@@ -17,23 +17,22 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int BTDeleteAll=0x7f070015;
-        public static final int BTListWarrantyCards=0x7f070014;
-        public static final int BTQuit=0x7f070016;
-        public static final int BTTakePicture=0x7f070012;
-        public static final int BTcreateNewWarrantyCard=0x7f070013;
-        public static final int Button1=0x7f07000f;
+        public static final int BTDeleteAll=0x7f070014;
+        public static final int BTListWarrantyCards=0x7f070013;
+        public static final int BTQuit=0x7f070015;
+        public static final int BTTakePicture=0x7f07000f;
+        public static final int BTcreateNewWarrantyCard=0x7f070012;
         public static final int Button2=0x7f070010;
         public static final int InnerRelativeLayout=0x7f07000d;
         public static final int LinearLayout1=0x7f07000c;
         public static final int RelativeLayout1=0x7f070000;
         public static final int TxTCreatedAt=0x7f070004;
         public static final int TxTValidTil=0x7f070007;
-        public static final int browse_list_spinner=0x7f070019;
-        public static final int btnIntend=0x7f07001c;
-        public static final int btn_browse_list=0x7f07001d;
-        public static final int btn_search=0x7f07001b;
-        public static final int button1=0x7f07001e;
+        public static final int browse_list_spinner=0x7f070018;
+        public static final int btnIntend=0x7f07001b;
+        public static final int btn_browse_list=0x7f07001c;
+        public static final int btn_search=0x7f07001a;
+        public static final int button1=0x7f07001d;
         public static final int card_BTClear=0x7f07000b;
         public static final int card_BTValidTil=0x7f070008;
         public static final int card_BTadd=0x7f070005;
@@ -42,16 +41,18 @@ public final class R {
         public static final int card_TBprice=0x7f07000a;
         public static final int card_TBreseller=0x7f070006;
         public static final int card_TBtitle=0x7f070002;
-        public static final int card_menu_sortByDate=0x7f070021;
-        public static final int card_menu_sortByDesc=0x7f070022;
-        public static final int card_menu_sortByTitle=0x7f070020;
+        public static final int card_menu_DeleteAll=0x7f070022;
+        public static final int card_menu_Exit=0x7f070023;
+        public static final int card_menu_sortByDate=0x7f070020;
+        public static final int card_menu_sortByDesc=0x7f070021;
+        public static final int card_menu_sortByTitle=0x7f07001f;
         public static final int editText1=0x7f070001;
-        public static final int imageView1=0x7f070017;
+        public static final int imageView1=0x7f070016;
         public static final int linearLayout1=0x7f070011;
-        public static final int menu_settings=0x7f07001f;
+        public static final int menu_settings=0x7f07001e;
         public static final int page_buttons=0x7f07000e;
-        public static final int tf_searching_for=0x7f07001a;
-        public static final int videoView1=0x7f070018;
+        public static final int tf_searching_for=0x7f070019;
+        public static final int videoView1=0x7f070017;
     }
     public static final class layout {
         public static final int activity_card=0x7f030000;

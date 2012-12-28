@@ -25,7 +25,7 @@
     <string name="btn_browse_list">Browse List</string>
     <string name="btnIntendV">Take Video</string>
     <string name="cannot">Cannot</string>
-    <string name="album_name">CameraSample</string>
+    <string name="album_name">warranty</string>
 
     <string-array name="browse_list_spinner">
         <item>Mercury</item>

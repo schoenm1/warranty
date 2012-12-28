@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import ch.zhaw.warranty.card.WarrantyCard;
 
 /**
@@ -46,10 +47,13 @@ public class TBLWarrantyConnector {
 		ContentValues values = new ContentValues();
 		values.put(TBLWarrantyHelper.CLMN_TITLE, card.getTitle());
 		values.put(TBLWarrantyHelper.CLMN_DESC, card.getDescription());
+		values.put(TBLWarrantyHelper.CLMN_IMGPATH, card.getImagePath());
 		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
 		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
 		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
 		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
+		System.out.println(card.getImagePath());
+		Log.v("foo", card.getImagePath());
 
 		openDB();
 			if (card.get_id() == 0) {
