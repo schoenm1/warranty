@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<!-- Global Strings -->
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="NameHelp">Enter your Name</string>
-    <string name="ButtonSubmit">Submit</string>
-    <string name="ButtonClear">Clear</string>
-    <string name="txtTitle">Title</string>
-    <string name="txtDesc">Description</string>
-    <string name="txtCreatedAt">Created At</string>
-    <string name="txtValidTil">Valid until</string>
-    <string name="txtPrice">Price</string>
-    <string name="txtReseller">Reseller</string>
-    <string name="title_activity_card">CardActivity</string>
-    <string name="ButtonNewWarrantyCard">create new warranty card</string>
-    <string name="ButtonDeleteAllCards">Delete all cards</string>
-    <string name="ButtonAdd">Add Card</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_card_list">CardListActivity</string>
-    <string name="ButtonListAllWarrantyCards">List all warranty cards</string>
-    <string name="app_name">Warranty</string>
-    <string name="btnIntend">Take Picture</string>
-    <string name="btn_browse_list">Browse List</string>
-    <string name="btnIntendV">Take Video</string>
-    <string name="cannot">Cannot</string>
-    <string name="album_name">warranty</string>
-
-    <string name="search">Search</string>
-    <string name="quit_app">Quit Warranty</string>
-    <string name="ButtonUpdate">Update</string>
-    <string name="button">Button</string>
-
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+	<string name="exit">Exit</string>
+    <string name="settings">Settings</string>
+    <string name="submit">Submit</string>
+	
+	<!-- Warranty Strings -->
+	<string name="app_name">Warranty</string>
+	<string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="created_at">Created at</string>
+    <string name="valid_until">Valid Until</string>
+    <string name="price">Price</string>
+    <string name="reseller">Reseller</string>
+    <string name="takePicture">Take Picture</string>
+    <string name="deleteAllCards">Delete all cards</string>
+    
+    <!-- deprecated/ debug only -->
+    <string name="newCard">Create new warranty Card</string>
+    <string name="listAllCards">List all cards</string>
 </resources>

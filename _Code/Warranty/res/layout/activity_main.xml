@@ -18,51 +18,35 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/btnIntend" />
+            android:text="@string/takePicture" />
 
         <Button
             android:id="@+id/BTcreateNewWarrantyCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/ButtonNewWarrantyCard" />
+            android:text="@string/newCard" />
 
         <Button
             android:id="@+id/BTListWarrantyCards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/ButtonListAllWarrantyCards" />
+            android:text="@string/listAllCards" />
 
         <Button
             android:id="@+id/BTDeleteAll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/ButtonDeleteAllCards" />
+            android:text="@string/deleteAllCards" />
 
         <Button
             android:id="@+id/BTQuit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/quit_app" />
+            android:text="@string/exit" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible" />
-
-    <VideoView
-        android:id="@+id/videoView1"
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="85dp"
-        android:visibility="invisible" />
-
 </RelativeLayout>

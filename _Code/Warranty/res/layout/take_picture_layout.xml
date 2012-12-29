@@ -5,24 +5,6 @@
     android:layout_height="match_parent"
     >
 
-    <Button
-        android:id="@+id/btnIntend"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnIntend" />
-
-    <Button
-        android:id="@+id/btn_browse_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_browse_list" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
   <ImageView
       android:id="@+id/imageView1"
       android:layout_width="match_parent"

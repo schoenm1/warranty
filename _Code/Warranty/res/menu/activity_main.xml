@@ -3,7 +3,7 @@
         android:title="@string/menu_settings"
         android:orderInCategory="100" >
     </item>
-    <item android:id="@id/BTQuit" android:title="@string/quit_app" android:visible="true">
+    <item android:id="@id/BTQuit" android:title="@string/exit" android:visible="true">
         
     </item>
 </menu>

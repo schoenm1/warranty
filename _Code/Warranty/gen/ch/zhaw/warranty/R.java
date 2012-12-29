@@ -25,9 +25,6 @@ public final class R {
         public static final int RelativeLayout1=0x7f060000;
         public static final int TxTCreatedAt=0x7f060004;
         public static final int TxTValidTil=0x7f060007;
-        public static final int btnIntend=0x7f060019;
-        public static final int btn_browse_list=0x7f06001a;
-        public static final int button1=0x7f06001b;
         public static final int card_BTClear=0x7f06000b;
         public static final int card_BTValidTil=0x7f060008;
         public static final int card_BTadd=0x7f060005;
@@ -37,15 +34,15 @@ public final class R {
         public static final int card_TBprice=0x7f06000a;
         public static final int card_TBreseller=0x7f060006;
         public static final int card_TBtitle=0x7f060002;
-        public static final int card_menu_DeleteAll=0x7f060020;
-        public static final int card_menu_Exit=0x7f060021;
-        public static final int card_menu_sortByDate=0x7f06001e;
-        public static final int card_menu_sortByDesc=0x7f06001f;
-        public static final int card_menu_sortByTitle=0x7f06001d;
+        public static final int card_menu_DeleteAll=0x7f06001d;
+        public static final int card_menu_Exit=0x7f06001e;
+        public static final int card_menu_sortByDate=0x7f06001b;
+        public static final int card_menu_sortByDesc=0x7f06001c;
+        public static final int card_menu_sortByTitle=0x7f06001a;
         public static final int editText1=0x7f060001;
         public static final int imageView1=0x7f060017;
         public static final int linearLayout1=0x7f060012;
-        public static final int menu_settings=0x7f06001c;
+        public static final int menu_settings=0x7f060019;
         public static final int page_buttons=0x7f06000f;
         public static final int videoView1=0x7f060018;
     }
@@ -62,33 +59,31 @@ public final class R {
         public static final int activity_main=0x7f050003;
     }
     public static final class string {
-        public static final int ButtonAdd=0x7f04000e;
-        public static final int ButtonClear=0x7f040004;
-        public static final int ButtonDeleteAllCards=0x7f04000d;
-        public static final int ButtonListAllWarrantyCards=0x7f040011;
-        public static final int ButtonNewWarrantyCard=0x7f04000c;
-        public static final int ButtonSubmit=0x7f040003;
-        public static final int ButtonUpdate=0x7f04001a;
-        public static final int NameHelp=0x7f040002;
-        public static final int album_name=0x7f040017;
-        public static final int app_name=0x7f040012;
-        public static final int btnIntend=0x7f040013;
-        public static final int btnIntendV=0x7f040015;
-        public static final int btn_browse_list=0x7f040014;
-        public static final int button=0x7f04001b;
-        public static final int cannot=0x7f040016;
-        public static final int hello_world=0x7f04000f;
+        /**  Warranty Strings 
+ Warranty Strings 
+         */
+        public static final int app_name=0x7f040006;
+        public static final int clear=0x7f040002;
+        public static final int created_at=0x7f040009;
+        public static final int deleteAllCards=0x7f04000e;
+        public static final int description=0x7f040008;
+        public static final int exit=0x7f040003;
+        public static final int listAllCards=0x7f040010;
+        /**  Global Strings 
+ Global Strings 
+         */
         public static final int menu_settings=0x7f040000;
-        public static final int quit_app=0x7f040019;
-        public static final int search=0x7f040018;
-        public static final int title_activity_card=0x7f04000b;
-        public static final int title_activity_card_list=0x7f040010;
-        public static final int title_activity_main=0x7f040001;
-        public static final int txtCreatedAt=0x7f040007;
-        public static final int txtDesc=0x7f040006;
-        public static final int txtPrice=0x7f040009;
-        public static final int txtReseller=0x7f04000a;
-        public static final int txtTitle=0x7f040005;
-        public static final int txtValidTil=0x7f040008;
+        /**  deprecated/ debug only 
+ deprecated/ debug only 
+         */
+        public static final int newCard=0x7f04000f;
+        public static final int price=0x7f04000b;
+        public static final int reseller=0x7f04000c;
+        public static final int save=0x7f040001;
+        public static final int settings=0x7f040004;
+        public static final int submit=0x7f040005;
+        public static final int takePicture=0x7f04000d;
+        public static final int title=0x7f040007;
+        public static final int valid_until=0x7f04000a;
     }
 }
