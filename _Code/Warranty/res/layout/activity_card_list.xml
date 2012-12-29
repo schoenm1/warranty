@@ -20,7 +20,7 @@
 
 			<Button 
 	            android:text="@string/newCard" 
-	            android:id="@+id/BTTakePicture" 
+	            android:id="@+id/cardlist.BTnewcard" 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:onClick="onClick"
@@ -28,11 +28,12 @@
 			</Button>
         
 			<Button 
-	            android:text="foobar2" 
-	            android:id="@+id/Button2" 
+	            android:text="@string/sort" 
+	            android:id="@+id/BTsort" 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_weight="1">
+	            android:layout_weight="1"
+	            android:onClick="onClick">
         	</Button>
         </LinearLayout>
     </RelativeLayout>

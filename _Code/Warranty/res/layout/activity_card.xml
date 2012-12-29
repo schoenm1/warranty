@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text" 
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/card.TBtitle"
@@ -44,7 +45,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/card.BTadd"
+        android:id="@+id/card.BTaddcard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -59,12 +60,12 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TxTCreatedAt"
         android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@+id/card.BTValidTil"
+        android:layout_toLeftOf="@+id/card.BTvaliduntil"
         android:text="@string/valid_until"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/card.BTcreatedAt"
+        android:id="@+id/card.BTcreatedat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText1"
@@ -74,10 +75,10 @@
         android:text="@string/created_at" />
 
     <Button
-        android:id="@+id/card.BTValidTil"
+        android:id="@+id/card.BTvaliduntil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/card.BTcreatedAt"
+        android:layout_alignLeft="@+id/card.BTcreatedat"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/TxTValidTil"
         android:onClick="onClick"
@@ -89,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.BTValidTil"
+        android:layout_below="@+id/card.BTvaliduntil"
         android:ems="10"
         android:hint="@string/price"
         android:inputType="numberDecimal" >
@@ -103,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.BTValidTil"
+        android:layout_below="@+id/card.BTvaliduntil"
         android:layout_marginTop="47dp"
         android:ems="10"
         android:hint="@string/reseller"
@@ -122,7 +123,7 @@
         android:id="@+id/card.ImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/card.BTadd"
+        android:layout_below="@+id/card.BTaddcard"
         
         />
 

@@ -101,7 +101,7 @@ public class PhotoActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.take_picture_layout);
+		setContentView(R.layout.activity_card);
 
 		mImageView = (ImageView) findViewById(R.id.imageView1);
 		mImageBitmap = null;

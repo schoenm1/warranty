@@ -2,8 +2,11 @@ package ch.zhaw.warranty;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +50,17 @@ public class CardListActivity extends ListActivity {
 	    return handled;
 	}
 	
+	 public void onClick(View view) {
+	        switch (view.getId()) {
+	        case R.id.cardlist_BTnewcard:
+	        	startActivity(new Intent(CardListActivity.this, ch.zhaw.warranty.photo.PhotoActivity.class));
+	        	break;
+	        case R.id.BTsort:
+	        	getOrder();
+	        	break;
+	        }
+	      }
+	
 	@Override
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
@@ -76,6 +90,34 @@ public class CardListActivity extends ListActivity {
 		});
 		
 		setOrder("title");		
+	}
+	
+	private void getOrder() {
+		final CharSequence[] items = {getString(R.string.title), getString(R.string.description), getString(R.string.created_at) };
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Select order");
+		builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int item) {
+		    	switch (item) {
+				case 0:
+					setOrder("title");
+					break;
+				case 1:
+					setOrder("description");
+					break;
+				case 2:
+					setOrder("created_at");
+					break;
+				default:
+					setOrder("title");
+					break;
+				}
+		        dialog.dismiss();
+		    }
+		});
+		AlertDialog alert = builder.create();
+		alert.show();
+
 	}
 	
 	private void setOrder(String order){

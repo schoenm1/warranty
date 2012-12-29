@@ -35,8 +35,8 @@ public class CardActivity extends FragmentActivity {
 		tblwarranty = new TBLWarrantyConnector(this);
         tbtitle = (EditText) findViewById(R.id.card_TBtitle);
         tbdesc = (EditText) findViewById(R.id.card_TBdesc);
-        btcreatedat = (Button) findViewById(R.id.card_BTcreatedAt);
-        btvalidtil = (Button) findViewById(R.id.card_BTValidTil);
+        btcreatedat = (Button) findViewById(R.id.card_BTcreatedat);
+        btvalidtil = (Button) findViewById(R.id.card_BTvaliduntil);
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
         
@@ -72,16 +72,16 @@ public class CardActivity extends FragmentActivity {
     
     public void onClick(View view) {
         switch (view.getId()) {
-        case R.id.card_BTadd:
+        case R.id.card_BTaddcard:
         	createNewCard();
         	break;
         case R.id.card_BTClear:
         	clearAllFields();
         	break;
-        case R.id.card_BTcreatedAt:
+        case R.id.card_BTcreatedat:
         	showDatePicker(view);
         	break;
-        case R.id.card_BTValidTil:
+        case R.id.card_BTvaliduntil:
         	showDatePicker(view);
         	break;
         }
@@ -131,7 +131,7 @@ public class CardActivity extends FragmentActivity {
 
     	public void onDateSet(DatePicker view, int year, int month, int day) {
     		System.out.println("Date was set! year : " + year + " month: " + month + " day: "+ day);
-    		Button button1 = (Button) findViewById(R.id.card_BTcreatedAt);
+    		Button button1 = (Button) findViewById(R.id.card_BTcreatedat);
     		button1.setText(day +"."+ month + "." + year);
     	}
     	
