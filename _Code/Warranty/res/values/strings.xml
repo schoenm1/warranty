@@ -21,6 +21,6 @@
     
     
     <!-- deprecated/ debug only -->
-    <string name="newCard">Create new warranty Card</string>
+    <string name="newCard">Create new warranty card</string>
     <string name="listAllCards">List all cards</string>
 </resources>
