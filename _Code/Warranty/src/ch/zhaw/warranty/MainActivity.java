@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 			break;
 
 		case R.id.BTQuit:
-			this.finish();
+			moveTaskToBack(true);
 			break;
 		}
 	}
