@@ -117,5 +117,13 @@
         android:layout_below="@+id/card.TBreseller"
         android:onClick="onClick"
         android:text="@string/ButtonClear" />
+    
+    <ImageView 
+        android:id="@+id/card.ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card.BTadd"
+        
+        />
 
 </RelativeLayout>

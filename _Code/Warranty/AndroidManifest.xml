@@ -15,25 +15,26 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
+        <activity android:name="ch.zhaw.warranty.CardActivity" >
+        </activity>
+        <activity
+			android:name="ch.zhaw.warranty.CardListActivity" 
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="ch.zhaw.warranty.photo.PhotoActivity">
+        </activity>
         <activity
             android:name="ch.zhaw.warranty.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="ch.zhaw.warranty.CardActivity" >
-        </activity>
-        <activity android:name="ch.zhaw.warranty.CardListActivity" >
-        </activity>
-        <activity android:name="ch.zhaw.warranty.photo.PhotoIntentActivity" >
-        </activity>
-        <activity android:name="ch.zhaw.warranty.photo.PhotoActivity">
-        </activity>
-        <activity android:name="ch.zhaw.warranty.photo.Photo2Activity">
-        </activity> 
+            ></activity> 
     </application>
 
 </manifest>
