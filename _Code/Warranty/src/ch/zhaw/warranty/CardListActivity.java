@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,10 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import ch.zhaw.warranty.card.WarrantyCard;
+import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
+	public static TBLWarrantyConnector tblwarranty;
+
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -32,20 +34,11 @@ public class CardListActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    boolean handled = false;
 		switch (item.getItemId()){
-	    case R.id.card_menu_sortByTitle:
-	    	setOrder("title");
-	    	handled = true;
+	    case R.id.cardlist_menu_exit:
+	    	moveTaskToBack(true);
 	    	break;
-
-	    case R.id.card_menu_sortByDate:
-	    	setOrder("created_at");
-	        handled = true;
-	        break;
-	        
-	    case R.id.card_menu_sortByDesc:
-	    	setOrder("description");
-	        handled = true;
-	        break;
+	    case R.id.cardlist_menu_DeleteAll:
+	    	tblwarranty.deleteAllCards();
 	    }
 	    return handled;
 	}
@@ -65,8 +58,8 @@ public class CardListActivity extends ListActivity {
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
+		tblwarranty = new TBLWarrantyConnector(this);
 		list = getListView();
-		
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -87,8 +80,7 @@ public class CardListActivity extends ListActivity {
 				startActivity(getIntent());
 				return true;
 				}
-		});
-		
+		});		
 		setOrder("title");		
 	}
 	
@@ -121,7 +113,7 @@ public class CardListActivity extends ListActivity {
 	}
 	
 	private void setOrder(String order){
-		ArrayList<WarrantyCard> cards = MainActivity.tblwarranty.getAllCardsOrdered(order);
+		ArrayList<WarrantyCard> cards = tblwarranty.getAllCardsOrdered(order);
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
 		

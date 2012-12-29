@@ -34,12 +34,9 @@ public final class R {
         public static final int card_TBprice=0x7f06000a;
         public static final int card_TBreseller=0x7f060006;
         public static final int card_TBtitle=0x7f060002;
-        public static final int card_menu_DeleteAll=0x7f06001e;
-        public static final int card_menu_Exit=0x7f06001f;
-        public static final int card_menu_sortByDate=0x7f06001c;
-        public static final int card_menu_sortByDesc=0x7f06001d;
-        public static final int card_menu_sortByTitle=0x7f06001b;
         public static final int cardlist_BTnewcard=0x7f060010;
+        public static final int cardlist_menu_DeleteAll=0x7f06001b;
+        public static final int cardlist_menu_exit=0x7f06001c;
         public static final int editText1=0x7f060001;
         public static final int imageView1=0x7f060018;
         public static final int linearLayout1=0x7f060012;
@@ -56,8 +53,7 @@ public final class R {
     public static final class menu {
         public static final int activity_card=0x7f050000;
         public static final int activity_card_list=0x7f050001;
-        public static final int activity_edit_card=0x7f050002;
-        public static final int activity_main=0x7f050003;
+        public static final int activity_main=0x7f050002;
     }
     public static final class string {
         /**  Warranty Strings 
