@@ -20,7 +20,6 @@ public class MainActivity extends Activity {
 // This is an ugly hack :) remove later
 //		startActivity(new Intent(MainActivity.this,	ch.zhaw.warranty.CardListActivity.class));
 
-
 	}
 
 	@Override

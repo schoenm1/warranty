@@ -19,26 +19,16 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_card_list">CardListActivity</string>
     <string name="ButtonListAllWarrantyCards">List all warranty cards</string>
-    <string name="hello">Hello World, PhotoIntentActivity!</string>
-    <string name="app_name">PhotoByIntent</string>
+    <string name="app_name">Warranty</string>
     <string name="btnIntend">Take Picture</string>
     <string name="btn_browse_list">Browse List</string>
     <string name="btnIntendV">Take Video</string>
     <string name="cannot">Cannot</string>
     <string name="album_name">warranty</string>
 
-    <string-array name="browse_list_spinner">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-    </string-array>
-
     <string name="search">Search</string>
-    <string name="type_here">Type here. . .</string>
     <string name="quit_app">Quit Warranty</string>
-    <string name="title_activity_edit_card">EditCard</string>
     <string name="ButtonUpdate">Update</string>
-    <string name="ButtonDeleteThisCard">Delete this card</string>
     <string name="button">Button</string>
 
 </resources>
