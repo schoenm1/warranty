@@ -75,7 +75,7 @@ public class CardListActivity extends ListActivity {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				Toast.makeText(getApplicationContext(), card.getTitle() + " deleted",Toast.LENGTH_LONG).show();
-				MainActivity.tblwarranty.deleteCard(card.get_id());
+				tblwarranty.deleteCard(card.get_id());
 				finish();
 				startActivity(getIntent());
 				return true;

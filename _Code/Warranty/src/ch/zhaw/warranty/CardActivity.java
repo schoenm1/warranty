@@ -95,8 +95,8 @@ public class CardActivity extends FragmentActivity {
     	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
     			tbdesc.getText().toString(), imgPath, btcreatedat.getText().toString(), 
     			btvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
-    	MainActivity.tblwarranty.insertWarrantyCard(card);
-    	startActivity(new Intent(this, MainActivity.class));
+    	tblwarranty.insertWarrantyCard(card);
+    	startActivity(new Intent(this, CardListActivity.class));
     }
     
     /**
