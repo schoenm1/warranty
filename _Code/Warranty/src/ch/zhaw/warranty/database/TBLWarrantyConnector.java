@@ -40,8 +40,10 @@ public class TBLWarrantyConnector {
 	}
 	
 	/**
-	 * This method will be called each time a new warranty card is created
-	 * @param card	newly created warranty card
+	 * Creates a new warranty card or updates an existing one.
+	 * If the cardID is 0, a new card will be created. Otherwise the card with the given ID will be updated.
+	 * 
+	 * @param card	card to create / to update
 	 */
 	public void insertWarrantyCard(WarrantyCard card){
 		ContentValues values = new ContentValues();
@@ -64,22 +66,28 @@ public class TBLWarrantyConnector {
 		closeDB();
 	}
 
-	/**
-	 * This method is used to update a particular warranty card
-	 * @param card	card to update
-	 */
-	public void updateWarrantyCard(WarrantyCard card) {
-		ContentValues values = new ContentValues();
-		values.put("title", card.getTitle());
-		values.put("description", card.getDescription());
-		
-		openDB();
-			db.update(TBLWarrantyHelper.TBL_NAME, values, "_id="+card.get_id(), null);
-		closeDB();
-	}
+//	/**
+//	 * Updates a particular warranty card
+//	 *
+//	 * @param card	updated warranty card
+//	 */
+//	public void updateWarrantyCard(WarrantyCard card) {
+//		ContentValues values = new ContentValues();
+//		values.put(TBLWarrantyHelper.CLMN_TITLE, card.getTitle());
+//		values.put(TBLWarrantyHelper.CLMN_DESC, card.getDescription());
+//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
+//		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
+////		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
+//		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
+//		
+//		openDB();
+//			db.update(TBLWarrantyHelper.TBL_NAME, values, "_id="+card.get_id(), null);
+//		closeDB();
+//	}
 	
 	/**
-	 * This method will return all saved warranty cards
+	 * Returns all warranty cards in an unordered ArrayList
+	 * 
 	 * @return	all saved warranty cards
 	 */
 	public ArrayList<WarrantyCard> getAllCards() {
@@ -99,6 +107,12 @@ public class TBLWarrantyConnector {
 		return cards;
 	}
 	
+	/**
+	 * Returns all warranty cards as a ordered ArrayList
+	 * 
+	 * @param order		sort criteria
+	 * @return			ordered ArrayList
+	 */
 	public ArrayList<WarrantyCard> getAllCardsOrdered(String order) {
 		if (order.matches("^title$")) {
 			order = TBLWarrantyHelper.CLMN_TITLE;
@@ -132,6 +146,12 @@ public class TBLWarrantyConnector {
 		return cards;		
 	}
 	
+	/**
+	 * Reads the current entry from the database and creates a warranty card from it
+	 * 
+	 * @param cursor	current position in the database
+	 * @return			Warranty card of the current database position
+	 */
 	private WarrantyCard db2Card(Cursor cursor) {
 		return new WarrantyCard(cursor.getInt(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_ID)),
 				cursor.getString(cursor.getColumnIndex(TBLWarrantyHelper.CLMN_TITLE)), 
@@ -144,6 +164,12 @@ public class TBLWarrantyConnector {
 				);
 	}
 	
+	/**
+	 * Returns a warranty card with a particular ID
+	 * 
+	 * @param cardID	ID of the warranty card that should be returned
+	 * @return			Warranty card with given ID
+	 */
 	public WarrantyCard getWarrantyCard(int cardID) {
 		System.out.println("getting card with id "+ cardID + " for you");
 		WarrantyCard card; 
@@ -161,16 +187,19 @@ public class TBLWarrantyConnector {
 		return card;
 	}
 	/**
-	 * Deletes all saved cards
+	 * Deletes all saved warranty cards from the database
 	 */
 	public void deleteAllCards() {
 		openDB();
 		db.delete(TBLWarrantyHelper.TBL_NAME, null, null);
-//		db.execSQL("delete from " + TBLWarrantyHelper.TBL_NAME);
 		closeDB();
-		
 	}
 	
+	/**
+	 * Deletes a warranty card from the database
+	 * 
+	 * @param cardID	id of the card which should be deleted.
+	 */
 	public void deleteCard(int cardID) {
 		openDB();
 		db.delete(TBLWarrantyHelper.TBL_NAME, "_id = " + cardID, null);

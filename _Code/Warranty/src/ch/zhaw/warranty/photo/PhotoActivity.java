@@ -7,7 +7,6 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,19 +14,17 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import ch.zhaw.warranty.R;
 
 public class PhotoActivity extends Activity {
-
 	private static final int ACTION_TAKE_PHOTO_B = 1;
-
 	private String mCurrentPhotoPath;
-
 	private static final String JPEG_FILE_PREFIX = "IMG_";
 	private static final String JPEG_FILE_SUFFIX = ".jpg";
 
-
+	/**
+	 * @return
+	 */
 	private File getPhotoDir() {
 		File storageDir = new File(Environment.getExternalStorageDirectory() + "/Warranty");
 		if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
@@ -45,6 +42,10 @@ public class PhotoActivity extends Activity {
 		return storageDir;
 	}
 
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	private File createImageFile() throws IOException {
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 		String imageFileName = JPEG_FILE_PREFIX + timeStamp;
@@ -53,8 +54,10 @@ public class PhotoActivity extends Activity {
 		return imageF;
 	}
 
+	/**
+	 * @param actionCode
+	 */
 	private void dispatchTakePictureIntent(int actionCode) {
-
 		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		switch (actionCode) {
 		case ACTION_TAKE_PHOTO_B:
@@ -77,14 +80,18 @@ public class PhotoActivity extends Activity {
 
 
 	Button.OnClickListener mTakePicOnClickListener = new Button.OnClickListener() {
-//		@Override
+		/* (non-Javadoc)
+		 * @see android.view.View.OnClickListener#onClick(android.view.View)
+		 */
+		@Override
 		public void onClick(View v) {
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 		}
 	};
 
-
-	/** Called when the activity is first created. */
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -92,6 +99,9 @@ public class PhotoActivity extends Activity {
 		dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {

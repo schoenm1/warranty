@@ -22,39 +22,82 @@ public class WarrantyCard {
 		this.reseller = reseller;		
 	}
 
+	/**
+	 * returns the ID
+	 * 
+	 * @return	ID of the current card
+	 */
 	public int get_id() {
 		return _id;
 	}
 
+	/**
+	 * returns the title
+	 * 
+	 * @return	Title of the current card
+	 */
 	public String getTitle() {
 		return title;
 	}
 
+	/**
+	 * returns the description
+	 * 
+	 * @return	Description of the current card
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * returns the path to the image file
+	 * 
+	 * @return	Path to the image of the current card
+	 */
 	public String getImagePath() {
 		return imagePath;
 	}
 
+	/**
+	 * returns the creation date
+	 * 
+	 * @return	creation date of the current card
+	 */
 	public String getCreatedAt() {
 		return createdAt;
 	}
 
+	/**
+	 * returns the expiration date
+	 * 
+	 * @return	expiration date of the current card
+	 */
 	public String getValidUntil() {
 		return validUntil;
 	}
 
+	/**
+	 * returns the price
+	 * 
+	 * @return	price of the current card
+	 */
 	public String getPrice() {
 		return price;
 	}
 
+	/**
+	 * returns the reseller
+	 * 
+	 * @return	reseller  of the current card
+	 */
 	public String getReseller() {
 		return reseller;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
-		return title  + _id;
+		return title + " [" + description + "] - " + validUntil;
 	}
 }

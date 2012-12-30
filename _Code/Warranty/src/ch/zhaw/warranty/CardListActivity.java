@@ -25,12 +25,19 @@ public class CardListActivity extends ListActivity {
 	public static TBLWarrantyConnector tblwarranty;
 
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_card_list, menu);
         return true;
     }
     
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+	 */
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    boolean handled = false;
 		switch (item.getItemId()){
@@ -39,11 +46,17 @@ public class CardListActivity extends ListActivity {
 	    	break;
 	    case R.id.cardlist_menu_DeleteAll:
 	    	tblwarranty.deleteAllCards();
+	    	setOrder("title"); //only usage is to update the list view ;)
 	    }
 	    return handled;
 	}
 	
-	 public void onClick(View view) {
+	/**
+	 * Determines the clicked button and executes the correct method
+	 * 
+	 * @param view	current view	
+	 */
+	public void onClick(View view) {
 	        switch (view.getId()) {
 	        case R.id.cardlist_BTnewcard:
 	        	startActivity(new Intent(CardListActivity.this, ch.zhaw.warranty.photo.PhotoActivity.class));
@@ -54,6 +67,9 @@ public class CardListActivity extends ListActivity {
 	        }
 	      }
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	public void onCreate(Bundle saveInstanceState) {
    		super.onCreate(saveInstanceState);
@@ -62,7 +78,11 @@ public class CardListActivity extends ListActivity {
 		list = getListView();
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
-			  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			  /* (non-Javadoc)
+			 * @see android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView, android.view.View, int, long)
+			 */
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
 				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				  intent.putExtra("id", card.get_id());
@@ -72,6 +92,10 @@ public class CardListActivity extends ListActivity {
 			});
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+			/* (non-Javadoc)
+			 * @see android.widget.AdapterView.OnItemLongClickListener#onItemLongClick(android.widget.AdapterView, android.view.View, int, long)
+			 */
+			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				Toast.makeText(getApplicationContext(), card.getTitle() + " deleted",Toast.LENGTH_LONG).show();
@@ -84,6 +108,9 @@ public class CardListActivity extends ListActivity {
 		setOrder("title");		
 	}
 	
+	/**
+	 * Opens an alert dialog containing possible sorting options
+	 */
 	private void getOrder() {
 		final CharSequence[] items = {getString(R.string.title), getString(R.string.description), getString(R.string.created_at) };
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -109,14 +136,16 @@ public class CardListActivity extends ListActivity {
 		});
 		AlertDialog alert = builder.create();
 		alert.show();
-
 	}
 	
+	/**
+	 * Sets order of displayed cards an refreshes view
+	 * 
+	 * @param order		Order to set.
+	 */
 	private void setOrder(String order){
 		ArrayList<WarrantyCard> cards = tblwarranty.getAllCardsOrdered(order);
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
-		
-		
 	}
 }
