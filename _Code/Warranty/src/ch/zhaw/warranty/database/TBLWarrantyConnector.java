@@ -51,6 +51,9 @@ public class TBLWarrantyConnector {
 		values.put(TBLWarrantyHelper.CLMN_DESC, card.getDescription());
 		values.put(TBLWarrantyHelper.CLMN_IMGPATH, card.getImagePath());
 		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
+		System.out.println("created at" + card.getCreatedAt());
+//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, "date('now')");
+//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, "date('" + card.getCreatedAt() + "')");
 		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
 		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
 		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
@@ -90,6 +93,7 @@ public class TBLWarrantyConnector {
 	 * 
 	 * @return	all saved warranty cards
 	 */
+	@Deprecated
 	public ArrayList<WarrantyCard> getAllCards() {
 		System.out.println("list all cards");
 		openDB();
@@ -113,7 +117,11 @@ public class TBLWarrantyConnector {
 	 * @param order		sort criteria
 	 * @return			ordered ArrayList
 	 */
-	public ArrayList<WarrantyCard> getAllCardsOrdered(String order) {
+	public ArrayList<WarrantyCard> getAllCardsOrdered(String order, boolean showexpired) {
+		String where_clause = null;
+		if (! showexpired) {
+			where_clause=TBLWarrantyHelper.CLMN_VLDTIL + "> date('now')";
+		}
 		if (order.matches("^title$")) {
 			order = TBLWarrantyHelper.CLMN_TITLE;
 		} else if (order.matches("^description$")) {
@@ -134,7 +142,7 @@ public class TBLWarrantyConnector {
 		openDB();
 
 		ArrayList<WarrantyCard> cards = new ArrayList<WarrantyCard>();
-		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , null, null, null, null,order);
+		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , where_clause, null, null, null,order);
 		cursor.moveToFirst();
 
 		while(!cursor.isAfterLast()) {

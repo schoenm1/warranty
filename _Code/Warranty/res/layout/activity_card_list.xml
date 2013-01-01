@@ -10,14 +10,28 @@
         android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content" >
-        
+
+	    <LinearLayout 
+	        android:id="@+id/expires_checkbox"
+	        android:orientation="horizontal"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content">
+		    <CheckBox 
+		        android:id="@+id/cardlist.CBexpired" 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/show_expired"
+		        android:checked="false" >
+		      </CheckBox>
+		</LinearLayout>
 		<LinearLayout 
 			android:id="@+id/page_buttons"
 			android:orientation="horizontal"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:gravity="center_horizontal" >
-
+			android:gravity="center_horizontal"
+			android:layout_below="@id/expires_checkbox" >
+			
 			<Button 
 	            android:text="@string/newCard" 
 	            android:id="@+id/cardlist.BTnewcard" 

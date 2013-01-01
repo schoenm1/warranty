@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 import ch.zhaw.warranty.card.WarrantyCard;
@@ -22,6 +24,8 @@ import ch.zhaw.warranty.database.TBLWarrantyConnector;
 public class CardListActivity extends ListActivity {
 	private ArrayAdapter<WarrantyCard> arrayAdapter;
 	private ListView list;
+	private CheckBox cbExpired;
+	private boolean showExpired;
 	public static TBLWarrantyConnector tblwarranty;
 
 
@@ -75,6 +79,7 @@ public class CardListActivity extends ListActivity {
    		super.onCreate(saveInstanceState);
 		setContentView(R.layout.activity_card_list);
 		tblwarranty = new TBLWarrantyConnector(this);
+		cbExpired = (CheckBox) findViewById(R.id.cardlist_CBexpired);
 		list = getListView();
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
@@ -97,6 +102,12 @@ public class CardListActivity extends ListActivity {
 				return true;
 				}
 		});		
+		cbExpired.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				showExpired = cbExpired.isChecked();
+				setOrder("title");
+			}
+		});
 		setOrder("title");		
 	}
 	
@@ -136,7 +147,7 @@ public class CardListActivity extends ListActivity {
 	 * @param order		Order to set.
 	 */
 	private void setOrder(String order){
-		ArrayList<WarrantyCard> cards = tblwarranty.getAllCardsOrdered(order);
+		ArrayList<WarrantyCard> cards = tblwarranty.getAllCardsOrdered(order, showExpired);
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
 	}

@@ -116,9 +116,14 @@ public class CardActivity extends FragmentActivity {
      */
     private void createNewCard() {
     	//Note: 0 is a dummy _id. This will be overwritten by auto increment of sqlite
+//    	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
+//    			tbdesc.getText().toString(), imgPath, btcreatedat.getText().toString(), 
+//    			btvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
-    			tbdesc.getText().toString(), imgPath, btcreatedat.getText().toString(), 
-    			btvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
+    			tbdesc.getText().toString(), imgPath, 
+    			createdAt.get(Calendar.YEAR) + "-" + createdAt.get(Calendar.MONTH) + "-" + createdAt.get(Calendar.DAY_OF_MONTH),
+    			validUntil.get(Calendar.YEAR) + "-" + validUntil.get(Calendar.MONTH) + "-" + validUntil.get(Calendar.DAY_OF_MONTH),
+    			tbprice.getText().toString(), tbreseller.getText().toString());
     	tblwarranty.insertWarrantyCard(card);
     	startActivity(new Intent(this, CardListActivity.class));
     }
@@ -161,7 +166,7 @@ public class CardActivity extends FragmentActivity {
      */
     private OnDateSetListener dateSetListener = new OnDateSetListener() {
 		public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
-			activeDate.set(year, monthOfYear, dayOfMonth);
+			activeDate.set(year, monthOfYear+1, dayOfMonth);
 			updateButtonText(activeDateButton, activeDate);
 		}
 	};
@@ -173,7 +178,7 @@ public class CardActivity extends FragmentActivity {
 	 * @param activeDate		Date that should be displayed on the button
 	 */
 	private void updateButtonText(Button activeDateButton, Calendar activeDate) {
-		activeDateButton.setText(activeDate.get(Calendar.DAY_OF_MONTH) + "." + activeDate.get(Calendar.MONTH -1) + "." + activeDate.get(Calendar.YEAR));
+		activeDateButton.setText(activeDate.get(Calendar.DAY_OF_MONTH) + "." + activeDate.get(Calendar.MONTH) + "." + activeDate.get(Calendar.YEAR));
 	}
 	
     /* (non-Javadoc)

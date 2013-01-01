@@ -18,6 +18,7 @@
     <string name="takePicture">Take Picture</string>
     <string name="deleteAllCards">Delete all cards</string>
     <string name="sort">Sort</string>
+	<string name="show_expired">Show expired cards</string>
     
     
     <!-- deprecated/ debug only -->
