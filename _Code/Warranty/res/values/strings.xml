@@ -12,7 +12,7 @@
 	<string name="title">Title</string>
     <string name="description">Description</string>
     <string name="created_at">Created at</string>
-    <string name="valid_until">Valid Until</string>
+    <string name="valid_until">Expires at</string>
     <string name="price">Price</string>
     <string name="reseller">Reseller</string>
     <string name="takePicture">Take Picture</string>
