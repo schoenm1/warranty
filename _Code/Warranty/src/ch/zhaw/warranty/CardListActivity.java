@@ -78,10 +78,6 @@ public class CardListActivity extends ListActivity {
 		list = getListView();
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
-			  /* (non-Javadoc)
-			 * @see android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView, android.view.View, int, long)
-			 */
-			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				  Intent intent = new Intent(CardListActivity.this, CardActivity.class);
 				  WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
@@ -92,10 +88,6 @@ public class CardListActivity extends ListActivity {
 			});
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
-			/* (non-Javadoc)
-			 * @see android.widget.AdapterView.OnItemLongClickListener#onItemLongClick(android.widget.AdapterView, android.view.View, int, long)
-			 */
-			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
 				Toast.makeText(getApplicationContext(), card.getTitle() + " deleted",Toast.LENGTH_LONG).show();

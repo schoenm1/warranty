@@ -160,10 +160,6 @@ public class CardActivity extends FragmentActivity {
      * Listens for clicked buttons in date picker dialog and executeds onDateSet methods.
      */
     private OnDateSetListener dateSetListener = new OnDateSetListener() {
-		/* (non-Javadoc)
-		 * @see android.app.DatePickerDialog.OnDateSetListener#onDateSet(android.widget.DatePicker, int, int, int)
-		 */
-		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
 			activeDate.set(year, monthOfYear, dayOfMonth);
 			updateButtonText(activeDateButton, activeDate);

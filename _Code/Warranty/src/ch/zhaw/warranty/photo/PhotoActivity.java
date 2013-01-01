@@ -80,10 +80,7 @@ public class PhotoActivity extends Activity {
 
 
 	Button.OnClickListener mTakePicOnClickListener = new Button.OnClickListener() {
-		/* (non-Javadoc)
-		 * @see android.view.View.OnClickListener#onClick(android.view.View)
-		 */
-		@Override
+
 		public void onClick(View v) {
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 		}
