@@ -52,8 +52,6 @@ public class TBLWarrantyConnector {
 		values.put(TBLWarrantyHelper.CLMN_IMGPATH, card.getImagePath());
 		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
 		System.out.println("created at" + card.getCreatedAt());
-//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, "date('now')");
-//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, "date('" + card.getCreatedAt() + "')");
 		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
 		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
 		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
