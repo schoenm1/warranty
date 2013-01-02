@@ -18,7 +18,7 @@
     <string name="takePicture">Foto erstellen</string>
     <string name="deleteAllCards">Alle Quitungen löschen</string>
 	<string name="sort">Sortiern</string>
-		<string name="show_expired">Zeige abgelaufene Quitungen</string>
+	<string name="show_expired">Zeige abgelaufene Quitungen</string>
     
     
     <!-- deprecated/ debug only -->
