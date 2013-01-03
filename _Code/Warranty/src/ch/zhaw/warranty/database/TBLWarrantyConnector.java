@@ -51,12 +51,10 @@ public class TBLWarrantyConnector {
 		values.put(TBLWarrantyHelper.CLMN_DESC, card.getDescription());
 		values.put(TBLWarrantyHelper.CLMN_IMGPATH, card.getImagePath());
 		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
-		System.out.println("created at" + card.getCreatedAt());
 		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
 		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
 		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
-		System.out.println(card.getImagePath());
-		Log.v("foo", card.getImagePath());
+		Log.d("Image Path", card.getImagePath());
 
 		openDB();
 			if (card.get_id() == 0) {
@@ -195,6 +193,7 @@ public class TBLWarrantyConnector {
 	/**
 	 * Deletes all saved warranty cards from the database
 	 */
+	@Deprecated
 	public void deleteAllCards() {
 		openDB();
 		db.delete(TBLWarrantyHelper.TBL_NAME, null, null);
@@ -204,11 +203,15 @@ public class TBLWarrantyConnector {
 	/**
 	 * Deletes a warranty card from the database
 	 * 
-	 * @param cardID	id of the card which should be deleted.
+	 * @param cardID	id of the card which should be deleted. If the id is 0, all cards will be deleted
 	 */
 	public void deleteCard(int cardID) {
 		openDB();
-		db.delete(TBLWarrantyHelper.TBL_NAME, "_id = " + cardID, null);
+		if (cardID == 0) {
+			db.delete(TBLWarrantyHelper.TBL_NAME, null, null);		
+		} else {
+			db.delete(TBLWarrantyHelper.TBL_NAME, TBLWarrantyHelper.CLMN_ID + "=" + cardID, null);
+		}
 		closeDB();
 	}
 }

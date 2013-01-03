@@ -49,7 +49,7 @@ public class CardListActivity extends ListActivity {
 	    	moveTaskToBack(true);
 	    	break;
 	    case R.id.cardlist_menu_DeleteAll:
-	    	tblwarranty.deleteAllCards();
+	    	tblwarranty.deleteCard(0);
 	    	setOrder("title"); //only usage is to update the list view ;)
 	    }
 	    return handled;
