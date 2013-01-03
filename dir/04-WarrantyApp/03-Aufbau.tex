@@ -1,0 +1,24 @@
+\subsection{Klassendiagramm}
+
+\subsection{Permissions}
+Die Warranty App benötigt wenige zusätzliche Rechte. Um Bilder speichern zu können ist jedoch ein Speicherplatz erforderlich. Da die meisten Android basierten Smartphones einen sehr kleinen internen Speicher haben, bietet sich der externe Speicher bestens an. Je nach Modell ist dies entweder eine zusätzliche MicroSD [Glossar] Karte oder einfach eine zusätzliche logische Partition auf dem internen Speicher. Der Vorteil dieses externen Speichers ist, dass man ihn ohne weiteres auf dem Computer einhängen und auf die Dateien zugreifen kann.
+
+Um auf diesen externen Speicher zuzugreifen, wird folgende Zeile im Manifest.xml benötigt.
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+\end{lstlisting}
+
+Nebst dem Zugriff auf den Speicher, bedient sich Warranty den Kamerafunktionalitäten. Da diese ebenfalls explizit erlaubt werden müssen, wird das entsprechende Recht im Manifest.xml hinterlegt.
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}
+<uses-permission android:name="android.permission.CAMERA" />
+\end{lstlisting}
+
+\subsection{Datenbank}
+Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches DBMS\footnote{Database Management System}  wie beispielsweise MySQL oder PostgreSQL zu installieren absurd. Zum einen benötigen wir Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
+\newline
+Um dennoch eine Datenbank auf einem Smartphone verwenden zu können, bietet sich SQLite an. SQLite ist eine Programmbibliothek, die sich direkt in der Applikation einbinden lässt und somit keinen Server- Prozess benötigt, also ressourcensparend ist. Die gesamte Datenbank inklusive aller Tabellen, Indizes und Werten werden in einer einzigen Datei abgelegt, was ein paralleles Schreiben auf die Datenbank unmöglich macht.
+\newline
+Dank der nativen SQLite Unterstützung von Android, fällt ein aufwändiges einbinden einer 3rd Party Library weg.
+
