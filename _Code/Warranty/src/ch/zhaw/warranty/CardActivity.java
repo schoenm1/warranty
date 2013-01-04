@@ -1,6 +1,9 @@
 package ch.zhaw.warranty;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -12,7 +15,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -64,8 +66,10 @@ public class CardActivity extends FragmentActivity {
         	WarrantyCard card = tblwarranty.getWarrantyCard(id);
         	tbtitle.setText(card.getTitle());
             tbdesc.setText(card.getDescription());
-            btcreatedat.setText(card.getCreatedAt());
-            btvalidtil.setText(card.getValidUntil());
+            createdAt = stringToCalendar(card.getCreatedAt());
+            updateButtonText(btcreatedat, createdAt);
+            validUntil = stringToCalendar(card.getValidUntil());
+            updateButtonText(btvalidtil, validUntil );
             tbprice.setText(card.getPrice());
             tbreseller.setText(card.getReseller());
             imgPath = card.getImagePath();   
@@ -176,7 +180,7 @@ public class CardActivity extends FragmentActivity {
      */
     private OnDateSetListener dateSetListener = new OnDateSetListener() {
 		public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
-			activeDate.set(year, monthOfYear+1, dayOfMonth);
+			activeDate.set(year, monthOfYear, dayOfMonth);
 			updateButtonText(activeDateButton, activeDate);
 		}
 	};
@@ -188,7 +192,10 @@ public class CardActivity extends FragmentActivity {
 	 * @param activeDate		Date that should be displayed on the button
 	 */
 	private void updateButtonText(Button activeDateButton, Calendar activeDate) {
-		activeDateButton.setText(activeDate.get(Calendar.DAY_OF_MONTH) + "." + activeDate.get(Calendar.MONTH) + "." + activeDate.get(Calendar.YEAR));
+		int day = activeDate.get(Calendar.DAY_OF_MONTH);
+		int month = activeDate.get(Calendar.MONTH)+1;
+		int year = activeDate.get(Calendar.YEAR);
+		activeDateButton.setText(day + "." + month + "." + year);
 	}
 	
     /* (non-Javadoc)
@@ -206,6 +213,21 @@ public class CardActivity extends FragmentActivity {
     protected void onPrepareDialog(int id, Dialog dialog) {
         super.onPrepareDialog(id, dialog);
         ((DatePickerDialog) dialog).updateDate(activeDate.get(Calendar.YEAR), activeDate.get(Calendar.MONTH), activeDate.get(Calendar.DAY_OF_MONTH));
+    }
+    
+    private Calendar stringToCalendar(String dateString) {
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	Date date = null;
+		try {
+			date = dateFormat.parse(dateString);
+			//Fix the missing month that gets lost during the Calendar -> String conversion.
+			date.setMonth(date.getMonth()+1);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTime(date);
+    	return cal;
     }
     
 }

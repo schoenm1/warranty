@@ -98,6 +98,6 @@ public class WarrantyCard {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
-		return title + " [" + description + "] - " + validUntil;
+		return title + " (" + description + ")";
 	}
 }
