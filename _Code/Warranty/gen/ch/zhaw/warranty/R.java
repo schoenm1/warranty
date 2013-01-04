@@ -14,6 +14,7 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
+        public static final int BTDateTest=0x7f06001c;
         public static final int BTDeleteAll=0x7f06001a;
         public static final int BTListWarrantyCards=0x7f060019;
         public static final int BTQuit=0x7f06001b;
@@ -36,15 +37,15 @@ public final class R {
         public static final int card_TBtitle=0x7f060001;
         public static final int cardlist_BTnewcard=0x7f060014;
         public static final int cardlist_CBexpired=0x7f060013;
-        public static final int cardlist_menu_DeleteAll=0x7f06001d;
-        public static final int cardlist_menu_exit=0x7f06001e;
+        public static final int cardlist_menu_DeleteAll=0x7f06001e;
+        public static final int cardlist_menu_exit=0x7f06001f;
         public static final int date_fields_and_pickers_1=0x7f060003;
         public static final int date_fields_and_pickers_2=0x7f060006;
         public static final int expires_checkbox=0x7f060012;
-        public static final int fullscreendisplay=0x7f06001c;
+        public static final int fullscreendisplay=0x7f06001d;
         public static final int image_view=0x7f06000e;
         public static final int linearLayout1=0x7f060016;
-        public static final int menu_settings=0x7f06001f;
+        public static final int menu_settings=0x7f060020;
         public static final int page_buttons=0x7f06000b;
     }
     public static final class layout {
