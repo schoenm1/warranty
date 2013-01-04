@@ -6,15 +6,6 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:inputType="text" 
-        android:visibility="invisible" />
-
-    <EditText
         android:id="@+id/card.TBtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,73 +21,76 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/card.TBtitle"
         android:ems="10"
         android:hint="@string/description"
         android:inputType="text" />
 
-    <TextView
-        android:id="@+id/TxTCreatedAt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/card.TBdesc"
-        android:text="@string/created_at"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/card.BTaddcard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/card.TBreseller"
-        android:onClick="onClick"
-        android:text="@string/save" />
-
-    <TextView
-        android:id="@+id/TxTValidTil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TxTCreatedAt"
-        android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@+id/card.BTvaliduntil"
-        android:text="@string/valid_until"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/card.BTcreatedat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBdesc"
-        android:onClick="onClick"
-        android:text="@string/created_at" />
-
-    <Button
-        android:id="@+id/card.BTvaliduntil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/card.BTcreatedat"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/TxTValidTil"
-        android:onClick="onClick"
-        android:text="@string/valid_until" />
-
+    <!--  Date Textviews and Pickers -->
+     	<LinearLayout 
+				android:id="@+id/date_fields_and_pickers_1"
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:layout_below="@id/card.TBdesc" >
+				
+ 
+		    <TextView
+		        android:id="@+id/TxTCreatedAt"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:layout_weight="1"
+		        android:text="@string/created_at"
+		        android:paddingLeft="10dp"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+			<Button
+		        android:id="@+id/card.BTcreatedat"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:layout_weight="3"
+		        android:onClick="onClick"
+		        android:text="@string/created_at" />
+		
+		</LinearLayout>
+		<LinearLayout 
+			android:id="@+id/date_fields_and_pickers_2"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:layout_below="@id/date_fields_and_pickers_1" >    
+		    
+		    <TextView
+		        android:id="@+id/TxTValidTil"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/valid_until"
+		        android:layout_weight="1"
+		        android:paddingLeft="10dp"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+		    <Button
+		        android:id="@+id/card.BTvaliduntil"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:layout_weight="3"
+		        android:onClick="onClick"
+		        android:text="@string/valid_until" />
+		
+		</LinearLayout>
+ 
+   <!--  Rest of Textfields -->
     <EditText
         android:id="@+id/card.TBprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.BTvaliduntil"
+        android:layout_below="@+id/date_fields_and_pickers_2"
         android:ems="10"
         android:hint="@string/price"
-        android:inputType="numberDecimal" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="numberDecimal" />
+    
 
     <EditText
         android:id="@+id/card.TBreseller"
@@ -104,27 +98,41 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.BTvaliduntil"
-        android:layout_marginTop="47dp"
+        android:layout_below="@+id/card.TBprice"
         android:ems="10"
         android:hint="@string/reseller"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/card.BTClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/card.TBreseller"
-        android:onClick="onClick"
-        android:text="@string/clear" />
+        android:inputType="text" />  
     
+    <!--  Page Buttons -->
+    	<LinearLayout 
+				android:id="@+id/page_buttons"
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:layout_below="@id/card.TBreseller" >
+				
+			   <Button
+			        android:id="@+id/card.BTaddcard"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:layout_weight="1"
+			        android:onClick="onClick"
+			        android:text="@string/save" />
+			  
+    	        <Button
+			        android:id="@+id/card.BTClear"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:onClick="onClick"
+			        android:text="@string/clear" 
+					android:layout_weight="1" />
+		</LinearLayout>
+
     <ImageView 
         android:id="@+id/card.ImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/card.BTaddcard"
-        
-        />
+        android:layout_below="@+id/card.BTaddcard"/>
 
 </RelativeLayout>
