@@ -65,48 +65,6 @@ public class TBLWarrantyConnector {
 		closeDB();
 	}
 
-//	/**
-//	 * Updates a particular warranty card
-//	 *
-//	 * @param card	updated warranty card
-//	 */
-//	public void updateWarrantyCard(WarrantyCard card) {
-//		ContentValues values = new ContentValues();
-//		values.put(TBLWarrantyHelper.CLMN_TITLE, card.getTitle());
-//		values.put(TBLWarrantyHelper.CLMN_DESC, card.getDescription());
-//		values.put(TBLWarrantyHelper.CLMN_CREATEDAT, card.getCreatedAt());
-//		values.put(TBLWarrantyHelper.CLMN_VLDTIL, card.getValidUntil());
-////		values.put(TBLWarrantyHelper.CLMN_PRICE, card.getPrice());
-//		values.put(TBLWarrantyHelper.CLMN_RESSELLER, card.getReseller());
-//		
-//		openDB();
-//			db.update(TBLWarrantyHelper.TBL_NAME, values, "_id="+card.get_id(), null);
-//		closeDB();
-//	}
-	
-	/**
-	 * Returns all warranty cards in an unordered ArrayList
-	 * 
-	 * @return	all saved warranty cards
-	 */
-	@Deprecated
-	public ArrayList<WarrantyCard> getAllCards() {
-		System.out.println("list all cards");
-		openDB();
-
-		ArrayList<WarrantyCard> cards = new ArrayList<WarrantyCard>();
-		Cursor cursor = db.query(TBLWarrantyHelper.TBL_NAME, null , null, null, null, null,TBLWarrantyHelper.CLMN_TITLE);
-		cursor.moveToFirst();
-
-		while(!cursor.isAfterLast()) {
-			cards.add(db2Card(cursor));
-			cursor.moveToNext();
-		}
-		cursor.close();
-		closeDB();
-		return cards;
-	}
-	
 	/**
 	 * Returns all warranty cards as a ordered ArrayList
 	 * 
@@ -175,7 +133,6 @@ public class TBLWarrantyConnector {
 	 * @return			Warranty card with given ID
 	 */
 	public WarrantyCard getWarrantyCard(int cardID) {
-		System.out.println("getting card with id "+ cardID + " for you");
 		WarrantyCard card; 
 		card = new WarrantyCard(0,"dummy", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy");
 		
@@ -189,15 +146,6 @@ public class TBLWarrantyConnector {
 		cursor.close();
 		closeDB();
 		return card;
-	}
-	/**
-	 * Deletes all saved warranty cards from the database
-	 */
-	@Deprecated
-	public void deleteAllCards() {
-		openDB();
-		db.delete(TBLWarrantyHelper.TBL_NAME, null, null);
-		closeDB();
 	}
 	
 	/**
