@@ -17,9 +17,6 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		tblwarranty = new TBLWarrantyConnector(this);
-// This is an ugly hack :) remove later
-//		startActivity(new Intent(MainActivity.this,	ch.zhaw.warranty.CardListActivity.class));
-
 	}
 
 	@Override
@@ -57,7 +54,7 @@ public class MainActivity extends Activity {
 	 * deletes all saved cards
 	 */
 	private void deleteAllCards() {
-		tblwarranty.deleteAllCards();
+		tblwarranty.deleteCard(0);
 		// listAllCards();
 	}
 }
