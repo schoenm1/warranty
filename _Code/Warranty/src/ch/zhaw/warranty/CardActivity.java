@@ -1,6 +1,9 @@
 package ch.zhaw.warranty;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -31,6 +34,8 @@ public class CardActivity extends FragmentActivity {
     
     private Button activeDateButton;
     private Calendar activeDate;
+    
+    private ImageView warrantyImg;
 
     /* (non-Javadoc)
      * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
@@ -49,7 +54,8 @@ public class CardActivity extends FragmentActivity {
         btvalidtil = (Button) findViewById(R.id.card_BTvaliduntil);
         tbprice = (EditText) findViewById(R.id.card_TBprice);
         tbreseller = (EditText) findViewById(R.id.card_TBreseller);
-        
+        warrantyImg = (ImageView) findViewById(R.id.card_ImageView);
+
         Bundle extras = getIntent().getExtras();
         if (extras.getString("status").matches("new")) {
         	imgPath = extras.getString("path");
@@ -60,13 +66,15 @@ public class CardActivity extends FragmentActivity {
         	WarrantyCard card = tblwarranty.getWarrantyCard(id);
         	tbtitle.setText(card.getTitle());
             tbdesc.setText(card.getDescription());
-            btcreatedat.setText(card.getCreatedAt());
-            btvalidtil.setText(card.getValidUntil());
+            createdAt = stringToCalendar(card.getCreatedAt());
+            updateButtonText(btcreatedat, createdAt);
+            validUntil = stringToCalendar(card.getValidUntil());
+            updateButtonText(btvalidtil, validUntil );
             tbprice.setText(card.getPrice());
             tbreseller.setText(card.getReseller());
             imgPath = card.getImagePath();   
         }
-        showImage(imgPath);
+        showThumbnail(imgPath);
     }
     
     /**
@@ -74,19 +82,26 @@ public class CardActivity extends FragmentActivity {
      * 
      * @param imgPath	path to the image that should be displayed
      */
-    private void showImage(String imgPath) {
-    	ImageView warrantyImg = (ImageView) findViewById(R.id.card_ImageView);
+    private void showThumbnail(String imgPath) {
     	Bitmap bitmap = BitmapFactory.decodeFile(imgPath);
     	warrantyImg.setImageBitmap(bitmap);
     }
     
+    /**
+     * Opens the current photo displayed as thumbnail as fullscreen image
+     */
+    private void showFullscreenImage() {
+    	Intent intent = new Intent(CardActivity.this, ch.zhaw.warranty.photo.PhotoDisplayActivity.class); 
+    	intent.putExtra("imgpath", imgPath);
+    	startActivity(intent);
+    }
     /* (non-Javadoc)
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_card, menu);
-        return true;
+    	//no menu in this activity
+    	return false;
     }
     
     /**
@@ -107,7 +122,9 @@ public class CardActivity extends FragmentActivity {
         	break;
         case R.id.card_BTvaliduntil:
         	showDateDialog(btvalidtil, validUntil);
-        	break;
+        	break;     
+        case R.id.card_ImageView:
+        	showFullscreenImage();
         }
       }
     
@@ -116,9 +133,6 @@ public class CardActivity extends FragmentActivity {
      */
     private void createNewCard() {
     	//Note: 0 is a dummy _id. This will be overwritten by auto increment of sqlite
-//    	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
-//    			tbdesc.getText().toString(), imgPath, btcreatedat.getText().toString(), 
-//    			btvalidtil.getText().toString(), tbprice.getText().toString(), tbreseller.getText().toString());
     	WarrantyCard card = new WarrantyCard(id,tbtitle.getText().toString(), 
     			tbdesc.getText().toString(), imgPath, 
     			createdAt.get(Calendar.YEAR) + "-" + createdAt.get(Calendar.MONTH) + "-" + createdAt.get(Calendar.DAY_OF_MONTH),
@@ -166,7 +180,7 @@ public class CardActivity extends FragmentActivity {
      */
     private OnDateSetListener dateSetListener = new OnDateSetListener() {
 		public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
-			activeDate.set(year, monthOfYear+1, dayOfMonth);
+			activeDate.set(year, monthOfYear, dayOfMonth);
 			updateButtonText(activeDateButton, activeDate);
 		}
 	};
@@ -178,7 +192,10 @@ public class CardActivity extends FragmentActivity {
 	 * @param activeDate		Date that should be displayed on the button
 	 */
 	private void updateButtonText(Button activeDateButton, Calendar activeDate) {
-		activeDateButton.setText(activeDate.get(Calendar.DAY_OF_MONTH) + "." + activeDate.get(Calendar.MONTH) + "." + activeDate.get(Calendar.YEAR));
+		int day = activeDate.get(Calendar.DAY_OF_MONTH);
+		int month = activeDate.get(Calendar.MONTH)+1;
+		int year = activeDate.get(Calendar.YEAR);
+		activeDateButton.setText(day + "." + month + "." + year);
 	}
 	
     /* (non-Javadoc)
@@ -196,6 +213,21 @@ public class CardActivity extends FragmentActivity {
     protected void onPrepareDialog(int id, Dialog dialog) {
         super.onPrepareDialog(id, dialog);
         ((DatePickerDialog) dialog).updateDate(activeDate.get(Calendar.YEAR), activeDate.get(Calendar.MONTH), activeDate.get(Calendar.DAY_OF_MONTH));
+    }
+    
+    private Calendar stringToCalendar(String dateString) {
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	Date date = null;
+		try {
+			date = dateFormat.parse(dateString);
+			//Fix the missing month that gets lost during the Calendar -> String conversion.
+			date.setMonth(date.getMonth()+1);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTime(date);
+    	return cal;
     }
     
 }

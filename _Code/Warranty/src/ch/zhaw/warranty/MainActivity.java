@@ -41,20 +41,15 @@ public class MainActivity extends Activity {
 			startActivity(new Intent(MainActivity.this, ch.zhaw.warranty.photo.PhotoActivity.class));
 			break;
 		case R.id.BTDeleteAll:
-			deleteAllCards();
+			tblwarranty.deleteCard(0);
 			break;
-
+		case R.id.BTDateTest:
+			showDialog(0);
+			break;
 		case R.id.BTQuit:
 			moveTaskToBack(true);
 			break;
 		}
 	}
 
-	/**
-	 * deletes all saved cards
-	 */
-	private void deleteAllCards() {
-		tblwarranty.deleteCard(0);
-		// listAllCards();
-	}
 }
