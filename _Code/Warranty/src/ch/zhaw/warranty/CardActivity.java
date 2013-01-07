@@ -11,6 +11,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 import ch.zhaw.warranty.card.WarrantyCard;
 import ch.zhaw.warranty.database.TBLWarrantyConnector;
 
@@ -91,8 +93,12 @@ public class CardActivity extends FragmentActivity {
      * Opens the current photo displayed as thumbnail as fullscreen image
      */
     private void showFullscreenImage() {
-    	Intent intent = new Intent(CardActivity.this, ch.zhaw.warranty.photo.PhotoDisplayActivity.class); 
-    	intent.putExtra("imgpath", imgPath);
+//    	Intent intent = new Intent(CardActivity.this, ch.zhaw.warranty.photo.PhotoDisplayActivity.class); 
+//    	intent.putExtra("imgpath", imgPath);
+//    	startActivity(intent);
+    	Intent intent = new Intent();
+    	intent.setAction(Intent.ACTION_VIEW);
+    	intent.setDataAndType(Uri.parse("file://" + imgPath), "image/*");
     	startActivity(intent);
     }
     /* (non-Javadoc)
