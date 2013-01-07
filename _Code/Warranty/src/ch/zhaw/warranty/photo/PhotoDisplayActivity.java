@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import ch.zhaw.warranty.R;
 
 public class PhotoDisplayActivity extends Activity {
+	private Bitmap bitmap;
 
 
 	/* (non-Javadoc)
@@ -25,14 +26,16 @@ public class PhotoDisplayActivity extends Activity {
 		String imgPath = extras.getString("imgpath");        	
 		
 		ImageView fullscreendisplay = (ImageView) findViewById(R.id.fullscreendisplay);
-		Bitmap bitmap = BitmapFactory.decodeFile(imgPath);
-    	fullscreendisplay.setImageBitmap(bitmap);
+//		bitmap = BitmapFactory.decodeFile(imgPath);
+//    	fullscreendisplay.setImageBitmap(bitmap);
+		fullscreendisplay.setImageBitmap(BitmapLoader.loadBitmap(imgPath, 250, 250));
     	
     	fullscreendisplay.setOnClickListener(new OnClickListener() {
 			/* (non-Javadoc)
 			 * @see android.view.View.OnClickListener#onClick(android.view.View)
 			 */
 			public void onClick(View v) {
+				bitmap = null;
 				finish();
 			}
 		});
@@ -46,5 +49,34 @@ public class PhotoDisplayActivity extends Activity {
 		//no menu in this activity
 		return false;
 	}
-
 }
+
+	class BitmapLoader {
+		public static int getScale(int originalWidth,int originalHeight,final int requiredWidth,final int requiredHeight) {
+
+			int scale=1;
+  			if((originalWidth>requiredWidth) || (originalHeight>requiredHeight)) {
+				if(originalWidth<originalHeight) {
+					scale=Math.round((float)originalWidth/requiredWidth);
+				} else {
+					scale=Math.round((float)originalHeight/requiredHeight);
+				}
+			}
+			return scale;
+		}
+	  
+		public static BitmapFactory.Options getOptions(String filePath, int requiredWidth,int requiredHeight) {   
+			BitmapFactory.Options options=new BitmapFactory.Options();
+			options.inJustDecodeBounds=true;
+			BitmapFactory.decodeFile(filePath,options);
+			options.inSampleSize=getScale(options.outWidth,options.outHeight, requiredWidth, requiredHeight);
+			options.inJustDecodeBounds=false;
+			return options;
+		}
+
+		public static Bitmap loadBitmap(String filePath, int requiredWidth,int requiredHeight) {
+			BitmapFactory.Options options= getOptions(filePath,requiredWidth, requiredHeight);
+			return BitmapFactory.decodeFile(filePath,options);
+		}
+	}
+
