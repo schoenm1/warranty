@@ -2,6 +2,11 @@
 \section{Aufbau der App}
 \subsection{Klassendiagramm}
 
+%!!!!!!!!!!!!!!
+Das \abkDef{WWW}{\textbf{W}orld \textbf{W}ide \textbf{W}eb} gefällt mir immer noch.
+
+%!!!!!!!!!!!!!!
+
 \textcolor{red}{!!!! HIER KOMMEN NOCH DIAGRAMME !!!!}
 
 \newpage
@@ -10,20 +15,35 @@ Die Warranty App benötigt wenige zusätzliche Rechte. Um Bilder speichern zu könn
 
 Um auf diesen externen Speicher zuzugreifen, wird folgende Zeile im Manifest.xml benötigt.
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}
+
+
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption=Android permission for external Storage]
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 \end{lstlisting}
 
 Nebst dem Zugriff auf den Speicher, bedient sich Warranty den Kamerafunktionalitäten. Da diese ebenfalls explizit erlaubt werden müssen, wird das entsprechende Recht im Manifest.xml hinterlegt.
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption=Android permission for Camera]
 <uses-permission android:name="android.permission.CAMERA" />
 \end{lstlisting}
 
+
+
+%------ ENDE TEST EINSCHUB -------
+
 \subsection{Datenbank}
-Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches DBMS \ref{abk} \footnote{Database Management System}  wie beispielsweise MySQL oder PostgreSQL zu installieren absurd. Zum einen benötigen wir Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
+Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches \abkDef{DBMS}{\textbf{D}atabase \textbf{M}anagement \textbf{S}ystem}  wie beispielsweise MySQL oder PostgreSQL zu installieren absurd. Zum einen benötigen wir Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
 \newline
 Um dennoch eine Datenbank auf einem Smartphone verwenden zu können, bietet sich SQLite an. SQLite ist eine Programmbibliothek, die sich direkt in der Applikation einbinden lässt und somit keinen Server- Prozess benötigt, also ressourcensparend ist. Die gesamte Datenbank inklusive aller Tabellen, Indizes und Werten werden in einer einzigen Datei abgelegt, was ein paralleles Schreiben auf die Datenbank unmöglich macht.
 \newline
 Dank der nativen SQLite Unterstützung von Android, fällt ein aufwändiges einbinden einer 3rd Party Library weg.
+\\
 
+-----------------------\\
+%\abkDef{WWW}{\textbf{W}orld \textbf{W}ide \textbf{W}eb} \\
+
+\ref{ZZZAAAA} hoi TEST
+
+asodfh oias  fioas fiouasioufad\\
+
+Das \abk{WWW} gefällt mir immer noch.

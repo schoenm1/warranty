@@ -120,6 +120,16 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
   \newcommand{\markup}[1]{\uline{#1}}
 
 
+%inserted january 2013 / Micha
+%Link auf Abkürzungsverzeichnis, Abkürzung und Bedeutung ausschreiben
+\newcommand{\abkDef}[2]{\nomenclature{#1}{#2 \nomrefpage}\label{Abk.#1}{#1 (#2)} }
+
+% --- Abkürzung bei weiterer Verwendung --------------------
+\newcommand{\abk}[1]{\hyperref[Abk.#1]{#1}} 
+
+
+%--------------------------
+
 
 \usepackage{floatflt}								% Zum Umfließen von Bildern
 
