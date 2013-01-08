@@ -2,7 +2,7 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Micha Schönenberger at 2013-01-08 12:18:05 +0100 
+%% Created for Micha SchÃ¶nenberger at 2013-01-08 12:18:05 +0100 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
@@ -12,14 +12,14 @@
 @url{android_architektur,
 	Date-Added = {2013-01-08 11:15:35 +0000},
 	Date-Modified = {2013-01-08 11:17:29 +0000},
-	Howpublished = {\url{http://www.androidpit.de/de/android/wiki/view/Android_Anfänger_Workshop}},
+	Howpublished = {\url{http://www.androidpit.de/de/android/wiki/view/Android_AnfÃ¤nger_Workshop}},
 	Lastchecked = {2013-01-08},
 	Month = {january},
 	Organization = {androidpit.de},
 	Publisher = {androidpit.de},
 	Title = {Eclipse (IDE), Wikipedia},
 	Urldate = {2013-01-08 13:09 pm},
-	Year = {2013}}
+Year = {2013}}
 
 @url{App_Inventor_Block,
 	Date-Added = {2013-01-08 08:23:52 +0000},

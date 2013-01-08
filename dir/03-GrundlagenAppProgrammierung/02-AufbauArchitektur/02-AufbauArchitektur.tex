@@ -1,21 +1,68 @@
 \newpage
-\section{Aufbau der Architektur}
+\section{Aufbau der Architektur Android App}
+\index{Architektur}
+
+Wie bereits erwähnt werden Android Applikationen in Java geschrieben. Sind grundlegende Java Programmier Kenntnisse vorhanden, sollte der Einstieg kein Problem sein. Eine Grundlegende Änderung gilt es jedoch zu beachten:
+
+\begin{itemize}
+\item Fast alle Java-Klassen stehen zur Verfügung plus Verschlüsselung, HTTP, JSON, XML Bibliotheken
+\item Es existiert keine main()-Funktion wie bei klassischen Java-Applikationen\\
+Es existieren stattdessen lose gekoppelte Komponenten. Eine oder mehrere davon werden als Einstiegspunkt - ähnlich wie main()-Methode - definiert.
+\item Die wichtigste Komponente ist die Activity: Sie entspricht einem sichtbaren Fenster auf dem Screen
+\end{itemize}
+
+Quelle (ganzes Unterkapitel): \cite{android_architektur}
 
 
-\subsection{Java Class}
-\textcolor{red}{\textbf{HIER KOMMT NOCH TEXT REIN}}
--Java basiert\\
--?!?!
+%-----------------------------------------------------------------------------------------------------------------------------------
+\subsection{Activity, View, Event, Intent}
+\index{Activity} \index{View} \index{Event} \index{Intent}
+Anbei kurz die wichtigsten Eigenschaften:\\
 
-\subsection{Layouts}
+\textbf{Activity}
+\begin{itemize}
+\item definiert eine View, zur Anzeige auf dem Screen
+\item behandelt Events , z. B. Klick auf einen Button - onClick()
+\item benutzt Intents, um andere Activities zu starten
+\end{itemize}
 
--MainLayout\\
--blablabla
 
-\textcolor{red}{\textbf{HIER KOMMT NOCH TEXT REIN}}
+\textbf{View}
+\begin{itemize}
+\item die View ist der sichtbare Teil, welche auf dem Screen angezeigt wird
+\item ist definiert in einer XML-Layout-Datei (oder im Code)
+\end{itemize}
+
+\textbf{Event}
+\begin{itemize}
+\item Wird ausgelöst, wenn etwas geschieht (z. B ein Button geklickt wird)
+\item ruft eine Listener-Methode auf, sofern ein Listener definiert ist
+\end{itemize}
+
+\textbf{Intent}
+\begin{itemize}
+\item startet eine andere Activity - öffnet ein neues Fenster
+\item kann Daten an die zu startende Activity übergeben
+\item kann Activities aus anderen Apps starten!
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------------------
+\subsection{Lifecycle Activity}
+\index{Lifecycle Activity|see{Activity}}
+Obwohl die Rechenleistungen und der Speicherplatz in den letzten Jahren bei Smartphones rasant anstieg, ist der Speicherplatz im Vergleich zu Workstation immer noch sehr begrenzt. Aus diesem Grund muss das Android-Betriebssystem nicht aktivierte Activities - also diejenigen, die nicht sichtbar sind - zu beenden. Jeder Activity stehen gemäss folgender Grafik die verschiedenen Zustände zur Verfügung. Auf die Details der einzelnen Zustände wird hier verzichtet.\\
+
+\begin{figure}[h!]
+\centering
+\noindent\includegraphics[height=0.7\textheight]{Activity_Lifecycle.png} 
+\caption{Lifescyle Activity}
+\label{Lifescyle_Activity}
+\end{figure}
+
+%-----------------------------------------------------------------------------------------------------------------------------------
 
 \newpage
 \subsection{R.java}
+\index{R.java} \index{Main Activity}
 R.java ist eine selbstgenerierte Java Klasse.
 Sie speichert für jede Ressource eine Integer-Konstante. Für die Applikationsentwicklung ist es nicht notwendig, diese Datei einzusehen.
 Anbei ein Ausschnitt der R.java Datei unser Applikation.
@@ -27,8 +74,11 @@ Für die anderen Klassen hat R.java jedoch eine sehr grosse Bedeutung: Da alle Re
 \lstinputlisting[label=lst:latex.listing,captionpos=b, caption=MainActivity.java]{dir/03-GrundlagenAppProgrammierung/02-AufbauArchitektur/MainActivity.java}
 
 
+
+%-----------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \subsection{strings.xml}
+\index{strings.xml}
 Die Datei \textbf{strings.xml} wird verwendet, um alle sichtbaren Texte, welche zur Laufzeit der App auf dem Bildschirm erscheinen, zu verwalten.\\
 Als Programmierer sollte man beachten, dass eine Beschriftung eines Buttons nicht hardcoded wird, da die Flexibilität und die lose Kopplung verloren gehen. Wird stattdessen auf die Variable in der strings.xml Datei verwiesen, können alle App-Texte zentral verwaltet werden.\\
 Ist dies einmal gegeben, ist ein Hinzufügen einer weiteren Sprache kein Problem mehr.
@@ -43,8 +93,12 @@ Es gibt zwei Varianten, die Sprache der App zu ändern:
 \lstset{language=XML, morekeywords={encoding,xs:schema,xs:element,xs:complexType,xs:sequence,xs:attribute}}
 \lstinputlisting[label=lst:latex.listing,captionpos=b, caption=strings.xml]{dir/03-GrundlagenAppProgrammierung/02-AufbauArchitektur/strings.xml}
 
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \subsection{Manifest.xml}
+\index{Manifest.xml}
 Die Datei \textbf{Manifest.xml} ist gewissermassen das Herzstück der App. Sie enthält die wichtigsten Informationen über die App \cite{uni-dortmund}:
 \begin{itemize}
 \item enthält wichtige Informationen, damit die App auf einem System laufen kann

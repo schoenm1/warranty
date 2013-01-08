@@ -1,8 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{pic_AppInventor_block}
-
-
 \bibitem{App_Inventor_Block}
 {\em Google App Inventor}.
 \newblock
@@ -31,6 +28,12 @@
 \bibitem{google_playstore_wiki}
 {\em Wikipedia - Google Play Store}.
 \newblock \url{http://de.wikipedia.org/wiki/Google_Play}, december 2012.
+
+\bibitem{android_architektur}
+{\em Eclipse (IDE), Wikipedia}.
+\newblock
+  \url{http://www.androidpit.de/de/android/wiki/view/Android_Anfänger_Workshop},
+  january 2013.
 
 \bibitem{gantt_chart}
 {\em Gantt-Diagramm}.

@@ -2,5 +2,4 @@
 \nomenclatureentry{aSDK@[{SDK}]\begingroup \textbf{S}oftware \textbf{D}evelopment \textbf{K}it\nomeqref {0.0}|nompageref}{II}
 \nomenclatureentry{aADT@[{ADT}]\begingroup \textbf{A}ndroid \textbf{D}evelopment \textbf{T}ool\nomeqref {0.0}|nompageref}{II}
 \nomenclatureentry{aAVD Manager@[{AVD Manager}]\begingroup \textbf{A}ndroid \textbf{V}irtual \textbf{D}evice Manager\nomeqref {0.0}|nompageref}{II}
-\nomenclatureentry{aDBMS@[{DBMS}]\begingroup \textbf {D}atabase \textbf {M}anagement \textbf {S}ystem \nomrefpage \nomeqref {4.0}|nompageref}{20}
-\nomenclatureentry{aWWW@[{WWW}]\begingroup \textbf {W}orld \textbf {W}ide \textbf {W}eb \nomrefpage \nomeqref {4.0}|nompageref}{21}
+\nomenclatureentry{aDBMS@[{DBMS}]\begingroup \textbf {D}atabase \textbf {M}anagement \textbf {S}ystem\nomeqref {4.0}|nompageref}{22}

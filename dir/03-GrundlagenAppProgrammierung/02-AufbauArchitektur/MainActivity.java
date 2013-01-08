@@ -1,6 +1,4 @@
 package ch.zhaw.warranty;
-
-import ch.zhaw.warranty.R;
 import ...;
 
 public class MainActivity extends Activity {

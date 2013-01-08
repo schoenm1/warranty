@@ -133,7 +133,8 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
 
 %inserted january 2013 / Micha
 %Link auf Abkürzungsverzeichnis, Abkürzung und Bedeutung ausschreiben
-\newcommand{\abkDef}[2]{\nomenclature{#1}{#2 \nomrefpage}\label{Abk.#1}{#1 (#2)} }
+%\newcommand{\abkDef}[2]{\nomenclature{#1}{#2 \\ \nomrefpage}\label{Abk.#1}{#1 (#2)} }
+\newcommand{\abkDef}[2]{\nomenclature{#1}{#2}\label{Abk.#1}{#1 (#2)} }
 
 % --- Abkürzung bei weiterer Verwendung --------------------
 \newcommand{\abk}[1]{\hyperref[Abk.#1]{#1}} 
