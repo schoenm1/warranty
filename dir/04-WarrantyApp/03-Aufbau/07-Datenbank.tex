@@ -1,12 +1,16 @@
-\subsection{Datenbank} \index{Datenbank} \index{DBMS}
+\newpage
+\subsection{Datenbank} \index{Datenbank} \index{DBMS} \index{Datenbank|(}
 Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches \abkDef{DBMS}{\textbf{D}atabase \textbf{M}anagement \textbf{S}ystem}  wie beispielsweise MySQL\footnote{offizielle Website: \url{http://www.mysql.com}}\index{MySQL} oder PostgreSQL\footnote{offizielle Website: \url{http://www.postgresql.org}}\index{PostgreSQL} zu installieren absurd. Zum einen benötigen wir Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
 \newline
 Um dennoch eine Datenbank auf einem Smartphone verwenden zu können, bietet sich SQLite\footnote{offizielle Website: \url{http://www.sqlite.org}}\index{SQLite} an. SQLite ist eine Programmbibliothek, die sich direkt in der Applikation einbinden lässt und somit keinen Server- Prozess benötigt, also ressourcensparend ist. Die gesamte Datenbank inklusive aller Tabellen, Indizes und Werten werden in einer einzigen Datei abgelegt, was ein paralleles Schreiben auf die Datenbank unmöglich macht.
 \newline
 Dank der nativen SQLite Unterstützung von Android, fällt ein aufwändiges einbinden einer 3rd Party Library weg.
 \\
-Um die Datenbankfunktionalität bereitzustellen, wurde ein eigenes Java- Package \textit{ch.zhaw.warranty.database} erstellt. Die darin enthaltenen Klassen sind für das Erstellen der Datenbank und deren Tabellen (\textit{TBLWarrantyHelper}) beziehungsweise zur Bereitstellung der Datenbankfunktionen für den User (\textit{TBLWarrantyConnector}) zuständig.
-\subsubsection{Definition der Tabelle}
+Um die Datenbankfunktionalität bereitzustellen, wurde ein eigenes Java- Package\\ \textit{ch.zhaw.warranty.database} erstellt. Die darin enthaltenen Klassen sind für das Erstellen der Datenbank und deren Tabellen (\textit{TBLWarrantyHelper}) beziehungsweise zur Bereitstellung der Datenbankfunktionen für den User (\textit{TBLWarrantyConnector}) zuständig.
+
+
+\newpage
+\subsubsection{Definition der Datenbank-Tabelle} \index{Datenbanktabelle|(}
 Um aus sämtlichen Java- Klassen auf den Tabellen- sowie die Attributsnamen zugreifen zu können und um ein statisches Referenzieren in den Java- Klassen zu vermeiden, macht es Sinn, diese als statische Strings zu definieren.
 \lstset{language=Java, numbers=left}
 \begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Deklaration des Tabellen- sowie der Attributsnamen, TBLWarrantyHelper.java}]
@@ -21,7 +25,7 @@ public static final String CLMN_PRICE = "price";
 public static final String CLMN_RESSELLER = "reseller";
 \end{lstlisting}
 
-Darauffolgend wird das SQL- Statement zur Erstellung der Tabelle definiert. Die im Listing \refTC{lst:tbl_attr_names} aufgeführten Strings können hier bereits als Referenz benutzt werden.
+Darauffolgend wird das SQL-Statement zur Erstellung der Tabelle definiert. Die im Listing \refTC{lst:tbl_attr_names} aufgeführten Strings können hier bereits als Referenz benutzt werden.
 \lstset{language=Java, numbers=left}
 \begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Vorbereiten Erstellungsbefehls, TBLWarrantyHelper.java}]
 private static final String DB_CREATE="create table " + TBL_NAME + " (" +
@@ -35,7 +39,8 @@ private static final String DB_CREATE="create table " + TBL_NAME + " (" +
 	CLMN_RESSELLER + " text);";
 \end{lstlisting}
 
-Abschliessend wird die \textit{onCreate}- Methode der Klasse \textit{Activity} überschrieben, sodass bei jedem erstellen  der Activity das Tabellen- Erstelungsstatement aufgerufen wird. Existiert die Tabelle bereits, so hat das Statement keinen Einfluss, es wird von SQLite ignoriert.
+\newpage
+Abschliessend wird die \textit{onCreate}-Methode \index{onCreate-Methode} der Klasse \textit{Activity} überschrieben, so dass bei jedem erstellen  der Activity das Tabellen- Erstelungsstatement aufgerufen wird. Existiert die Tabelle bereits, so hat das Statement keinen Einfluss, es wird von SQLite ignoriert.
 \lstset{language=Java, numbers=left}
 \begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Tabelle erstellen, TBLWarrantyHelper.java}]
 @Override
@@ -43,8 +48,9 @@ public void onCreate(SQLiteDatabase db) {
 	db.execSQL(DB_CREATE);
 }
 \end{lstlisting}
+\index{Datenbanktabelle|)}
 
-\subsubsection{Insert und Update Funktion} \label{sec:04-insert_and_update}
+\subsubsection{Insert und Update Funktion} \label{sec:04-insert_and_update} \index{Insert} \index{Update}
 Die aus Anwendersicht vermutlich wichtigsten Methoden sind die Insert- und die Update- Methoden. Da diese von der Funktionalität sehr ähnlich sind, ist aus Sicht des Programmierers sinnvoll, diese zusammen zulegen. Der grundlegende Unterschied ist , dass beim Insert ein neuer Eintrag erstellt, beim Update ein bereits vorhandener Eintrag angepasst wird.
 
 Im Javacode ist die Differenzierung denkbar einfach.
@@ -61,12 +67,13 @@ public void insertWarrantyCard(WarrantyCard card){
 	closeDB();
 }
 \end{lstlisting}
+\newpage
 Der Grund für diese einfache Unterscheidung liegt in der Auflistung der Quittungen im Homescreen der App. Diese sogenannte Listview \textbf{referenz zum bild} kennt von jeder aufgelisteten Quittung ihre dazugehörige ID. Möchte der User eine Quittung bearbeiten, wird in der App intern diese Referenz auf die Quittung weitergegeben. Möchte der User eine neue Quittung hinterlegen, wird das ID Feld nicht gefüllt. Dies führt dazu, dass der Standard Integer- Wert, in Java eine 0\footnote{gemäss \url{http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html}} 
 
-\subsubsection{Delete Funktion}
+\subsubsection{Delete Funktion} \index{Delete}
 Da die Quittungen nach deren Ablauf nicht automatisch gelöscht werden, kann es durchaus sein, dass ein User die Quittungen manuell löschen möchte. 
 
-Wie bereits im Kapitel \refTC{sec:04-insert_and_update} erwähnt, ist der Listview auf dem Homescreen die ID jeder aufgelisteten Quittung bekannt. Somit kann eine Quittung direkt aus der Listview mit dem Methodenaufruf deleteCard und der dazugehörigen ID, die anschliessend das entsprechende SQL- Statement an die Datenbank kommuniziert, gelöscht werden.
+Wie bereits im Kapitel \refTC{sec:04-insert_and_update} erwähnt, ist der Listview auf dem Homescreen die ID jeder aufgelisteten Quittung bekannt. Somit kann eine Quittung direkt aus der Listview mit dem Methodenaufruf \textit{deleteCard} und der dazugehörigen ID, die anschliessend das entsprechende SQL- Statement an die Datenbank kommuniziert, gelöscht werden.
 
 Wie bereits beim Insert und Update haben wir uns auch hier die Tatsache, dass das \textbf{auto increment} von SQLite bei 1 beginnt\footnote{gemäss \url{http://www.sqlite.org/autoinc.html}} zu nutzen gemacht. Wird 0 als ID übergeben, hat dies zur Folge, dass ausnahmslos alle gespeicherten Quittungen gelöscht werden.
 
@@ -84,3 +91,5 @@ public void deleteCard(int cardID) {
 \end{lstlisting}
 
 Eine Funktion zum löschen aller Quittungen wurde im Menü des Homescreens untergebracht.
+
+ \index{Datenbank|)}
