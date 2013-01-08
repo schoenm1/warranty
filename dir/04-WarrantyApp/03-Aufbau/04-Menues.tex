@@ -1,2 +1,47 @@
 
-\subsection{Menus} \index{Menus}
+\subsection{Menüs} \index{Menüs}
+Bei Warranty ist nur die CardListActivity, die Hauptactivity mit einem Menü ausgestattet. Die beiden anderen Activities benötigen dieses Feature von Android nicht.
+
+Analog zu den Activities werden auch Menüs als XML- Files definiert.
+
+\lstset{language=XML, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Definition eines Menüs, activity\_card\_list.xml}]
+<item android:id="@+id/cardlist.menu.DeleteAll" android:title="@string/deleteAllCards"></item>
+<item android:id="@+id/cardlist.menu.exit" android:title="@string/exit"></item>
+\end{lstlisting}
+
+
+In der dazugehörigen Activity wird das Menü eingebunden und generiert.
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Erstellen von Menüs, CardListActivity.java}]
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	getMenuInflater().inflate(R.menu.activity_card_list, menu);
+	return true;
+}
+\end{lstlisting}
+
+Besitzt eine Activity kein Menü, so wird dies in der \textit{onCreateOptionsMenu()} einfach nicht generiert.
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Activity ohne Menü, CardListActivity.java}]
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	return false;
+}
+\end{lstlisting}
+
+Anschliessend wird in der Activity ausgewertet, welches Menü- Item ausgewählt wurde und die entsprechende Aktion ausgeführt.
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Menü Listener, CardListActivity.java}]
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+	switch (item.getItemId()){
+	case R.id.cardlist_menu_exit:
+		moveTaskToBack(true);
+		break;
+	case R.id.cardlist_menu_DeleteAll:
+		tblwarranty.deleteCard(0);
+		setOrder("title");
+	}
+	return true;
+}
+\end{lstlisting}
