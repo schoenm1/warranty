@@ -7,9 +7,9 @@
 \index{Gantt Chart|(}
 Für die Projektplanung wurde ein Java-Tool benutzt, welches auf dem Gantt-Diagramm basiert. Es ist unter dem Namen \href{http://www.ganttproject.biz/download}{GanttProject} \footnote{offizielle Website \url{http://www.ganttproject.biz}} bekannt.\\
 Ein Gantt-Diagramm oder Balkenplan ist ein nach dem Unternehmensberater Henry L. Gantt (1861-1919) benanntes Instrument des Projektmanagements, das die zeitliche Abfolge von Aktivitäten grafisch in Form von Balken auf einer Zeitachse darstellt.\\
-Der Vorteil des Gantt Chart besteht darin, dass die Aktivitätedauer durch die Balkenlänge wiedergegeben wird. Eine Ende-Start-Beziehung kann auch im Verlauf einer Aktivität ansetzen.\\
+Der Vorteil des Gantt Chart besteht darin, dass die Aktivitätsdauer durch die Balkenlänge wiedergegeben wird. Eine Ende-Start-Beziehung kann auch im Verlauf einer Aktivität ansetzen.\\
 Der Nachteil liegt darin, dass Abhängigkeiten zwischen einzelnen Aktivitäten nur zeitbezogen dargestellt werden können.\\
-Es gibt viele kostenlose sowie kostenpflichtige Software, die mit Gantt Chart arbeiten. Das wohl bekannteste lizenzpflichtige Programm ist das \href{http://office.microsoft.com/de-ch/visio}{Microsoft Visio} \footnote{\url{http://office.microsoft.com/de-ch/visio}} oder \href{http://www.microsoft.com/project/en-us/Preview}{Microsoft Project} \footnote{\url{http://www.microsoft.com/project/en-us/Preview}}.
+Es gibt viele kostenlose sowie kostenpflichtige Software, die mit Gantt Chart arbeiten. Das wohl bekannteste lizenzpflichtige Programm ist das \href{http://office.microsoft.com/de-ch/visio}{Microsoft Visio} \footnote{\url{http://office.microsoft.com/de-ch/visio}} oder \href{http://www.microsoft.com/project/en-us/Preview}{Microsoft Project} \footnote{\url{http://www.microsoft.com/project/en-us/Preview}}.\\
 Quelle: \cite{gantt_chart} und \cite{gantt_project}
 
 \begin{figure}[h!]
@@ -22,8 +22,13 @@ Quelle: \cite{gantt_chart} und \cite{gantt_project}
 
 
 %-------------------------------------------------------------------------------------------------------------------
+\newpage
 \section{Arbeitsaufwände}
-\begin{tabular}[t]{|l|c|c|} \hline
+\textcolor{white}{auch in LATEX muss man würgen...}\\
+\begin{table}[h!]
+\caption{Arbeitsaufwände}
+\label{tab:Arbeitsaufwände}
+\begin{tabular}{|l|c|c|} \hline
 \cellcolor{darkgrey} &  \cellcolor{darkgrey} &  \cellcolor{darkgrey}\\
 \cellcolor{darkgrey} \multirow{-2}{5cm}{\textbf{Bezeichnung}} &
 \cellcolor{darkgrey} \multirow{-2}{3cm}{\textbf{Aufwand geschätzt [h]}} &  
@@ -36,20 +41,20 @@ Erstellung Projektplanes & 2 & 3 \\ \hline
 
 \multicolumn{3}{|l|}{} \\
 \multicolumn{3}{|l|}{\multirow{-2}{5cm}{ \textbf{Realisierung I} }} \\ \hline
-Grundgerüst Applikation  & 11 & 11\\ \hline
-Views & 9 & 9\\ \hline
-SQLite DB Schemas & 3 & 3\\ \hline
+Grundgerüst Applikation  & 11 & 15\\ \hline
+Views & 9 & 12\\ \hline
+SQLite DB Schemas & 3 & 2\\ \hline
 Datenbank Methoden & 6 & 3\\ \hline
-Kamerasupports & 7  & 7\\ \hline
-Fileverwaltung & 4 & 4\\ \hline
+Kamerasupports & 7  & 5\\ \hline
+Fileverwaltung & 3 & 4\\ \hline
 
 
 \multicolumn{3}{|l|}{} \\
 \multicolumn{3}{|l|}{\multirow{-2}{5cm}{ \textbf{Realisierung II} }} \\ \hline
-DB Zugriffe überarbeiten  & 4 &  4\\ \hline
-File und Fotoverwaltung überarbeiten & 3 & 3\\ \hline
-Views überarbeiten  &3 &  3\\ \hline
-Code Cleanup & 5 &  5\\ \hline
+DB Zugriffe überarbeiten  & 3 &  2\\ \hline
+File und Fotoverwaltung überarbeiten & 3 & 2\\ \hline
+Views überarbeiten  &3 &  6\\ \hline
+Code Cleanup & 5 &  9\\ \hline
 
 \multicolumn{3}{|l|}{} \\
 \multicolumn{3}{|l|}{\multirow{-2}{10cm}{ \textbf{Dokumentation und Präsentation} }} \\ \hline
@@ -57,26 +62,18 @@ Erstellung Teaser  & 3 & 2 \\ \hline
 Erstellung Logo& 3 & 2 \\ \hline
 Erstellung LaTeX Grundgerüst  & 10 &  23\\ \hline
 1. Einleitung  & 3 &  3\\ \hline
-2. Projektplanung  & 3 & 3 \\ \hline
-3. Grundlagen App Programmierung & 10 &  10\\ \hline
-4. Warranty App & 4 & 8 \\ \hline
+2. Projektplanung  & 3 & 2 \\ \hline
+3. Grundlagen App Programmierung & 10 &  16\\ \hline
+4. Warranty App & 6 & 11 \\ \hline
 5. Fazit & 2 &  2\\ \hline
-Anhang & 4 &  3\\ \hline
+Anhang (inkl. Lit.verzeichnis)& 4 &  5\\ \hline
 Klassendiagramm & 3 &  5\\ \hline
-Erstellung Javadoc& 5 &  5\\ \hline
-Erstellung Präsentation & 12 &  8\\ \hline
-Einarbeitung in LATEX  & 15 & 26 \\ \hline
+Erstellung Javadoc & 5 &  5\\ \hline
+Erstellung Präsentation & 12 &  14\\ \hline
+Einarbeitung in LATEX  & 15 & 18 \\ \hline
 Einarbeitung Android Programming & 12 & 20 \\ \hline
-
-&  &  \\
-\textbf{Total Stunden}  & 
-\textbf{150}&
-\textbf{185}
-\\ 
-
-&  &  \\ \hline
-
-\end{tabular}\\
-
-
-
+& & \\
+\textbf{Total Stunden} & \textbf{150} & \textbf{197} \\
+& & \\ \hline
+\end{tabular}
+\end{table}
