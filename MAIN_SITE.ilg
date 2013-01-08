@@ -3,8 +3,8 @@ Scanning style file ./MAIN_SITE.ist.....
 ** Input style error (file = ./MAIN_SITE.ist, line = 6):
    -- Unknown specifier \page_preference.
 .........done (14 attributes redefined, 1 ignored).
-Scanning input file MAIN_SITE.idx....done (43 entries accepted, 0 rejected).
-Sorting entries....done (269 comparisons).
-Generating output file MAIN_SITE.ind....done (107 lines written, 0 warnings).
+Scanning input file MAIN_SITE.idx....done (61 entries accepted, 0 rejected).
+Sorting entries....done (399 comparisons).
+Generating output file MAIN_SITE.ind....done (123 lines written, 0 warnings).
 Output written in MAIN_SITE.ind.
 Transcript written in MAIN_SITE.ilg.

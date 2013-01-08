@@ -1,0 +1,49 @@
+\subsection{Manifest.xml} \index{Manifest.xml}
+\subsubsection{Permissions} \index{Permissions}
+Die Warranty App benötigt wenige zusätzliche Rechte. Um Bilder speichern zu können ist jedoch ein Speicherplatz erforderlich. Da die meisten Android basierten Smartphones einen sehr kleinen internen Speicher haben, bietet sich der externe Speicher bestens an. Je nach Modell ist dies entweder eine zusätzlichen MicroSD [Glossar] Karte oder einfach eine zusätzliche logische Partition auf dem internen Speicher. Der Vorteil dieses externen Speichers ist, dass man ihn ohne weiteres auf dem Computer einhängen und auf die Dateien zugreifen kann.
+
+Um auf diesen externen Speicher zuzugreifen, wird folgende Zeile im Manifest.xml benötigt.
+\lstset{language=Java, numbers=left}
+
+
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Android permission für Zugriff auf externen Storage, Manifest.xml}]
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+\end{lstlisting}
+
+Nebst dem Zugriff auf den Speicher, bedient sich Warranty den Kamerafunktionalitäten. Da diese ebenfalls explizit erlaubt werden müssen, wird das entsprechende Recht im Manifest.xml hinterlegt.
+\lstset{language=xml, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Android permission für Kamera, Manifest.xml}]
+<uses-permission android:name="android.permission.CAMERA" />
+\end{lstlisting}
+
+\newpage
+\subsubsection{Application}
+Zusätzlich werden in der Manifest.xml sämtliche Activities hinterlegt, die von der App ausgeführt werden müssen. Das diese Liste vollständig und korrekt ist, ist für die App überlebensnotwendig. Wird im Code eine App Activity aufgerufen, die in dieser Sektion nicht aufgeführt ist, stürzt die gesammte App ab.
+
+\lstset{language=xml, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Deklaration der Activities, Manifest.xml}]
+   <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="ch.zhaw.warranty.CardListActivity"
+            android:label="@string/app_name" >
+            ...
+        </activity>
+        <activity android:name="ch.zhaw.warranty.CardActivity" />
+        <activity android:name="ch.zhaw.warranty.photo.PhotoActivity" />
+        <activity android:name="ch.zhaw.warranty.photo.PhotoDisplayActivity"/>
+    </application>
+\end{lstlisting}
+
+Nebst den zu erlaubenden Activities wird zusätzlich die zu startende Activity, in Programmierjargon ``Main'' definiert.
+\lstset{language=xml, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Deklaration der Main- Methode, Manifest.xml}]
+        <activity
+            android:name="ch.zhaw.warranty.CardListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />	
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+\end{lstlisting}

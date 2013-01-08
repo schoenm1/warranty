@@ -1,6 +1,7 @@
 \begin{theindex}{\bf A}\nopagebreak%
  \indexspace\nopagebreak%
-\item Activity\dotfill \hyperpage{11}
+\item Activities\dotfill \hyperpage{20}
+\item Activity\dotfill \hyperpage{11\,f.}
 \item Android Market\dotfill \hyperindexformat{\see{Play Store}}{17}
 \item Android SDK\dotfill \hyperpage{9}
 \item AndroidPIT\dotfill \hyperpage{18}
@@ -21,12 +22,13 @@
 {\bf E}\nopagebreak%
  \indexspace\nopagebreak%
 \item Eclipse\dotfill \hyperpage{8}
+\item Equinox\dotfill \hyperpage{8}
 \item Event\dotfill \hyperpage{11}
 
   \indexspace
 {\bf F}\nopagebreak%
  \indexspace\nopagebreak%
-\item F-Droid\dotfill \hyperpage{17}
+\item F-Droid\dotfill \hyperpage{18}
 \item Features\dotfill \hyperpage{19}
 \item Froyo\dotfill \hyperpage{ii}
 
@@ -60,6 +62,7 @@
   \indexspace
 {\bf L}\nopagebreak%
  \indexspace\nopagebreak%
+\item Layouts\dotfill \hyperpage{21}
 \item Lifecycle Activity\dotfill \hyperindexformat{\see{Activity}}{12}
 
   \indexspace
@@ -68,13 +71,22 @@
 \item m\"ogliche Erweiterungen\dotfill \hyperpage{19}
 \item Mail\dotfill \hyperpage{18}
 \item Main Activity\dotfill \hyperpage{13}
-\item Manifest.xml\dotfill \hyperpage{15}
+\item Manifest.xml\dotfill \hyperpage{15}, \hyperpage{21}
+\item Menus\dotfill \hyperpage{21}
+\item MySQL\dotfill \hyperpage{23}
+
+  \indexspace
+{\bf O}\nopagebreak%
+ \indexspace\nopagebreak%
+\item OSGi-Framwork\dotfill \hyperpage{8}
 
   \indexspace
 {\bf P}\nopagebreak%
  \indexspace\nopagebreak%
-\item Permissions\dotfill \hyperpage{20}
+\item Permissions\dotfill \hyperpage{21}
 \item Play Store\dotfill \hyperpage{17}
+\item Plugin\dotfill \hyperpage{8\,f.}
+\item PostgreSQL\dotfill \hyperpage{23}
 \item Projektplanung\dotfill \hyperpage{4}
 \item public link\dotfill \hyperpage{18}
 
@@ -86,7 +98,10 @@
   \indexspace
 {\bf S}\nopagebreak%
  \indexspace\nopagebreak%
-\item SlideME\dotfill \hyperpage{17}
+\item SKD\dotfill \hyperindexformat{\see{Android SDK}}{9}
+\item SlideME\dotfill \hyperpage{18}
+\item Sprachen\dotfill \hyperpage{14}
+\item SQLite\dotfill \hyperpage{23}
 \item Stick\dotfill \hyperpage{18}
 \item strings.xml\dotfill \hyperpage{14}
 
@@ -98,6 +113,7 @@
   \indexspace
 {\bf V}\nopagebreak%
  \indexspace\nopagebreak%
+\item values\dotfill \hyperpage{14}
 \item View\dotfill \hyperpage{11}
 
   \indexspace
