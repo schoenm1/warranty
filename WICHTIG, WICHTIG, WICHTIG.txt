@@ -8,3 +8,12 @@ makeindex MAIN_SITE.nlo -s nomencl.ist -o MAIN_SITE.nls
 
 
 in der Konsole im Hauptordner notwendig!!!!
+
+
+
+Indexdatei anpassen:
+
+makeindex -s MAIN_SITE.ist MAIN_SITE
+
+makeindex MAIN_SITE.idx
+Formatierungen sind in MAIN_SITE.ind abgelegt

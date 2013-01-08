@@ -5,9 +5,10 @@
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-\usepackage{cite}								%für Literaturverzeichnis
-\usepackage{tocbasic}
+% ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\usepackage{cite}								%für Literaturverzeichnis																|
+\usepackage{tocbasic}							%																				|
+% ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 %------------------------------------------------------- FORMATIERUNG KOPF- UND FUSSZEILE ----------------------------------------------------------------------------------------------------
 %																															|
@@ -61,6 +62,12 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
 
 %---------------------------------------------------------------------------------- GRAFIKEN---------------------------------------------------------------------------------------------------------------------
 %																															|
+\usepackage{float} 							%																					|
+%Das Paket float unterstützt bei der Positionierung von Grafiken und Tabellen (innerhalb der figure- und table-Umgebungen).							|
+%Normalerweise setzt LaTeX diese Elemente nach bestimmten Vorgaben relativ autonom, mit float ist eine exakte Angabe möglich.						|
+% @option \begin{figure}[H]: Bild ganau HERE = [H] einsetzen																			|
+% @option \includegraphics[height=\textheight, keepaspectratio=true]{gantt_chart.png}: keepascpectration = true: Ränder niche übernehmen				|
+%																															|
 \usepackage[dvips,final]{graphicx}						%Einbinden von EPS-Grafiken [draft oder final]										|
 \graphicspath{{pictures/}} 								% Hier liegen die Bilder des Dokuments												|
 %																															|
@@ -87,8 +94,12 @@ plainfootsepline,   								%Plain, Linie zwischen Textkörper und Fuss      				
 %																															|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+% ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\usepackage{makeidx}								% Für Index-Ausgabe; \printindex													|
+% ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-\usepackage{makeidx}								% Für Index-Ausgabe; \printindex
+
+
 
 
 %---------------------------------------------------------------------------- ZEILENABSTÄNDE UND SEITENRÄNDER--------------------------------------------------------------------------------
@@ -269,11 +280,14 @@ backref,										%																				|
 %pagebackref,									%																				|
 plainpages=false,								% zur korrekten Erstellung der Bookmarks												|
 pdfpagelabels,									% zur korrekten Erstellung der Bookmarks												|
-hypertexnames=false,							% zur korrekten Erstellung der Bookmarks												|
+hypertexnames=true,							% zur korrekten Erstellung der Bookmarks												|
 linktocpage 									% Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken									|
 ]{hyperref}										%																				|
 % 																															|
 % ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%INFO: changed 07.01.2013 / Micha
+%hypertexnames=true, [vorher = false]
 
 
 % Zum fortlaufenden Durchnummerieren der Fußnoten ---------------------------

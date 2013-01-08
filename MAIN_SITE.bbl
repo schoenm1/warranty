@@ -1,5 +1,14 @@
 \begin{thebibliography}{1}
 
+\bibitem{pic_AppInventor_block}
+
+
+\bibitem{App_Inventor_Block}
+{\em Google App Inventor}.
+\newblock
+  \url{http://4.bp.blogspot.com/_J5CxIaQd0mg/TLLqOKyOJUI/AAAAAAAAAS0/WjWVhrKNwFQ/s1600/App-Inventor-Blocks-Editor.PNG},
+  october 2010.
+
 \bibitem{andoid_sdk_eclipse}
 {\em Android Development Tools (ADT)}.
 \newblock \url{http://developer.android.com/tools/sdk/eclipse-adt.html},
@@ -26,5 +35,9 @@
 \bibitem{gantt_chart}
 {\em Gantt-Diagramm}.
 \newblock \url{http://de.wikipedia.org/wiki/Gantt-Diagramm}, january 2013.
+
+\bibitem{gantt_project}
+{\em Gantt Project}.
+\newblock \url{http://http://www.ganttproject.biz/download}, january 2013.
 
 \end{thebibliography}
