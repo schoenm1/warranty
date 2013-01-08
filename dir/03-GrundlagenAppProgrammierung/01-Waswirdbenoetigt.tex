@@ -1,42 +1,44 @@
 \section{Was wird für die App Programmierung benötigt}
 \index{App Inventor}
-Es gibt eine ganze Reihe von Möglichkeiten, ein Android App zu programmieren. Neben Software, die er erlaubt, offline zu programmieren, gibt es von Google eine Online-Plattform, welche es erlaubt, ohne Programmierkenntnisse ein App zu erstellen. Diese Möglichkeit ist jedoch beim Umfang der Möglichkeiten beschränkt und läuft auf einer Beta-Phase. Für eine Nutzung von Googles \href{http://beta.appinventor.mit.edu/}{App Inventor}\footnote{offizielle Website: \url{http://beta.appinventor.mit.edu/}} ist ein Google Account notwendig.\\
+Es gibt eine ganze Reihe von Möglichkeiten, ein Android App zu programmieren. Neben Software, die er erlaubt offline zu programmieren, gibt es von Google eine Online-Plattform, welche es erlaubt, ohne Programmierkenntnisse ein App zu erstellen. Diese Möglichkeit ist jedoch beim Umfang der Möglichkeiten beschränkt und läuft auf einer Beta-Phase. Für eine Nutzung von Googles \href{http://beta.appinventor.mit.edu/}{App Inventor}\footnote{offizielle Website: \url{http://beta.appinventor.mit.edu/}} ist ein Google Account notwendig.\\
 Ein Screenshot der Weboberfläche  (\refTC{fig:App_Inventor}) sowie der Textbausteine (\refTC{fig:Screenshot_AppInventor_Block}) sind im Anhang zu finden.
 
 Da wir in den ersten beiden Studienjahren uns einige Java-Kenntnisse aneignen konnten, wird auf die Nutzung und das Austesten von Googles \href{http://beta.appinventor.mit.edu/}{App Inventor} verzichtet.\\ 
-Die einfachste Weise ist die Nutzung der uns zum Teil bereits bekannten Frameworks. Nachfolgend werden alle benutzten Frameworks kurz erläutert.
+Die einfachste Weise ist die Nutzung der uns zum Teil bereits bekannten Frameworks.\\
+
+Nachfolgend werden alle benutzten Frameworks kurz erläutert.
 
 
 
 %-------------------------------------------------------------------------------------
 \newpage
 \subsection{Eclipse (IDE)} \index{Eclipse}
-\href{http://www.eclipse.org}{Eclipse} \footnote{offizielle Website: \url{http://www.eclipse.org}} (vom englischen eclipse = Sonnenfinsternis hergeleitet) ist ein open-source Programmierwerkzeug. Zu Beginn wurde Eclipse als eine Entwiklungsumgebung für Java entwickelt. Im Laufe der Zeit hat sich Eclipse weiterentwickelt und durch die Möglichkeit der Skalierbarkeit wurde vom Java-Programmiertool ein Werkzeug, welches für viele Entwicklungsaufgaben eingesetzt werden kann. Die grosse Community und der modulare Aufbau, welche die Weiterentwicklung vom Modulen und Plugins  immer vorantreiben, haben aus diesem Tool ein mächtiges Tool gemacht, welches sich für den Entwickler individuell zuschneiden lässt.
+\href{http://www.eclipse.org}{Eclipse} \footnote{offizielle Website: \url{http://www.eclipse.org}} (vom englischen eclipse = Sonnenfinsternis hergeleitet) ist ein open-source Programmierwerkzeug. Zu Beginn wurde Eclipse als eine Entwiklungsumgebung für Java entwickelt. Im Laufe der Zeit hat sich Eclipse weiterentwickelt und durch die Möglichkeit der Skalierbarkeit wurde vom Java-Programmiertool ein Werkzeug, welches für viele Entwicklungsaufgaben eingesetzt werden kann. Die grosse Community und der modulare Aufbau, welche die Weiterentwicklung vom Modulen und Plugins \index{Plugin} immer vorantreiben, haben aus diesem Tool ein mächtiges Werkzeug gemacht, welches sich für den Entwickler individuell zuschneiden lässt.
 Es gibt für Eclipse mittlerweile open-souce sowie auch kommerzielle Erweiterungen.
-Eclipse selbst basiert auf Java-Technik, seit Version 3.0 auf einem sogenannten OSGi-Framework namens Equinox.\\
+Eclipse selbst basiert auf Java-Technik, seit Version 3.0 auf einem sogenannten OSGi-Framework \index{OSGi-Framwork} namens Equinox. \index{Equinox}\\
 Speziell für die Entwicklung von Android Applikationen
 existiert das ADT (Android Development Tools) Plug-in. Dieses Plug-in erweitert den
 Funktionsumfang von Eclipse und ermöglicht somit ein einfaches Entwickeln von Android
-Projekten.
+Projekten.\\
 Eclipse wurde als Grundwerkzeug für die App-Programmierung benutzt. In den ersten beiden Studienjahren haben wir mit Eclipse Java-Applikationen entwickelt.\\ \\
-Quelle: \cite{wiki_eclipse} 
 \begin{figure}[h]
 \centering
 \includegraphics[height=5cm]{eclipse_logo.png} \\
 \caption{Logo Eclipse IDE}
 \label{Logo_Eclipse IDE}
-\end{figure}
+\end{figure} \\
+Quelle: \cite{wiki_eclipse} 
 
 %-------------------------------------------------------------------------------------
 \newpage
 \subsection{Android SDK Plugin  for Eclipse}
-\index{Android SDK}
+\index{Android SDK} \index{SKD|see{Android SDK}}
 \index{AVD Manager}
-Das Android Software Development Kit (SDK) \footnote{\url{http://developer.android.com/sdk/index.html}} \cite{andoid_sdk_eclipse} ist ein Plugin für Eclipse IDE welches als mächtige, integrierte Entwicklungsumgebung konzipiert wurde, um Android Applikationen zu entwickeln.\\
+Das Android Software Development Kit (SDK) \footnote{\url{http://developer.android.com/sdk/index.html}} \cite{andoid_sdk_eclipse} ist ein Plugin \index{Plugin} für Eclipse IDE welches als mächtige, integrierte Entwicklungsumgebung konzipiert wurde, um Android Applikationen zu entwickeln.\\
 Will man beginnen, Android Apps zu programmieren, kommt man um das Android SDK nicht herum.\\
 Die Android SDK gibt es für Windows, Mac OS X sowie Linux Plattformen.\\
-Um Android SDK nutzen zu können, ist die Java SDK (Software Development Kit) unabdingbar. Diese ist je nach Betriebssystem bereits vorinstalliert oder kann nachträglich heruntergeladen und installierte werden.\\
-Im Android SDK integriert ist der AVD Manager (Android Virtual Device Manager). Dieser ermöglicht das Testen der App in einer virtuellen Umgebung. Das Betriebssystem, die Speichermöglichkeiten sowie das Telefon können beliebig geändert werden.\\
+Um Android SDK nutzen zu können, ist die Java SDK (Software Development Kit) unabdingbar. Diese ist je nach Betriebssystem bereits vorinstalliert oder kann nachträglich heruntergeladen und installiert werden.\\
+Im Android SDK integriert ist der AVD Manager (Android Virtual Device Manager). \index{AVD Manager} Dieser ermöglicht das Testen der App in einer virtuellen Umgebung. Das Betriebssystem, die Speichermöglichkeiten sowie das Telefon können beliebig geändert werden.\\
 \\
 \\
 \begin{figure}[h]
@@ -54,5 +56,5 @@ Zur Auswahl standen:
 \begin{itemize}
 \item Galaxy Nexus, Version 4.0.1
 \item HTC Desire HD, Version 2.3.5
-\item virtuelle Maschine, welche in Eclipse integriert ist und sich wahlweise die Android Version, aber auch Telefontyp ändern lässt
+\item virtuelle Maschine (im AVD Mangager), welche in Eclipse integriert ist und sich wahlweise die Android Version, aber auch Telefontyp ändern lässt
 \end{itemize}
