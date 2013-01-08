@@ -1,10 +1,10 @@
 \newpage
 \subsection{Datenbank} \index{Datenbank} \index{DBMS} \index{Datenbank|(}
-Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches \abkDef{DBMS}{\textbf{D}atabase \textbf{M}anagement \textbf{S}ystem}  wie beispielsweise MySQL\footnote{offizielle Website: \url{http://www.mysql.com}}\index{MySQL} oder PostgreSQL\footnote{offizielle Website: \url{http://www.postgresql.org}}\index{PostgreSQL} zu installieren absurd. Zum einen benötigen wir Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
+Auch wenn wir auf unserem Smartphone eine Datenbank benötigen, so scheint die Idee, ein vollumfängliches \abkDef{DBMS}{\textbf{D}atabase \textbf{M}anagement \textbf{S}ystem}  wie beispielsweise MySQL\footnote{offizielle Website: \url{http://www.mysql.com}}\index{MySQL} oder PostgreSQL\footnote{offizielle Website: \url{http://www.postgresql.org}}\index{PostgreSQL} zu installieren absurd. Zum einen werden Features wie ein Client/Server Model, Partitioning oder ein ausgefeiltes Zugriffsberechtigungssystem nicht benötigt, zum anderen steht die dazu benötigte Performance auf einem Smartphone schlicht und einfach nicht zur Verfügung. 
 \newline
 Um dennoch eine Datenbank auf einem Smartphone verwenden zu können, bietet sich SQLite\footnote{offizielle Website: \url{http://www.sqlite.org}}\index{SQLite} an. SQLite ist eine Programmbibliothek, die sich direkt in der Applikation einbinden lässt und somit keinen Server- Prozess benötigt, also ressourcensparend ist. Die gesamte Datenbank inklusive aller Tabellen, Indizes und Werten werden in einer einzigen Datei abgelegt, was ein paralleles Schreiben auf die Datenbank unmöglich macht.
 \newline
-Dank der nativen SQLite Unterstützung von Android, fällt ein aufwändiges einbinden einer 3rd Party Library weg.
+Dank der nativen SQLite Unterstützung von Android fällt ein aufwändiges Einbinden einer 3rd Party Library weg.
 \\
 Um die Datenbankfunktionalität bereitzustellen, wurde ein eigenes Java- Package\\ \textit{ch.zhaw.warranty.database} erstellt. Die darin enthaltenen Klassen sind für das Erstellen der Datenbank und deren Tabellen (\textit{TBLWarrantyHelper}) beziehungsweise zur Bereitstellung der Datenbankfunktionen für den User (\textit{TBLWarrantyConnector}) zuständig.
 
