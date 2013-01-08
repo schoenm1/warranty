@@ -43,7 +43,6 @@ public class CardListActivity extends ListActivity {
 	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    boolean handled = false;
 		switch (item.getItemId()){
 	    case R.id.cardlist_menu_exit:
 	    	moveTaskToBack(true);
@@ -52,7 +51,7 @@ public class CardListActivity extends ListActivity {
 	    	tblwarranty.deleteCard(0);
 	    	setOrder("title"); //only usage is to update the list view ;)
 	    }
-	    return handled;
+		return true;
 	}
 	
 	/**
