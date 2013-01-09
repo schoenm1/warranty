@@ -31,6 +31,19 @@ private File getPhotoDir() {
 \end{lstlisting}
 
 \subsubsection{Bilddatei erstellen}
+Da der von Android bereitgestellten Kamera- Applikation anschliessend ein leeres File übergeben werden muss, ist der nächste Schritt, ein leeres File zu erstellen. \\
+Um die Eindeutigkeit des Files sicherzustellen, bedient sich Warranty den beiden Java- eigenen Klassen \textit{Date} und  \textit{SimpleDateFormat}. Mit Hilfe der Klasse \textit{SimpleDateFormat} wird der Dateinamen wie folgt aufgebaut: \textbf{yyyyMMdd\_HHmmss}. Die von Warranty verwendeten Buchstaben haben gemäss Javadoc der Klasse  SimpleDateFormat\footnote{\url{http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html}} folgende Bedeutung:\\
 
+\begin{tabbing}
+\hspace{50px}\=\kill
+y \>Year \\
+M \>Month \\
+d \>Day \\
+H \>Hour \\
+m \>Minute \\
+s \>Second \\
+\end{tabbing}
+\textbf{Beispiel:}\\
+Der 12. Oktober 2012 zur Zeit 15:27:42 Uhr wird als 20121012\_152742 dargestellt.
 
 \index{Kamera|)}
