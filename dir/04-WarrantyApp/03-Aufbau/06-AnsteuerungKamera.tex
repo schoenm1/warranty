@@ -35,15 +35,36 @@ private File getPhotoDir() {
 Da der von Android bereitgestellten Kamera- Applikation anschliessend ein leeres File übergeben werden muss, ist der nächste Schritt, ein leeres File zu erstellen. \\
 Um die Eindeutigkeit des Files sicherzustellen, bedient sich Warranty den beiden Java- eigenen Klassen \textit{Date} und  \textit{SimpleDateFormat}. Mit Hilfe der Klasse \textit{SimpleDateFormat} wird der Dateinamen wie folgt aufgebaut: \textbf{yyyyMMdd\_HHmmss}. Die von Warranty verwendeten Buchstaben haben gemäss Javadoc der Klasse  SimpleDateFormat\footnote{\url{http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html}} folgende Bedeutung:\\
 
-\begin{tabbing}
-\hspace{50px}\=\kill
-y \>Year \\
-M \>Month \\
-d \>Day \\
-H \>Hour \\
-m \>Minute \\
-s \>Second \\
-\end{tabbing}
+
+
+\begin{table}[h!]
+\centering
+\caption{geplante Termine}
+\label{tab:Zeitvariabeln}
+\begin{tabular}[t]{|l|l|l|} \hline
+\cellcolor{darkgrey} &  \cellcolor{darkgrey} &  \cellcolor{darkgrey} \\ 
+\cellcolor{darkgrey} \multirow{-2}{2cm}{\textbf{Buchstabe}} &
+\cellcolor{darkgrey} \multirow{-2}{4cm}{\textbf{Beschreibung EN}} & 
+\cellcolor{darkgrey} \multirow{-2}{4cm}{\textbf{Beschreibung DE}}  \\  \cline{1-3}
+y & Year & Jahr \\ \cline{1-3}
+M & Month & Monat \\ \cline{1-3}
+d & Day & Tag \\   \cline{1-3}
+H & Hour & Stunde \\  \cline{1-3}
+m & Minute & Minute \\  \cline{1-3}
+s & Second & Sekunde \\  \cline{1-3}
+\end{tabular}
+\end{table}
+
+
+%\begin{tabbing}
+%\hspace{50px}\=\kill
+%y \>Year \\
+%M \>Month \\
+%d \>Day \\
+%H \>Hour \\
+%m \>Minute \\
+%s \>Second \\
+%\end{tabbing}
 \textbf{Beispiel:}\\
 Der \textit{12. Oktober 2012} zur Zeit \textit{15:27:42 Uhr} wird als \textit{20121012\_152742} dargestellt.
 
