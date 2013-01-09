@@ -3,13 +3,14 @@
 \index{Architektur}
 \label{sec:Architektur}
 
-Wie bereits erwähnt werden Android Applikationen in Java geschrieben. Sind grundlegende Java Programmierkenntnisse vorhanden, sollte der Einstieg kein Problem sein. Eine Grundlegende Änderung gilt es jedoch zu beachten:
+Wie bereits erwähnt, werden Android Applikationen in Java geschrieben. Sind grundlegende Java Programmierkenntnisse vorhanden, sollte der Einstieg kein Problem sein. Eine Grundlegende Änderung gilt es jedoch zu beachten:
 
 \begin{itemize}
 \item Fast alle Java-Klassen stehen zur Verfügung plus Verschlüsselung, HTTP, JSON, XML Bibliotheken
-\item Es existiert keine main()-Funktion wie bei klassischen Java-Applikationen\\
-Es existieren stattdessen lose gekoppelte Komponenten. Eine oder mehrere davon werden als Einstiegspunkt - ähnlich wie main()-Methode - definiert.
-\item Die wichtigste Komponente ist die Activity: Sie entspricht einem sichtbaren Fenster auf dem Screen
+\item \textcolor{red} {\(Vorschlag\) Fast alle Java- Klassen inklusive Unterstützung für SSL, HTTP, JSON und XML stehen zur Verfügung}
+\item Es existiert keine main()- Funktion wie bei klassischen Java-Applikationen\\
+Es existieren stattdessen lose gekoppelte Komponenten. Eine oder mehrere davon werden als Einstiegspunkt - ähnlich wie die main()-Methode - definiert.
+\item Die wichtigste Komponente ist die Activity: Sie entspricht einem sichtbaren Fenster auf dem Display
 \end{itemize}
 
 Quelle: \cite{android_architektur}
@@ -31,7 +32,7 @@ Anbei kurz die wichtigsten Eigenschaften:\\
 
 \textbf{View}
 \begin{itemize}
-\item die View ist der sichtbare Teil - sie wird auf dem Screen angezeigt wird
+\item die View ist der sichtbare Teil der App, der auf dem Display angezeigt wird
 \item ist definiert in einer XML-Layout-Datei (oder im Code)
 \end{itemize}
 
@@ -73,7 +74,7 @@ Sie speichert für jede Ressource eine Integer-Konstante. Für die Applikationsent
 Anbei ein Ausschnitt der R.java Datei unser Applikation.
 \lstset{language=Java, numbers=left}
 \lstinputlisting[label=lst:latex.listing,captionpos=b, caption=R.java]{dir/03-GrundlagenAppProgrammierung/02-AufbauArchitektur/R.java}
-Für die anderen Klassen hat R.java jedoch eine sehr grosse Bedeutung: Da allen Ressourcen in R.java eine konstante Integer-Variable zugewiesen ist, hat jede *.java Klasse einen Verweis auf R.java, damit das richtige Layout geladen werden kann. Anbei ein Auszug aus MainActivity.java. Diese Activity ist die erste Activity, die geladen wird. Sie ist verknüpft mit dem Layout \textbf{activity\_main}.
+Für die anderen Klassen hat R.java jedoch eine sehr grosse Bedeutung: Da allen Ressourcen in R.java eine konstante Integer-Variable zugewiesen ist, hat jede Java- Klasse einen Verweis auf R.java, damit das richtige Layout geladen werden kann. Anbei ein Auszug aus MainActivity.java. Diese Activity ist die erste Activity, die geladen wird. Sie ist verknüpft mit dem Layout \textbf{activity\_main}.
 
 \lstset{language=Java, numbers=left}
 \lstinputlisting[label=lst:latex.listing,captionpos=b, caption=MainActivity.java]{dir/03-GrundlagenAppProgrammierung/02-AufbauArchitektur/MainActivity.java}
@@ -87,7 +88,7 @@ Für die anderen Klassen hat R.java jedoch eine sehr grosse Bedeutung: Da allen R
 Die Datei \textbf{strings.xml} wird verwendet, um alle sichtbaren Texte, welche zur Laufzeit der App auf dem Bildschirm erscheinen, zu verwalten.\\
 Als Programmierer sollte beachtet werden, dass eine Beschriftung eines Buttons nicht hardcoded wird, da die Flexibilität und die lose Kopplung verloren gehen. Wird stattdessen auf die Variable in der strings.xml Datei verwiesen, können alle App-Texte zentral verwaltet werden.\\
 Ist dies einmal gegeben, ist ein Hinzufügen einer weiteren Sprache kein Problem mehr.
-Defaultmässig liegt die strings.xml Datei im Verzeichnis ../res/values/strings.xml und definiert die englische Sprache.\\
+Defaultmässig liegt die strings.xml Datei im Verzeichnis ../res/values/ und definiert die englische Sprache.\\
 Möchte man nun eine weitere Sprache hinzufügen, erstellt man für die entsprechende Sprache einen neuen Ordner (Beispiel: ../res/\textbf{values-de}/). Nun kann die Datei strings.xml aus ../res/values/ kopiert werden und die Englischen Texte auf Deutsch angepasst werden.\\
 
 Es gibt zwei Varianten, die Sprache der App zu ändern:
@@ -108,9 +109,9 @@ Die Datei \textbf{Manifest.xml} ist gewissermassen das Herzstück der App. Sie en
 \begin{itemize}
 \item enthält wichtige Informationen, damit die App auf einem System ausführbar ist
 \item Manifestdatei enthält Metadaten einer App (Paketname)
-\item Angabe genutzter Komponenten \\ Aktivities, Services, Broadcast Receivers, Content Providers
+\item Angabe genutzter Komponenten \\ Activities, Services, Broadcast Receivers, Content Providers
 \item Fähigkeiten der App
-\item Voraussetzungen zum Betrieb \\ z.B. nötige Bibliotheken
+\item Voraussetzungen für den Betrieb \\ z.B. nötige Bibliotheken
 \item Intent-Filter und IntentReceiver der Activities
 \item Zugriffsrechte auf andere Dienste und Rechte, die andere Apps für den Zugriff haben müssen
 \item Angabe von Angeboten für andere Apps
