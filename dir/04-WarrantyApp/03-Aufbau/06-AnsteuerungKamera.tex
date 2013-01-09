@@ -1,12 +1,36 @@
 \newpage
 
 \subsection{Ansteuerung der Kamera} \index{Kamera|(}
-Kommt morgen noch ahoi!
+Die Kamera stellt in Warranty eines der zentralen Teile dar, da die Hauptfunktion der App auf dem Speichern von Fotos basiert. Dementsprechend ist es wichtig, dass der Code, der diese Funktionalität bereitstellt übersichtlich und nicht aufgebläht ist und stabil läuft.
 
+\subsubsection{Externen Storage einbinden}
+Damit die aufgenommen Bilder in zukünfitgen Releasen einfach exportiert werden können, werden diese in einem eigenen Directory auf dem externen Storage gespeichert. Dies hat zusätzlich den Vorteil, dass der User beim anschliessen des Smartphones an den Computer dieses als externes Storage- Device mounten und somit einfach auf die aufgenommen Bilder zugreifen kann.
 
+Zu Beginn wird der Zielspeicherort für die Bilder definiert und anschliessend geprüft ob
+\begin{enumerate}
+\item die SDCard gemountet ist
+\item das Speicherverzeichnis existiert
+\item das Speicherverzeichnis, falls inexistent, erstellt werden kann
+\end{enumerate}
+Mit dieser Prozedur kann sichergestellt werden, dass die Kamera- Applikation Bilder schreiben kann.
 
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Zugriff auf SDCard, PhotoActivity.java}]
+private File getPhotoDir() {
+	File storageDir = new File(Environment.getExternalStorageDirectory() + "/Warranty");
+	if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+		if (storageDir != null) {
+			if (!storageDir.mkdirs()) {
+				if (!storageDir.exists()) {
+					Log.d("getPhotoDir()", "failed to create directory");
+					return null;
+				}
+				...
+			...
+		return storageDir;
+\end{lstlisting}
 
-
+\subsubsection{Bilddatei erstellen}
 
 
 \index{Kamera|)}
