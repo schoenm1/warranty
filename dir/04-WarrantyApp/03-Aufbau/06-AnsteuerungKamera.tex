@@ -1,6 +1,7 @@
 \newpage
 
 \subsection{Ansteuerung der Kamera} \index{Kamera|(}
+
 Die Kamera stellt in Warranty eines der zentralen Teile dar, da die Hauptfunktion der App auf dem Speichern von Fotos basiert. Dementsprechend ist es wichtig, dass der Code, der diese Funktionalität bereitstellt übersichtlich und nicht aufgebläht ist und stabil läuft.
 
 \subsubsection{Externen Storage einbinden}
@@ -44,6 +45,56 @@ m \>Minute \\
 s \>Second \\
 \end{tabbing}
 \textbf{Beispiel:}\\
-Der 12. Oktober 2012 zur Zeit 15:27:42 Uhr wird als 20121012\_152742 dargestellt.
+Der \textit{12. Oktober 2012} zur Zeit \textit{15:27:42 Uhr} wird als \textit{20121012\_152742} dargestellt.
 
+In Java kann das erstellen eines leeren Files inklusive Zeitstempel im Filenamen mit ein paar wenigen Zeilen gemacht werden.
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={leeres File erstellen PhotoActivity.java}]
+private static final String JPEG_FILE_PREFIX = "IMG_";
+private static final String JPEG_FILE_SUFFIX = ".jpg";
+...
+private File createImageFile() throws IOException {
+	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	String imageFileName = JPEG_FILE_PREFIX + timeStamp;
+	File albumF = getPhotoDir();
+	File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX, albumF);
+}
+\end{lstlisting}
+
+\subsubsection{Foto aufnehmen}
+Mit dem Überprüfen der Verfügbarkeit der SDCard sowie dem erstellen einer leeren Bilddatei sind die Bedingungen für das Aufnehmen eines Fotos erfüllt. Im nächsten Schritt kann die von Android zur Verfügung gestellte Kamera- Applikation mit dem leeren File als Parameter gestartet werden. 
+
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={}]
+Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+switch (actionCode) {
+case ACTION_TAKE_PHOTO_B:
+	File f;
+	try {
+		f = createImageFile();
+		mCurrentPhotoPath = f.getAbsolutePath();
+		takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,	Uri.fromFile(f));
+		...
+	...
+}
+startActivityForResult(takePictureIntent, actionCode);
+\end{lstlisting}
+Die Kontrolle gelangt erst nach erfolgreichem speichern des Bildes durch die Kamera- Applikation wieder zurück zu Warranty. Warranty öffnet sogleich die Activity \textit{CardActivity} mit dem Pfad der gespeicherten Datei und dem Status ``new'' als Parameter.
+
+\lstset{language=Java, numbers=left}
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={}]
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	switch (requestCode) {
+	case ACTION_TAKE_PHOTO_B: {
+		if (resultCode == RESULT_OK) {
+			Bundle imagePath = new Bundle();
+			imagePath.putString("path", mCurrentPhotoPath);
+			Intent intent = new Intent(PhotoActivity.this, ch.zhaw.warranty.CardActivity.class);
+			intent.putExtra("path",mCurrentPhotoPath);
+			intent.putExtra("status","new");
+			startActivity(intent);
+	...
+}
+\end{lstlisting}
+Von \textit{CardActivity} werden anschliessend die \textit{EditText} Felder geparst und die in Kapitel \refTC{sec:04-insert_and_update} vorgestellte \textit{insertWarrantyCard}- Methode übergeben.
 \index{Kamera|)}
