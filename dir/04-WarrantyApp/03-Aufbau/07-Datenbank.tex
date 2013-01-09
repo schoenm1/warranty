@@ -7,7 +7,27 @@ Um dennoch eine Datenbank auf einem Smartphone verwenden zu können, bietet sich 
 Dank der nativen SQLite Unterstützung von Android fällt ein aufwändiges Einbinden einer 3rd Party Library weg.
 \\
 Um die Datenbankfunktionalität bereitzustellen, wurde ein eigenes Java- Package\\ \textit{ch.zhaw.warranty.database} erstellt. Die darin enthaltenen Klassen sind für das Erstellen der Datenbank und deren Tabellen (\textit{TBLWarrantyHelper}) beziehungsweise zur Bereitstellung der Datenbankfunktionen für den User (\textit{TBLWarrantyConnector}) zuständig.
+\newpage
+\subsection{Datenbanklayout}
+Da die Anzahl der Datentypen in SQLite auf NULL, INTEGER, REAL, TEXT und BLOB beschränkt ist\footnote{gemäss \url{http://www.sqlite.org/datatype3.html}}, ist das Datenbankschema von Warranty schnell definiert.
 
+Um die Einzigartigkeit der Einträge zu gewährleisten, ist die ID als auto- increment gekennzeichnet. Somit können wir sicherstellen, dass auch IDs von gelöschten Einträgen nicht wiederverwendet werden. 
+
+Da SQLite keine Datentypen für Datum und Zeit zur Verfügung stellt, wir aber trotzdem Datumsstempel benötigen, greifen wir auf den Datentyp TEXT und Datumsfunktionen wie ``date''\footnote{gemäss \url{http://www.sqlite.org/lang_datefunc.html}} von SQLite zurück.
+
+\begin{figure}[h!]
+	\label{fig:TBLWarranty_Schema}
+	\centering
+	\includegraphics[width=0.8\textwidth]{sqlitetbl_warranty2.png} 
+	\caption{TBLWarranty Schema}
+\end{figure}
+Der einzige Index liegt auf der ID, da in der App sämtliche Aktionen mittels dieser ID als Referenz ausgeführt werden. Da wir keine Volltextsuche implementiert haben, benötigen wir kein weiteren Indizes.
+\begin{figure}[h!]
+	\label{fig:TBLWarranty_Index}
+	\centering
+	\includegraphics[width=0.5\textwidth]{sqliteidx_warranty2.png} 
+	\caption{TBLWarranty Index}
+\end{figure}
 
 \newpage
 \subsubsection{Definition der Datenbank-Tabelle} \index{Datenbanktabelle|(}
