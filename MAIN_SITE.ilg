@@ -2,9 +2,9 @@ This is makeindex, version 2.15 [TeX Live 2012] (kpathsea + Thai support).
 Scanning style file ./MAIN_SITE.ist.....
 ** Input style error (file = ./MAIN_SITE.ist, line = 6):
    -- Unknown specifier \page_preference.
-.........done (14 attributes redefined, 1 ignored).
-Scanning input file MAIN_SITE.idx....done (61 entries accepted, 0 rejected).
-Sorting entries....done (399 comparisons).
-Generating output file MAIN_SITE.ind....done (123 lines written, 0 warnings).
+.......done (12 attributes redefined, 1 ignored).
+Scanning input file MAIN_SITE.idx....done (85 entries accepted, 0 rejected).
+Sorting entries....done (633 comparisons).
+Generating output file MAIN_SITE.ind....done (143 lines written, 0 warnings).
 Output written in MAIN_SITE.ind.
 Transcript written in MAIN_SITE.ilg.

@@ -33,7 +33,7 @@ Der einzige Index liegt auf der ID, da in der App sämtliche Aktionen mittels die
 \subsubsection{Definition der Tabelle} \index{Datenbanktabelle|(}
 Um aus sämtlichen Java- Klassen auf den Tabellen- sowie die Attributsnamen zugreifen zu können und um ein statisches Referenzieren in den Java- Klassen zu vermeiden, macht es Sinn, diese als statische Strings zu definieren.
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Deklaration des Tabellen- sowie der Attributsnamen, TBLWarrantyHelper.java}]
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Deklaration des Tabellen- und der Attributsnamen, TBLWarrantyHelper.java}]
 public static final String TBL_NAME="warranty";
 public static final String CLMN_ID = "_id";
 public static final String CLMN_TITLE = "title";
@@ -88,7 +88,7 @@ public void insertWarrantyCard(WarrantyCard card){
 }
 \end{lstlisting}
 \newpage
-Der Grund für diese einfache Unterscheidung liegt in der Auflistung der Quittungen im Homescreen der App. Diese sogenannte Listview \textbf{referenz zum bild} kennt von jeder aufgelisteten Quittung ihre dazugehörige ID. Möchte der User eine Quittung bearbeiten, wird in der App intern diese Referenz auf die Quittung weitergegeben. Möchte der User eine neue Quittung hinterlegen, wird das ID Feld nicht gefüllt. Dies führt dazu, dass der Standard Integer- Wert, in Java eine 0\footnote{gemäss \url{http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html}} 
+Der Grund für diese einfache Unterscheidung liegt in der Auflistung der Quittungen im Homescreen der App. Diese sogenannte Listview \textbf{referenz zum bild} kennt von jeder aufgelisteten Quittung ihre dazugehörige ID. Möchte der User eine Quittung bearbeiten, wird in der App intern diese Referenz auf die Quittung weitergegeben. Möchte der User eine neue Quittung hinterlegen, wird das ID Feld nicht gefüllt. Dies führt dazu, dass der Standard Integer- Wert, in Java eine 0\footnote{gemäss \url{http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html}}.
 
 \subsubsection{Delete Funktion} \index{Delete}
 Da die Quittungen nach deren Ablauf nicht automatisch gelöscht werden, kann es durchaus sein, dass ein User die Quittungen manuell löschen möchte. 

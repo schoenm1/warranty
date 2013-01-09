@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MAIN_SITE.aux
+A level-1 auxiliary file: Deckblatt.aux
+A level-1 auxiliary file: dir/Abstract.aux
+The style file: gerplain.bst
+Database file #1: bib/mybib.bib
+Warning--entry type for "android_architektur" isn't style-file defined
+--line 12 of file bib/mybib.bib
+Warning--entry type for "App_Inventor_Block" isn't style-file defined
+--line 24 of file bib/mybib.bib
+Warning--entry type for "gantt_project" isn't style-file defined
+--line 36 of file bib/mybib.bib
+Warning--entry type for "gantt_chart" isn't style-file defined
+--line 48 of file bib/mybib.bib
+Warning--entry type for "google_playstore" isn't style-file defined
+--line 58 of file bib/mybib.bib
+Warning--entry type for "google_playstore_wiki" isn't style-file defined
+--line 70 of file bib/mybib.bib
+Warning--entry type for "andoid_sdk_eclipse" isn't style-file defined
+--line 82 of file bib/mybib.bib
+Warning--entry type for "wiki_eclipse" isn't style-file defined
+--line 92 of file bib/mybib.bib
+Warning--entry type for "uni-dortmund" isn't style-file defined
+--line 103 of file bib/mybib.bib
+Warning--to sort, need author or key in gantt_chart
+Warning--to sort, need author or key in gantt_project
+Warning--to sort, need author or key in wiki_eclipse
+Warning--to sort, need author or key in andoid_sdk_eclipse
+Warning--to sort, need author or key in android_architektur
+Warning--to sort, need author or key in uni-dortmund
+Warning--to sort, need author or key in google_playstore
+Warning--to sort, need author or key in google_playstore_wiki
+Warning--to sort, need author or key in App_Inventor_Block
+You've used 9 entries,
+            2343 wiz_defined-function locations,
+            585 strings with 5717 characters,
+and the built_in function-call counts, 1660 in all, are:
+= -- 162
+> -- 9
+< -- 0
++ -- 9
+- -- 0
+* -- 92
+:= -- 191
+add.period$ -- 18
+call.type$ -- 9
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 72
+empty$ -- 226
+format.name$ -- 0
+if$ -- 424
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 0
+newline$ -- 39
+num.names$ -- 0
+pop$ -- 72
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 81
+stack$ -- 0
+substring$ -- 45
+swap$ -- 18
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 9
+while$ -- 0
+width$ -- 10
+write$ -- 74
+(There were 18 warnings)

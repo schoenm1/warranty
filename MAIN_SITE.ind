@@ -1,7 +1,7 @@
 \begin{theindex}{\bf A}\nopagebreak%
  \indexspace\nopagebreak%
-\item Activities\dotfill \hyperpage{20}
-\item Activity\dotfill \hyperpage{11\,f.}
+\item Activity\dotfill \hyperpage{11, 12}, \hyperpage{20, 21}, 
+		\hyperpage{27}
 \item Android Market\dotfill \hyperindexformat{\see{Play Store}}{17}
 \item Android SDK\dotfill \hyperpage{9}
 \item AndroidPIT\dotfill \hyperpage{18}
@@ -15,8 +15,10 @@
   \indexspace
 {\bf D}\nopagebreak%
  \indexspace\nopagebreak%
-\item Datenbank\dotfill \hyperpage{22}
-\item DBMS\dotfill \hyperpage{22}
+\item Datenbank\dotfill \hyperpage{iv, v}, \hyperpage{28--32}
+\item Datenbanktabelle\dotfill \hyperpage{30--31}
+\item DBMS\dotfill \hyperpage{28}
+\item Delete\dotfill \hyperpage{32}
 
   \indexspace
 {\bf E}\nopagebreak%
@@ -35,9 +37,10 @@
   \indexspace
 {\bf G}\nopagebreak%
  \indexspace\nopagebreak%
-\item Galaxy Nexus\dotfill \hyperpage{i}
+\item Galaxy Nexus\dotfill \hyperpage{ii}
 \item Gantt Chart\dotfill \hyperpage{4}
 \item Google Play Store\dotfill \hyperindexformat{\see{Play Store}}{17}
+\item Grundidee\dotfill \hyperpage{19}
 
   \indexspace
 {\bf H}\nopagebreak%
@@ -47,22 +50,24 @@
   \indexspace
 {\bf I}\nopagebreak%
  \indexspace\nopagebreak%
+\item Insert\dotfill \hyperpage{31}
 \item Intent\dotfill \hyperpage{11}
 
   \indexspace
 {\bf J}\nopagebreak%
  \indexspace\nopagebreak%
-\item Jelly Bean\dotfill \hyperpage{i}
+\item Jelly Bean\dotfill \hyperpage{ii}
 
   \indexspace
 {\bf K}\nopagebreak%
  \indexspace\nopagebreak%
-\item Klassendiagramm\dotfill \hyperpage{20}
+\item Kamera\dotfill \hyperpage{26}, \hyperpage{33--36}
+\item Klassendiagramm\dotfill \hyperpage{iv, v}, \hyperpage{20}
 
   \indexspace
 {\bf L}\nopagebreak%
  \indexspace\nopagebreak%
-\item Layouts\dotfill \hyperpage{21}
+\item Layouts\dotfill \hyperpage{22}
 \item Lifecycle Activity\dotfill \hyperindexformat{\see{Activity}}{12}
 
   \indexspace
@@ -71,22 +76,25 @@
 \item m\"ogliche Erweiterungen\dotfill \hyperpage{19}
 \item Mail\dotfill \hyperpage{18}
 \item Main Activity\dotfill \hyperpage{13}
-\item Manifest.xml\dotfill \hyperpage{15}, \hyperpage{21}
-\item Menus\dotfill \hyperpage{21}
-\item MySQL\dotfill \hyperpage{23}
+\item Manifest.xml\dotfill \hyperpage{15}, \hyperpage{26, 27}
+\item Men\"us\dotfill \hyperpage{23}
+\item MicroSD\dotfill \hyperpage{26}
+\item Multi Language Support\dotfill \hyperpage{25}
+\item MySQL\dotfill \hyperpage{28}
 
   \indexspace
 {\bf O}\nopagebreak%
  \indexspace\nopagebreak%
+\item onCreate-Methode\dotfill \hyperpage{31}
 \item OSGi-Framwork\dotfill \hyperpage{8}
 
   \indexspace
 {\bf P}\nopagebreak%
  \indexspace\nopagebreak%
-\item Permissions\dotfill \hyperpage{21}
+\item Permissions\dotfill \hyperpage{26}
 \item Play Store\dotfill \hyperpage{17}
-\item Plugin\dotfill \hyperpage{8\,f.}
-\item PostgreSQL\dotfill \hyperpage{23}
+\item Plugin\dotfill \hyperpage{8, 9}
+\item PostgreSQL\dotfill \hyperpage{28}
 \item Projektplanung\dotfill \hyperpage{4}
 \item public link\dotfill \hyperpage{18}
 
@@ -101,7 +109,7 @@
 \item SKD\dotfill \hyperindexformat{\see{Android SDK}}{9}
 \item SlideME\dotfill \hyperpage{18}
 \item Sprachen\dotfill \hyperpage{14}
-\item SQLite\dotfill \hyperpage{23}
+\item SQLite\dotfill \hyperpage{28}
 \item Stick\dotfill \hyperpage{18}
 \item strings.xml\dotfill \hyperpage{14}
 
@@ -109,12 +117,24 @@
 {\bf T}\nopagebreak%
  \indexspace\nopagebreak%
 \item Teaser\dotfill \hyperpage{3}
+\item Texshop\dotfill \hyperpage{i}
+\item TeXstudio\dotfill \hyperpage{i}
+
+  \indexspace
+{\bf U}\nopagebreak%
+ \indexspace\nopagebreak%
+\item Update\dotfill \hyperpage{31}
 
   \indexspace
 {\bf V}\nopagebreak%
  \indexspace\nopagebreak%
 \item values\dotfill \hyperpage{14}
 \item View\dotfill \hyperpage{11}
+
+  \indexspace
+{\bf W}\nopagebreak%
+ \indexspace\nopagebreak%
+\item Warranty App\dotfill \hyperpage{19}
 
   \indexspace
 {\bf Z}\nopagebreak%
