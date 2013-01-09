@@ -1,1 +1,30 @@
-\subsection{Multilanguage Support} \index{Multilanguage Support}
+\subsection{Multi Language Support} \index{Multi Language Support}
+Um Warranty Multi Language Supportive zu machen, wurden sämtliche Buttons und Textfelder dynamisch, mit Referenz auf die Datei strings.xml benannt. 
+Eine explizite Selektion der Sprache wurde nicht programmiert, da das App grundsätzlich immer in der Sprache des Smartphones, also der Locale entsprechen soll. 
+
+In den XML- Dateien werden die Strings aus der \textit{strings.xml} mittels \textit{@string\/} referenziert. 
+\lstset{language=XML, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={Definition Textfeld "description", activity\_card.xml}]
+<EditText
+	android:id="@+id/card.TBdesc"
+	...
+	android:hint="@string/description" />
+\end{lstlisting}
+
+Anschliessend können werden diese in der \textit{strings.xml} in dem dazugehörigen Sprachordner aufgelistet.
+\lstset{language=XML, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={String Definition in Deutsch, values-de/string.xml}]
+<resources>
+	<string name="description">Beschreibung</string>
+	...
+</resources>
+\end{lstlisting}
+
+Wichtig ist hierbei vor allem, dass eine Standard- Locale existiert. Diese ist immer im Ordner ``values'' zu finden.
+\lstset{language=XML, numbers=left}
+\begin{lstlisting}[label=lst:latex.listing,captionpos=b, caption={String Definition in Englisch, values/string.xml}]
+<resources>
+	<string name="description">Description</string>
+	...
+</resources>
+\end{lstlisting}
