@@ -9,8 +9,10 @@
   \item [{AVD Manager}]\begingroup \textbf{A}ndroid \textbf{V}irtual \textbf{D}evice Manager\nomeqref {0.0}
 		\nompageref{II}
   \item [{DBMS}]\begingroup \textbf {D}atabase \textbf {M}anagement \textbf {S}ystem\nomeqref {4.0}
-		\nompageref{22}
+		\nompageref{26}
   \item [{IDE}]\begingroup \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment\nomeqref {0.0}
+		\nompageref{II}
+  \item [{MicroSD}]\begingroup \textbf{M}icro \textbf{S}ecure \textbf{D}igital Memory Card\nomeqref {0.0}
 		\nompageref{II}
   \item [{OSGi}]\begingroup \textbf{O}pen \textbf{S}ervices \textbf{G}ateway \textbf{i}nitiative\nomeqref {0.0}
 		\nompageref{II}

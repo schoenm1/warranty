@@ -4,4 +4,5 @@
 \nomenclatureentry{aAVD Manager@[{AVD Manager}]\begingroup \textbf{A}ndroid \textbf{V}irtual \textbf{D}evice Manager\nomeqref {0.0}|nompageref}{II}
 \nomenclatureentry{aOSGi@[{OSGi}]\begingroup \textbf{O}pen \textbf{S}ervices \textbf{G}ateway \textbf{i}nitiative\nomeqref {0.0}|nompageref}{II}
 \nomenclatureentry{aAPI@[{API}]\begingroup \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface\nomeqref {0.0}|nompageref}{II}
-\nomenclatureentry{aDBMS@[{DBMS}]\begingroup \textbf {D}atabase \textbf {M}anagement \textbf {S}ystem\nomeqref {4.0}|nompageref}{22}
+\nomenclatureentry{aMicroSD@[{MicroSD}]\begingroup \textbf{M}icro \textbf{S}ecure \textbf{D}igital Memory Card\nomeqref {0.0}|nompageref}{II}
+\nomenclatureentry{aDBMS@[{DBMS}]\begingroup \textbf {D}atabase \textbf {M}anagement \textbf {S}ystem\nomeqref {4.0}|nompageref}{28}
