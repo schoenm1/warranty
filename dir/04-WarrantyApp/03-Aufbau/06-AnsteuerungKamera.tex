@@ -70,7 +70,7 @@ Der \textit{12. Oktober 2012} zur Zeit \textit{15:27:42 Uhr} wird als \textit{20
 
 In Java kann das erstellen eines leeren Files inklusive Zeitstempel im Filenamen mit ein paar wenigen Zeilen gemacht werden.
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={leeres File erstellen PhotoActivity.java}]
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Leeres File erstellen PhotoActivity.java}]
 private static final String JPEG_FILE_PREFIX = "IMG_";
 private static final String JPEG_FILE_SUFFIX = ".jpg";
 ...
@@ -86,7 +86,7 @@ private File createImageFile() throws IOException {
 Mit dem Überprüfen der Verfügbarkeit der SDCard sowie dem erstellen einer leeren Bilddatei sind die Bedingungen für das Aufnehmen eines Fotos erfüllt. Im nächsten Schritt kann die von Android zur Verfügung gestellte Kamera- Applikation mit dem leeren File als Parameter gestartet werden. 
 
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={}]
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Kamera- App Starten, PhotoActivity.java}]
 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 switch (actionCode) {
 case ACTION_TAKE_PHOTO_B:
@@ -100,10 +100,11 @@ case ACTION_TAKE_PHOTO_B:
 }
 startActivityForResult(takePictureIntent, actionCode);
 \end{lstlisting}
+\newpage
 Die Kontrolle gelangt erst nach erfolgreichem speichern des Bildes durch die Kamera- Applikation wieder zurück zu Warranty. Warranty öffnet sogleich die Activity \textit{CardActivity} mit dem Pfad der gespeicherten Datei und dem Status ``new'' als Parameter.
 
 \lstset{language=Java, numbers=left}
-\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={}]
+\begin{lstlisting}[label=lst:tbl_attr_names, captionpos=b, caption={Weitergabe der Daten an die Activity CardActivity, PhotoActivity.java}]
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	switch (requestCode) {
 	case ACTION_TAKE_PHOTO_B: {
