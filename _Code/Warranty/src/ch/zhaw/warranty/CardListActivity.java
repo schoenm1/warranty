@@ -27,6 +27,7 @@ public class CardListActivity extends ListActivity {
 	private CheckBox cbExpired;
 	private boolean showExpired;
 	public static TBLWarrantyConnector tblwarranty;
+	private String order;
 
 
 	/* (non-Javadoc)
@@ -49,7 +50,8 @@ public class CardListActivity extends ListActivity {
 	    	break;
 	    case R.id.cardlist_menu_DeleteAll:
 	    	tblwarranty.deleteCard(0);
-	    	setOrder("title"); //only usage is to update the list view ;)
+	    	updateView();
+//	    	setOrder("title"); //only usage is to update the list view ;)
 	    }
 		return true;
 	}
@@ -79,7 +81,10 @@ public class CardListActivity extends ListActivity {
 		setContentView(R.layout.activity_card_list);
 		tblwarranty = new TBLWarrantyConnector(this);
 		cbExpired = (CheckBox) findViewById(R.id.cardlist_CBexpired);
+		order = "title";
 		list = getListView();
+		updateView();
+
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,6 +93,7 @@ public class CardListActivity extends ListActivity {
 				  intent.putExtra("id", card.get_id());
 				  intent.putExtra("status", "edit");
 				  startActivity(intent);
+				  updateView();
  			  }
 			});
 		
@@ -98,16 +104,16 @@ public class CardListActivity extends ListActivity {
 				tblwarranty.deleteCard(card.get_id());
 				finish();
 				startActivity(getIntent());
+				updateView();
 				return true;
 				}
 		});		
 		cbExpired.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showExpired = cbExpired.isChecked();
-				setOrder("title");
+				updateView();
 			}
 		});
-		setOrder("title");		
 	}
 	
 	/**
@@ -121,18 +127,19 @@ public class CardListActivity extends ListActivity {
 		    public void onClick(DialogInterface dialog, int item) {
 		    	switch (item) {
 				case 0:
-					setOrder("title");
+					order="title";
 					break;
 				case 1:
-					setOrder("description");
+					order="description";
 					break;
 				case 2:
-					setOrder("created_at");
+					order="created_at";
 					break;
 				default:
-					setOrder("title");
+					order="title";
 					break;
 				}
+		    	updateView();
 		        dialog.dismiss();
 		    }
 		});
@@ -140,12 +147,11 @@ public class CardListActivity extends ListActivity {
 		alert.show();
 	}
 	
+
 	/**
-	 * Sets order of displayed cards an refreshes view
-	 * 
-	 * @param order		Order to set.
+	 * updates the list view each time it is called
 	 */
-	private void setOrder(String order){
+	private void updateView(){
 		ArrayList<WarrantyCard> cards = tblwarranty.getAllCardsOrdered(order, showExpired);
 		arrayAdapter = new ArrayAdapter<WarrantyCard>(this, android.R.layout.simple_list_item_1,cards);		
 		setListAdapter(arrayAdapter);
