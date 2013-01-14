@@ -62,13 +62,18 @@ public final class R {
         /**  Warranty Strings 
  Warranty Strings 
          */
-        public static final int app_name=0x7f040005;
+        public static final int app_name=0x7f04000b;
+        public static final int ask_for_deletion_post=0x7f04000a;
+        public static final int ask_for_deletion_pre=0x7f040009;
+        public static final int cancel=0x7f040005;
         public static final int clear=0x7f040002;
-        public static final int created_at=0x7f040008;
-        public static final int deleteAllCards=0x7f04000d;
-        public static final int description=0x7f040007;
+        public static final int created_at=0x7f04000e;
+        public static final int delete=0x7f040007;
+        public static final int deleteAllCards=0x7f040013;
+        public static final int deleted=0x7f040008;
+        public static final int description=0x7f04000d;
         public static final int exit=0x7f040003;
-        public static final int listAllCards=0x7f040011;
+        public static final int listAllCards=0x7f040017;
         /**  Global Strings 
  Global Strings 
          */
@@ -76,15 +81,16 @@ public final class R {
         /**  deprecated/ debug only 
  deprecated/ debug only 
          */
-        public static final int newCard=0x7f040010;
-        public static final int price=0x7f04000a;
-        public static final int reseller=0x7f04000b;
+        public static final int newCard=0x7f040016;
+        public static final int okay=0x7f040006;
+        public static final int price=0x7f040010;
+        public static final int reseller=0x7f040011;
         public static final int save=0x7f040001;
         public static final int settings=0x7f040004;
-        public static final int show_expired=0x7f04000f;
-        public static final int sort=0x7f04000e;
-        public static final int takePicture=0x7f04000c;
-        public static final int title=0x7f040006;
-        public static final int valid_until=0x7f040009;
+        public static final int show_expired=0x7f040015;
+        public static final int sort=0x7f040014;
+        public static final int takePicture=0x7f040012;
+        public static final int title=0x7f04000c;
+        public static final int valid_until=0x7f04000f;
     }
 }

@@ -7,6 +7,12 @@
     <string name="clear">Clear</string>
 	<string name="exit">Schliessen</string>
     <string name="settings">Einstellungen</string>
+	<string name="cancel">Abbrechen</string>
+	<string name="okay">OK</string>
+	<string name="delete">Löschen</string>
+	<string name="deleted">gelöscht</string>
+	<string name="ask_for_deletion_pre">"Möchten Sie "</string>
+	<string name="ask_for_deletion_post">" wirklich löschen"</string> 
 	
 	<!-- Warranty Strings -->
 	<string name="app_name">Warranty</string>

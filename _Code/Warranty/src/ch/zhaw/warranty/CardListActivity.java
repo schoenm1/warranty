@@ -51,7 +51,6 @@ public class CardListActivity extends ListActivity {
 	    case R.id.cardlist_menu_DeleteAll:
 	    	tblwarranty.deleteCard(0);
 	    	updateView();
-//	    	setOrder("title"); //only usage is to update the list view ;)
 	    }
 		return true;
 	}
@@ -99,12 +98,18 @@ public class CardListActivity extends ListActivity {
 		
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(), card.getTitle() + " deleted",Toast.LENGTH_LONG).show();
-				tblwarranty.deleteCard(card.get_id());
-				finish();
-				startActivity(getIntent());
-				updateView();
+				final WarrantyCard card = (WarrantyCard) list.getItemAtPosition(position);
+		        AlertDialog.Builder adb=new AlertDialog.Builder(CardListActivity.this);
+		        adb.setTitle(getString(R.string.delete) + "?");
+		        adb.setMessage(getString(R.string.ask_for_deletion_pre) + card.getTitle() + getString(R.string.ask_for_deletion_post) + "?");
+		        adb.setNegativeButton(getString(R.string.cancel), null);
+		        adb.setPositiveButton(getString(R.string.okay), new AlertDialog.OnClickListener() {
+		            public void onClick(DialogInterface dialog, int which) {
+		            	tblwarranty.deleteCard(card.get_id());
+		            	updateView();
+		            	Toast.makeText(getApplicationContext(), card.getTitle() + getString(R.string.deleted),Toast.LENGTH_LONG).show();
+		            }}); 
+		        adb.show();
 				return true;
 				}
 		});		
