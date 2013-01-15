@@ -33,14 +33,15 @@
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:gravity="center_horizontal"
-				android:layout_below="@id/card.TBdesc" >
+				android:layout_below="@id/card.TBdesc" 
+				android:weightSum="10">
 				
  
 		    <TextView
 		        android:id="@+id/TxTCreatedAt"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-				android:layout_weight="1"
+				android:layout_weight="4"
 		        android:text="@string/created_at"
 		        android:paddingLeft="10dp"
 		        android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -48,7 +49,7 @@
 		        android:id="@+id/card.BTcreatedat"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-				android:layout_weight="3"
+				android:layout_weight="6"
 		        android:onClick="onClick"
 		        android:text="@string/created_at" />
 		
@@ -59,21 +60,22 @@
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:layout_below="@id/date_fields_and_pickers_1" >    
+			android:layout_below="@id/date_fields_and_pickers_1" 
+			android:weightSum="10">    
 		    
 		    <TextView
 		        android:id="@+id/TxTValidTil"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="@string/valid_until"
-		        android:layout_weight="1"
+		        android:layout_weight="4"
 		        android:paddingLeft="10dp"
 		        android:textAppearance="?android:attr/textAppearanceMedium" />
 		    <Button
 		        android:id="@+id/card.BTvaliduntil"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-				android:layout_weight="3"
+				android:layout_weight="6"
 		        android:onClick="onClick"
 		        android:text="@string/valid_until" />
 		
